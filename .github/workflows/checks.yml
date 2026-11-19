@@ -4,13 +4,19 @@ permissions:
   contents: read
 jobs:
   tests:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
+    env:
+      MUJOCO_GL: osmesa
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
           cache: pip
+      - name: Install headless software renderer
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libosmesa6
       - run: python -m pip install -c requirements-tested.txt -e ".[video,test]"
       - run: python tools/fetch_assets.py
       - run: python -m pytest tests -q

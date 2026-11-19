@@ -11,3 +11,11 @@ independent physical gate recomputation, local Markdown links, and a scan of
 publishable files for credentials and private workspace paths. Robot assets are
 pinned and hash-checked; downloaded assets and generated runs are excluded from Git.
 Historical experiment results are separately attributed in [results](results.md).
+
+CI uses Ubuntu with `MUJOCO_GL=osmesa` and `libosmesa6` for the full test suite,
+including the real rendered smoke test. This is MuJoCo's supported
+[headless software-rendering route](https://mujoco.readthedocs.io/en/stable/programming/rendering.html).
+The first hosted Windows run passed 1,001 tests but failed that render test
+because its graphics driver did not support OpenGL. Local Windows rendering
+and the three complete reference tasks passed. No rendering test or physical
+acceptance condition was removed to repair CI.
