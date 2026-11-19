@@ -4,6 +4,18 @@ permissions:
   contents: read
 jobs:
   tests:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -c requirements-tested.txt -e ".[video,test]"
+      - run: python tools/fetch_assets.py
+      - name: Test Windows contracts and frozen XML bytes
+        run: python -m pytest tests -q -k "not test_real_public_runtime_rendered_smoke"
+  render:
     runs-on: ubuntu-latest
     env:
       MUJOCO_GL: osmesa
@@ -19,4 +31,5 @@ jobs:
           sudo apt-get install -y libosmesa6
       - run: python -m pip install -c requirements-tested.txt -e ".[video,test]"
       - run: python tools/fetch_assets.py
-      - run: python -m pytest tests -q
+      - name: Test real headless rendering
+        run: python -m pytest tests/test_learning_data.py::test_real_public_runtime_rendered_smoke -q
