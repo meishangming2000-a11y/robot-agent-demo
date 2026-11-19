@@ -1,0 +1,462 @@
+{
+  "schema_version": 1,
+  "id": "47e79d2bd33144f59d4edc0797bc75f9",
+  "status": "failed_episode",
+  "origin_backend": "native",
+  "applicability": {
+    "robot": "Panda + adapted Shadow right wrist/hand",
+    "tool": "wrench",
+    "task": "wrench_turn",
+    "goal": "Lift the free wrench at least 20 mm with no fixture or nut support for 2 continuous seconds. Use its head to turn the passive braked nut at least positive 45 degrees from its initial angle for 0.5 continuous seconds. Withdraw the head at least 30 mm clear of the nut while retaining the unsupported tool and the nut angle for 1 second. Keep at least two distinct hand parts contacting the tool. Never touch the nut directly with the robot.",
+    "protocol_version": 1,
+    "observation_mode": "simulator_state",
+    "source_seed": 5,
+    "other_layouts_verified": false,
+    "new_tools_verified": false
+  },
+  "source": {
+    "episode_id": "47e79d2bd33144f59d4edc0797bc75f9",
+    "files_sha256": {
+      "metadata.json": "bcb1020894ebb7c4213a63c322cadb0d4cf4a1fd6bd21faf40cf7adb87f9bc31",
+      "summary.json": "aefba398eab783ef150a23f0c2950d5162f16088897c4995264fb649003f3b9c",
+      "actions.json": "9be921a5cb34b5fe7dd92e666bddca0346a51e70122113f41badc1217f3e0b05",
+      "steps/000/request.json": "2e88959e0d6590d54e3c9a6046474fd2d563099d2697c0285e8985ae4c50c902"
+    }
+  },
+  "initial_observation": {
+    "tool": {
+      "name": "wrench",
+      "position_m": [
+        0.5510992582639557,
+        -0.14384089295230307,
+        0.2419772518071842
+      ],
+      "quat_wxyz": [
+        0.9848077521136187,
+        -7.418058745810295e-06,
+        -4.206990170186926e-05,
+        -0.17364817750848452
+      ],
+      "head_center_m": [
+        0.6572845240252075,
+        -0.18248916900704482,
+        0.24198690627806635
+      ],
+      "initial_height_m": 0.2419772518071842
+    },
+    "nut": {
+      "position_m": [
+        0.505,
+        0.175,
+        0.245
+      ],
+      "angle_rad": 0.0,
+      "initial_angle_rad": 0.0,
+      "top_m": 0.265,
+      "half_height_m": 0.02
+    },
+    "palm": {
+      "position_m": [
+        0.4589531885784855,
+        1.9351987029467834e-05,
+        0.5502316267961462
+      ],
+      "quat_wxyz": [
+        0.04299860783290308,
+        -7.203042594457322e-05,
+        0.9990751062431368,
+        0.00021591969414144318
+      ]
+    }
+  },
+  "outcome": {
+    "success": false,
+    "gates": {
+      "lift": {
+        "passed": true,
+        "passed_at_s": 7.9039999999993515,
+        "required_continuous_s": 2.0,
+        "best_continuous_s": 5.568000000000929
+      },
+      "turn": {
+        "passed": false,
+        "passed_at_s": null,
+        "required_continuous_s": 0.5,
+        "best_continuous_s": 0.0
+      },
+      "withdraw": {
+        "passed": false,
+        "passed_at_s": null,
+        "required_continuous_s": 1.0,
+        "best_continuous_s": 0.0
+      }
+    },
+    "violations": [],
+    "error": null,
+    "metrics": {
+      "samples": 5800,
+      "last_time_s": 12.600000000000877,
+      "initial_height_m": 0.2419772518071842,
+      "initial_nut_angle_rad": 0.0,
+      "max_lift_m": 0.09879302008744695,
+      "max_nut_turn_rad": 0.0,
+      "max_head_clearance_m": 0.35914759348587977,
+      "max_contact_force_n": 10.206398011733603,
+      "max_penetration_m": 0.0010221623265338556,
+      "first_robot_nut_contact_s": null
+    },
+    "decisions": 8
+  },
+  "trajectory": [
+    {
+      "sequence": 0,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.5596497618470974,
+          -0.12034857743265535,
+          0.4139772518071842
+        ],
+        "palm_quat_wxyz": [
+          0.0,
+          0.17364817766693005,
+          0.9848077530122081,
+          0.0
+        ],
+        "duration_s": 1.8,
+        "memory": "Observed wrench-frame approach"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 2.7999999999999132
+      }
+    },
+    {
+      "sequence": 1,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.5596497609472149,
+          -0.12034857710512485,
+          0.32397725180694426
+        ],
+        "palm_quat_wxyz": [
+          0.0,
+          0.17364817766693005,
+          0.9848077530122081,
+          0.0
+        ],
+        "duration_s": 1.2,
+        "memory": "Measured yaw descent to handle"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 3.999999999999781
+      }
+    },
+    {
+      "sequence": 2,
+      "action": {
+        "operation": "move",
+        "targets": [
+          {
+            "actuator": "rh_A_FFJ3",
+            "value": 0.8
+          },
+          {
+            "actuator": "rh_A_FFJ0",
+            "value": 1.5
+          },
+          {
+            "actuator": "rh_A_MFJ3",
+            "value": 0.8
+          },
+          {
+            "actuator": "rh_A_MFJ0",
+            "value": 1.5
+          },
+          {
+            "actuator": "rh_A_RFJ3",
+            "value": 0.8
+          },
+          {
+            "actuator": "rh_A_RFJ0",
+            "value": 1.5
+          },
+          {
+            "actuator": "rh_A_LFJ3",
+            "value": 0.8
+          },
+          {
+            "actuator": "rh_A_LFJ0",
+            "value": 1.5
+          },
+          {
+            "actuator": "rh_A_THJ5",
+            "value": 0.9763313232421871
+          },
+          {
+            "actuator": "rh_A_THJ4",
+            "value": 0.9453804236340059
+          },
+          {
+            "actuator": "rh_A_THJ3",
+            "value": 0.0
+          },
+          {
+            "actuator": "rh_A_THJ2",
+            "value": -3.4637906367758015e-05
+          },
+          {
+            "actuator": "rh_A_THJ1",
+            "value": 0.45
+          }
+        ],
+        "palm_target_m": null,
+        "palm_quat_wxyz": null,
+        "duration_s": 1.5,
+        "memory": "Complete supplied calibrated_grasp_v2 thirteen targets"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 5.499999999999616
+      }
+    },
+    {
+      "sequence": 3,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.5596497609472149,
+          -0.12034857710512485,
+          0.4139772518069442
+        ],
+        "palm_quat_wxyz": [
+          0.0,
+          0.17364817766693005,
+          0.9848077530122081,
+          0.0
+        ],
+        "duration_s": 1.5,
+        "memory": "Retained unsupported lift with unchanged thirteen-target grip"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 6.999999999999451
+      }
+    },
+    {
+      "sequence": 4,
+      "action": {
+        "operation": "hold",
+        "targets": [],
+        "palm_target_m": null,
+        "palm_quat_wxyz": null,
+        "duration_s": 2.2,
+        "memory": "Verify continuous unsupported lift"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 9.199999999999742
+      }
+    },
+    {
+      "sequence": 5,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.39638920010952616,
+          0.2553292949281401,
+          0.3090938516562802
+        ],
+        "palm_quat_wxyz": [
+          -0.07426354702722665,
+          0.02101586096978038,
+          0.9506084084731847,
+          -0.3006441632739799
+        ],
+        "duration_s": 2.8,
+        "memory": "Fixed observed nut-axis head target and level socket"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 12.000000000000677
+      }
+    },
+    {
+      "sequence": 6,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.39736729557186895,
+          0.26163425516433597,
+          0.30360347504061475
+        ],
+        "palm_quat_wxyz": [
+          -0.08295103945695123,
+          0.021094385690442204,
+          0.9361959272908774,
+          -0.3408978405172561
+        ],
+        "duration_s": 0.6,
+        "memory": "Contact-bounded correction toward unchanged fixed head goal"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 12.600000000000877
+      }
+    },
+    {
+      "sequence": 7,
+      "action": {
+        "operation": "finish",
+        "targets": [],
+        "palm_target_m": null,
+        "palm_quat_wxyz": null,
+        "duration_s": 0.02,
+        "memory": "Unrecoverable within remaining online choices: lift passed, tool slip, negative nut turn, alignment not recovered"
+      },
+      "result": {
+        "status": "finished",
+        "time_s": 12.600000000000877
+      }
+    }
+  ],
+  "notes": "Online actor episode recorded under its declared inputs. One episode only; this export does not train model weights or establish transfer. Use the initial poses as coordinate references, check fresh observations, and do not blindly replay targets.",
+  "skill_memory": {
+    "schema_version": 1,
+    "source_episode_id": "47e79d2bd33144f59d4edc0797bc75f9",
+    "kind": "failed_native_episode_plus_partial_engineering_transport_repair",
+    "full_task_validated": false,
+    "native_repair_validated": false,
+    "native_agent": false,
+    "held_out": false,
+    "neural_training": false,
+    "acquisition": "Failed native episode plus two completed engineering diagnostics; no new neural network or weights.",
+    "lessons": [
+      {
+        "id": "high_clearance_transport",
+        "condition": {
+          "after_lift": true,
+          "retained_unsupported": true,
+          "minimum_hand_parts": 2,
+          "no_nut_or_fixture_contact": true,
+          "geometry": "Same public wrench and Panda/Shadow robot; changed layouts unvalidated"
+        },
+        "working_end_target": {
+          "frame": "nut_axis",
+          "axial_offset_m": 0.1
+        },
+        "near_nut_alignment_target": {
+          "frame": "nut_axis",
+          "axial_offset_m": 0.04
+        },
+        "action_outline": "From fresh measured nut center/axis, recompute a high head waypoint at nut_center + 0.10m * nut_axis; transport and level the socket, then use fresh feedback_tool_pose_action observations and the most recently completed full palm command to correct the same waypoint. The engineering candidate needed two corrections. Recompute targets and inspect actual motion/contact; never blindly replay source coordinates. A safe endpoint does not constrain the whole IK/joint-interpolated path. The original +0.04m fixed_head_target is only a later near-nut alignment point after high transport, not the long-transport target or a safe path guarantee. Stop for nut/fixture contact, grip loss or quality breach; insertion/turn/full task require separate verification.",
+        "observed": {
+          "correction_calls": 2,
+          "head_error_before_correction_m": 0.02137136570278974,
+          "head_error_after_first_correction_m": 0.00569923707334752,
+          "head_error_after_correction_m": 0.00151797101932318,
+          "hold_samples": 500,
+          "hold_max_head_error_m": 0.0015283259341483256,
+          "hold_max_axis_tilt_deg": 0.6331187856914446
+        },
+        "validation": {
+          "kind": "engineering_high_transport_and_fixed_target_alignment_only",
+          "full_task_validated": false,
+          "native_repair_validated": false,
+          "native_agent": false,
+          "held_out": false,
+          "neural_training": false,
+          "engineering_runs": 2
+        },
+        "evidence": [
+          {
+            "path": "evidence/wrench-transport-v3/artifact-manifest.json",
+            "sha256": "d91f1943260d1838496d4e23ae08218b092e4c0e1eed77eab9ec8d3f4ff26467"
+          },
+          {
+            "path": "runs/wrench-placement-v3-development/development-protocol.json",
+            "bytes": 3359,
+            "sha256": "b88e7fbf590379964f5b17f5740e594f10bf7ba15fda9047640d81e16a756447"
+          },
+          {
+            "path": "runs/wrench-placement-v3-development/run002-protocol.json",
+            "bytes": 3530,
+            "sha256": "73c6b94d6fc4e39061bbd744fda71a4f055224a2f1f7daaf7756c1f9ae57ead0"
+          },
+          {
+            "path": "evidence/wrench-transport-v3/results.json",
+            "bytes": 68581,
+            "sha256": "ee128906e4738f1b50b07f2ba95594e6e2c62eb5be79a74098ce17d089f7a549"
+          },
+          {
+            "path": "runs/wrench-placement-v3-development/run-001-exact/metadata.json",
+            "bytes": 35761,
+            "sha256": "a015994ca38e2fd2d946f3c63ecaeccaf9b914ec01186d325c515cf06c1a4762"
+          },
+          {
+            "path": "runs/wrench-placement-v3-development/run-001-exact/source-protocol-snapshot.zip",
+            "bytes": 186907,
+            "sha256": "aa5be7fe9c05a5223c1ae9d1713fdf777811091462528dd5e74cbe9d4a0e7de5"
+          },
+          {
+            "path": "runs/wrench-placement-v3-development/run-001-exact/samples.jsonl.gz",
+            "bytes": 14544934,
+            "sha256": "14f7977b0b4ee171d2fd2986ff9935426b3378bc6f2af3ae14f3186a2c5ebadd"
+          },
+          {
+            "path": "runs/wrench-placement-v3-development/run-001-exact/actions.jsonl",
+            "bytes": 715293,
+            "sha256": "139dba075c524d3ab36650601ed379691b498f8bd752a8b4e8731c1a541c1791"
+          },
+          {
+            "path": "runs/wrench-placement-v3-development/run-001-exact/summary.json",
+            "bytes": 1594,
+            "sha256": "819d7b00d7cf88b773268d2e158b6d7bd79476087e4b32046c1fef241e8832b9"
+          },
+          {
+            "path": "runs/wrench-placement-v3-development/run-002-raised/metadata.json",
+            "bytes": 38236,
+            "sha256": "7c31e9c290758a6c32db0850a38f44497caa00016fcc095c5d89ee3db6235cc4"
+          },
+          {
+            "path": "runs/wrench-placement-v3-development/run-002-raised/source-protocol-snapshot.zip",
+            "bytes": 194380,
+            "sha256": "2bc145dedd13df68bf282399ed2ec39353b93bd974010ae0e8f9f01a80162f92"
+          },
+          {
+            "path": "runs/wrench-placement-v3-development/run-002-raised/samples.jsonl.gz",
+            "bytes": 16409209,
+            "sha256": "c23fe55a831338edd6cfa6a605aeecefe4be28b1b4f17bb679d985e0231077f1"
+          },
+          {
+            "path": "runs/wrench-placement-v3-development/run-002-raised/actions.jsonl",
+            "bytes": 869846,
+            "sha256": "4042afc7e7ca312b0d41122a4d5ac0b4fe1b0f747d8719d3c186803b460243ec"
+          },
+          {
+            "path": "runs/wrench-placement-v3-development/run-002-raised/summary.json",
+            "bytes": 1772,
+            "sha256": "69e4f702e34c4f273d8560aca77bcb39bda117e8698d51a1d6b65d9c8641131c"
+          },
+          {
+            "path": "runs/wrench-placement-v3-development/run-001-exact/exact-match.json",
+            "bytes": 2978,
+            "sha256": "23669c9e4ac6d0a504ee4a8cb961dfbb3da17ac88b429b59ef396fa309be4a17"
+          },
+          {
+            "path": "runs/wrench-placement-v3-development/run-002-raised/candidate-audit.json",
+            "bytes": 2150,
+            "sha256": "a0a8faf563610f6ae2a26a704a893cf99b070e021067e918dbf2f4b7821610c2"
+          }
+        ]
+      }
+    ]
+  }
+}

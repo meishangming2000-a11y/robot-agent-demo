@@ -1,0 +1,456 @@
+{
+  "schema_version": 1,
+  "id": "3bdac15172c248c1b73e5691fcc12f34",
+  "status": "demonstrated_episode",
+  "origin_backend": "reference",
+  "applicability": {
+    "robot": "Panda + adapted Shadow right wrist/hand",
+    "tool": "hammer",
+    "task": "held_hammer_press_spring_button",
+    "goal": "Lift the free hammer at least 20 mm unsupported for 2 continuous seconds, use its head to depress the button at least 8 mm for 0.5 continuous seconds, then withdraw the head at least 30 mm above the resting cap while retaining the tool for 1 second and letting the cap return. Keep at least two hand parts in tool contact. Never touch the cap directly with the robot.",
+    "protocol_version": 2,
+    "observation_mode": "simulator_state",
+    "source_seed": 0,
+    "other_layouts_verified": false,
+    "new_tools_verified": false
+  },
+  "source": {
+    "episode_id": "3bdac15172c248c1b73e5691fcc12f34",
+    "files_sha256": {
+      "metadata.json": "bc88d3e115734ca6013dd7a4dd7021b44ed62b4794cb3fd1fd1777f7edcbc5ca",
+      "summary.json": "1a66e31621dafc51100a2c87e62a8d77ac414244e62207010f30c073a959e4fa",
+      "actions.json": "1fda923ccbbaac0622aa08f9cd825daa75733e1ff443c06ab5a2cae165970f95",
+      "steps/000/request.json": "bf5525e248561a29341bfa5192dbd6b241796f33106a35f4871dbbc0c2dbaac8"
+    }
+  },
+  "initial_observation": {
+    "tool": {
+      "name": "hammer",
+      "position_m": [
+        0.5300062130359421,
+        -0.12999999999999784,
+        0.23996488169000543
+      ],
+      "quat_wxyz": [
+        0.999999983229531,
+        -8.77410183237325e-19,
+        0.0001831418490188937,
+        -1.0416131912636432e-14
+      ],
+      "head_center_m": [
+        0.6350062059923453,
+        -0.13000000000000003,
+        0.23992642190235644
+      ],
+      "initial_height_m": 0.23996488169000543
+    },
+    "button": {
+      "position_m": [
+        0.53,
+        0.16,
+        0.23
+      ],
+      "rest_top_m": 0.24
+    },
+    "palm": {
+      "position_m": [
+        0.4589531885784855,
+        1.9351987029467817e-05,
+        0.5502316267961462
+      ],
+      "quat_wxyz": [
+        0.04299860783290308,
+        -7.20304259445732e-05,
+        0.9990751062431368,
+        0.00021591969414144302
+      ]
+    }
+  },
+  "outcome": {
+    "success": true,
+    "gates": {
+      "lift": {
+        "passed": true,
+        "passed_at_s": 7.889999999999353,
+        "required_continuous_s": 2.0,
+        "best_continuous_s": 6.652000000001284
+      },
+      "press": {
+        "passed": true,
+        "passed_at_s": 17.798000000001014,
+        "required_continuous_s": 0.5,
+        "best_continuous_s": 1.2759999999992928
+      },
+      "withdraw": {
+        "passed": true,
+        "passed_at_s": 20.18799999999969,
+        "required_continuous_s": 1.0,
+        "best_continuous_s": 1.6119999999991066
+      }
+    },
+    "violations": [],
+    "error": null,
+    "metrics": {
+      "samples": 9900,
+      "last_time_s": 20.79999999999935,
+      "initial_height_m": 0.23996488169000543,
+      "max_lift_m": 0.15440589147783332,
+      "max_button_depth_m": 0.008746751962684252,
+      "max_head_clearance_m": 0.08159436440072154,
+      "first_robot_button_contact_s": null
+    },
+    "decisions": 17
+  },
+  "trajectory": [
+    {
+      "sequence": 0,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.5300062130359421,
+          -0.10499999999999785,
+          0.41196488169000545
+        ],
+        "palm_quat_wxyz": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "duration_s": 1.8,
+        "memory": "Engineering reference (calibrated hammer setup): approach"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 2.7999999999999132
+      }
+    },
+    {
+      "sequence": 1,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.5300062130359421,
+          -0.10499999999999785,
+          0.3219648816900054
+        ],
+        "palm_quat_wxyz": null,
+        "duration_s": 1.2,
+        "memory": "Engineering reference (calibrated hammer setup): descend"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 3.999999999999781
+      }
+    },
+    {
+      "sequence": 2,
+      "action": {
+        "operation": "move",
+        "targets": [
+          {
+            "actuator": "rh_A_FFJ3",
+            "value": 0.8
+          },
+          {
+            "actuator": "rh_A_FFJ0",
+            "value": 1.5
+          },
+          {
+            "actuator": "rh_A_MFJ3",
+            "value": 0.8
+          },
+          {
+            "actuator": "rh_A_MFJ0",
+            "value": 1.5
+          },
+          {
+            "actuator": "rh_A_RFJ3",
+            "value": 0.8
+          },
+          {
+            "actuator": "rh_A_RFJ0",
+            "value": 1.5
+          },
+          {
+            "actuator": "rh_A_LFJ3",
+            "value": 0.8
+          },
+          {
+            "actuator": "rh_A_LFJ0",
+            "value": 1.5
+          },
+          {
+            "actuator": "rh_A_THJ5",
+            "value": 0.9763313232421871
+          },
+          {
+            "actuator": "rh_A_THJ4",
+            "value": 0.9253804236340059
+          },
+          {
+            "actuator": "rh_A_THJ3",
+            "value": 0.0
+          },
+          {
+            "actuator": "rh_A_THJ2",
+            "value": -3.4637906367758015e-05
+          },
+          {
+            "actuator": "rh_A_THJ1",
+            "value": 0.45
+          }
+        ],
+        "palm_target_m": null,
+        "palm_quat_wxyz": null,
+        "duration_s": 1.5,
+        "memory": "Engineering reference (calibrated hammer setup): close"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 5.499999999999616
+      }
+    },
+    {
+      "sequence": 3,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.5300062130359421,
+          -0.10499999999999785,
+          0.41196488169000545
+        ],
+        "palm_quat_wxyz": null,
+        "duration_s": 1.5,
+        "memory": "Engineering reference (calibrated hammer setup): lift"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 6.999999999999451
+      }
+    },
+    {
+      "sequence": 4,
+      "action": {
+        "operation": "hold",
+        "targets": [],
+        "palm_target_m": null,
+        "palm_quat_wxyz": null,
+        "duration_s": 2.2,
+        "memory": "Engineering reference (calibrated hammer setup): hold"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 9.199999999999742
+      }
+    },
+    {
+      "sequence": 5,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4213094145691686,
+          0.21060803867368136,
+          0.40515269135061915
+        ],
+        "palm_quat_wxyz": null,
+        "duration_s": 2.6,
+        "memory": "Engineering reference (calibrated hammer setup): align"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 11.80000000000061
+      }
+    },
+    {
+      "sequence": 6,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4207357646832531,
+          0.20903014272904283,
+          0.36264406898426904
+        ],
+        "palm_quat_wxyz": null,
+        "duration_s": 1.2,
+        "memory": "Engineering reference (calibrated hammer setup): press"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 13.00000000000101
+      }
+    },
+    {
+      "sequence": 7,
+      "action": {
+        "operation": "hold",
+        "targets": [],
+        "palm_target_m": null,
+        "palm_quat_wxyz": null,
+        "duration_s": 1.2,
+        "memory": "Engineering reference (calibrated hammer setup): pressed_hold"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 14.200000000001411
+      }
+    },
+    {
+      "sequence": 8,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41870093670169556,
+          0.20902058320326666,
+          0.3535604887717714
+        ],
+        "palm_quat_wxyz": null,
+        "duration_s": 0.7,
+        "memory": "Engineering reference (calibrated hammer setup): pressure_adjust_0"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 14.900000000001645
+      }
+    },
+    {
+      "sequence": 9,
+      "action": {
+        "operation": "hold",
+        "targets": [],
+        "palm_target_m": null,
+        "palm_quat_wxyz": null,
+        "duration_s": 0.7,
+        "memory": "Engineering reference (calibrated hammer setup): pressure_hold_0"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 15.600000000001879
+      }
+    },
+    {
+      "sequence": 10,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41711783909158573,
+          0.20865038006487088,
+          0.344555498526327
+        ],
+        "palm_quat_wxyz": null,
+        "duration_s": 0.7,
+        "memory": "Engineering reference (calibrated hammer setup): pressure_adjust_1"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 16.300000000001845
+      }
+    },
+    {
+      "sequence": 11,
+      "action": {
+        "operation": "hold",
+        "targets": [],
+        "palm_target_m": null,
+        "palm_quat_wxyz": null,
+        "duration_s": 0.7,
+        "memory": "Engineering reference (calibrated hammer setup): pressure_hold_1"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 17.000000000001457
+      }
+    },
+    {
+      "sequence": 12,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41560965637175423,
+          0.20824205568483312,
+          0.33528208115760394
+        ],
+        "palm_quat_wxyz": null,
+        "duration_s": 0.7,
+        "memory": "Engineering reference (calibrated hammer setup): pressure_adjust_2"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 17.70000000000107
+      }
+    },
+    {
+      "sequence": 13,
+      "action": {
+        "operation": "hold",
+        "targets": [],
+        "palm_target_m": null,
+        "palm_quat_wxyz": null,
+        "duration_s": 0.7,
+        "memory": "Engineering reference (calibrated hammer setup): pressure_hold_2"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 18.40000000000068
+      }
+    },
+    {
+      "sequence": 14,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41405679397516515,
+          0.20773449841536748,
+          0.47017322856607285
+        ],
+        "palm_quat_wxyz": null,
+        "duration_s": 1.2,
+        "memory": "Engineering reference (calibrated hammer setup): withdraw"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 19.600000000000016
+      }
+    },
+    {
+      "sequence": 15,
+      "action": {
+        "operation": "hold",
+        "targets": [],
+        "palm_target_m": null,
+        "palm_quat_wxyz": null,
+        "duration_s": 1.2,
+        "memory": "Engineering reference (calibrated hammer setup): withdraw_hold"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 20.79999999999935
+      }
+    },
+    {
+      "sequence": 16,
+      "action": {
+        "operation": "finish",
+        "targets": [],
+        "palm_target_m": null,
+        "palm_quat_wxyz": null,
+        "duration_s": 0.02,
+        "memory": "Engineering reference (calibrated hammer setup): finish"
+      },
+      "result": {
+        "status": "finished",
+        "time_s": 20.79999999999935
+      }
+    }
+  ],
+  "notes": "Reference trajectory calibrated by the developer. One episode only; this export does not train model weights or establish transfer. Use the initial poses as coordinate references, check fresh observations, and do not blindly replay targets."
+}

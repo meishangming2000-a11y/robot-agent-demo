@@ -1,0 +1,57 @@
+{
+  "format": "verified-model-experience-v1",
+  "id": "model-curation-coverage-v2",
+  "status": "not_promoted",
+  "record_kind": "negative experiment lesson; not a motor policy",
+  "hypothesis": "Label-free state/action coverage selection improves a small response model over equal-count uniform sampling.",
+  "applicability": {
+    "tasks": [
+      "hammer_button",
+      "wrench_turn",
+      "tweezers_transfer"
+    ],
+    "input": "same293D privileged state and retrospective executed-control summary",
+    "model": "same23,171parameter293-64-64-3ReLU",
+    "raw_data": "exactV1training/validationbytes,explicitacquisitionstudyidentity",
+    "budget": "72commonD0 or216totalrows,3seeds,1000steps,batch64"
+  },
+  "measured_outcome": {
+    "final_episodes": 6,
+    "intervals": 1745,
+    "mean_episode_balanced_error_mm": {
+      "d0": 1.3956857987621651,
+      "uniform": 0.7116117789015766,
+      "curated": 0.7720872605505376
+    },
+    "uniform_minus_curated_mm": -0.06047548164896088,
+    "curated_worse_aggregate_seeds": 3,
+    "constant_velocity_mm": 0.37042989617836625
+  },
+  "reusable_lessons": [
+    {
+      "condition": "Applying this exact task-scaled coverage rule to these profiles",
+      "guidance": "It lost to uniform at all3trainingseeds on its fresh finalconditions; do not promote as improvement."
+    },
+    {
+      "condition": "Reusing experience for another model or sampling hypothesis",
+      "guidance": "Keep original acquisitionstudy/partition/seed, declare currentdata role separately, preserve identicalcomparators wherepossible."
+    },
+    {
+      "condition": "A simple kinematic baseline outperforms raw learned displacement models",
+      "guidance": "Consider learning a correction to that baseline and allow a verified fallback; validate any change as a newexperiment."
+    }
+  ],
+  "provenance": {
+    "results": "runs/experience-learning-v1/curation-v2/test-v2/results.json",
+    "results_sha256": "11f6ab3e49ce7af02e7a261385d3737ded228799d4d062c843e794a629eb94de",
+    "freeze": "experiments/experience-curation-v2-final-freeze.json",
+    "data_validation": "evidence/experience-learning-v1/curation-v2-final-validation/summary.json",
+    "portable_package": "pretrained/tool-dynamics-curation-v2",
+    "reuse_check": "evidence/experience-learning-v1/curation-v2-reuse-check.json",
+    "interpretation_author": "Codex coordinator,derivedfromsavedresults; not automatic motor-skill discovery"
+  },
+  "next_candidate": {
+    "design": "experiments/experience-residual-v3-design.json",
+    "status": "lastplannedcandidate,notvalidated"
+  }
+}

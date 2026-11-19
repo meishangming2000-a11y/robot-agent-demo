@@ -1,0 +1,2326 @@
+{
+  "schema_version": 1,
+  "id": "02739d437afb43c2a30cb1347fb6f345",
+  "status": "demonstrated_episode",
+  "origin_backend": "native",
+  "applicability": {
+    "robot": "Panda + adapted Shadow right wrist/hand",
+    "tool": "wrench",
+    "task": "wrench_turn",
+    "goal": "Lift the free wrench at least 20 mm with no fixture or nut support for 2 continuous seconds. Use its head to turn the passive braked nut at least positive 45 degrees from its initial angle for 0.5 continuous seconds. Withdraw the head at least 30 mm clear of the nut while retaining the unsupported tool and the nut angle for 1 second. Keep at least two distinct hand parts contacting the tool. Never touch the nut directly with the robot.",
+    "protocol_version": 1,
+    "observation_mode": "simulator_state",
+    "source_seed": 5,
+    "other_layouts_verified": false,
+    "new_tools_verified": false
+  },
+  "source": {
+    "episode_id": "02739d437afb43c2a30cb1347fb6f345",
+    "files_sha256": {
+      "metadata.json": "d8a8f81c264ce98c7536705e5691c2f03d1775cc60830ba5a490c53adfffcb3c",
+      "summary.json": "cc179b44c4feeabef520c02d86efbf4382d97b921331776ca0c9d3b202aa5409",
+      "actions.json": "07232a3885257fab2bc6c71b7de5bd71a53bbc49a995e4a8ffda53a5ff9d5632",
+      "steps/000/request.json": "78d80146216c5506c0d61f6a49ec4ddc84a6afa70ee162a6bb5924ede3095707"
+    }
+  },
+  "initial_observation": {
+    "tool": {
+      "name": "wrench",
+      "position_m": [
+        0.5360992069081976,
+        -0.12384118420527013,
+        0.24197725180718418
+      ],
+      "quat_wxyz": [
+        0.9999999990875482,
+        2.1384154571241266e-17,
+        -4.271889774754215e-05,
+        -2.0699392345665313e-19
+      ],
+      "head_center_m": [
+        0.6490992064957692,
+        -0.12384118420527013,
+        0.24198690627806632
+      ],
+      "initial_height_m": 0.24197725180718418
+    },
+    "nut": {
+      "position_m": [
+        0.53,
+        0.16,
+        0.245
+      ],
+      "angle_rad": 0.0,
+      "initial_angle_rad": 0.0,
+      "top_m": 0.265,
+      "half_height_m": 0.02
+    },
+    "palm": {
+      "position_m": [
+        0.4589531885784855,
+        1.9351987029467834e-05,
+        0.5502316267961462
+      ],
+      "quat_wxyz": [
+        0.04299860783290308,
+        -7.203042594457322e-05,
+        0.9990751062431368,
+        0.00021591969414144318
+      ]
+    }
+  },
+  "outcome": {
+    "success": true,
+    "gates": {
+      "lift": {
+        "passed": true,
+        "passed_at_s": 7.893999999999353,
+        "required_continuous_s": 2.0,
+        "best_continuous_s": 5.846000000001017
+      },
+      "turn": {
+        "passed": true,
+        "passed_at_s": 24.729999999997172,
+        "required_continuous_s": 0.5,
+        "best_continuous_s": 7.963999999995931
+      },
+      "withdraw": {
+        "passed": true,
+        "passed_at_s": 35.02599999999684,
+        "required_continuous_s": 1.0,
+        "best_continuous_s": 1.5740000000019236
+      }
+    },
+    "violations": [],
+    "error": null,
+    "metrics": {
+      "samples": 17300,
+      "last_time_s": 35.59999999999754,
+      "initial_height_m": 0.24197725180718418,
+      "initial_nut_angle_rad": 0.0,
+      "max_lift_m": 0.09952781120139723,
+      "max_nut_turn_rad": 1.2084181210173426,
+      "max_head_clearance_m": 0.28360684035142203,
+      "max_contact_force_n": 6.064154807027997,
+      "max_penetration_m": 0.000525294752336149,
+      "first_robot_nut_contact_s": null
+    },
+    "decisions": 59
+  },
+  "trajectory": [
+    {
+      "sequence": 0,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.5360992069,
+          -0.0988411842,
+          0.4139772518
+        ],
+        "palm_quat_wxyz": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "duration_s": 1.8,
+        "memory": "Approach the observed handle from above using the supplied nominal grasp offset recomputed for current seed layout"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 2.7999999999999132
+      }
+    },
+    {
+      "sequence": 1,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.5360992069,
+          -0.0988411842,
+          0.3239772518
+        ],
+        "palm_quat_wxyz": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "duration_s": 1.2,
+        "memory": "Descend open fingers around the observed handle; rack remains supporting tool and pressure is low"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 3.999999999999781
+      }
+    },
+    {
+      "sequence": 2,
+      "action": {
+        "operation": "move",
+        "targets": [
+          {
+            "actuator": "rh_A_FFJ3",
+            "value": 0.8
+          },
+          {
+            "actuator": "rh_A_FFJ0",
+            "value": 1.5
+          },
+          {
+            "actuator": "rh_A_MFJ3",
+            "value": 0.8
+          },
+          {
+            "actuator": "rh_A_MFJ0",
+            "value": 1.5
+          },
+          {
+            "actuator": "rh_A_RFJ3",
+            "value": 0.8
+          },
+          {
+            "actuator": "rh_A_RFJ0",
+            "value": 1.5
+          },
+          {
+            "actuator": "rh_A_LFJ3",
+            "value": 0.8
+          },
+          {
+            "actuator": "rh_A_LFJ0",
+            "value": 1.5
+          },
+          {
+            "actuator": "rh_A_THJ5",
+            "value": 0.9763313232421871
+          },
+          {
+            "actuator": "rh_A_THJ4",
+            "value": 0.9253804236340059
+          },
+          {
+            "actuator": "rh_A_THJ3",
+            "value": 0
+          },
+          {
+            "actuator": "rh_A_THJ2",
+            "value": -3.4637906367758015e-05
+          },
+          {
+            "actuator": "rh_A_THJ1",
+            "value": 0.45
+          }
+        ],
+        "palm_target_m": null,
+        "palm_quat_wxyz": null,
+        "duration_s": 1.5,
+        "memory": "Close conforming fingers and thumb with supplied nominal engineering grasp while handle is supported"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 5.499999999999616
+      }
+    },
+    {
+      "sequence": 3,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.5360992069,
+          -0.0988411842,
+          0.4139772518
+        ],
+        "palm_quat_wxyz": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "duration_s": 1.5,
+        "memory": "Lift retained wrench 90 mm clear of rack; five hand parts contact, peak current force 5.05 N and penetration 0.50 mm"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 6.999999999999451
+      }
+    },
+    {
+      "sequence": 4,
+      "action": {
+        "operation": "hold",
+        "targets": [],
+        "palm_target_m": null,
+        "palm_quat_wxyz": null,
+        "duration_s": 2.2,
+        "memory": "Verify sustained unsupported lift and handle retention before crossing to nut"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 9.199999999999742
+      }
+    },
+    {
+      "sequence": 5,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.42831190604382174,
+          0.22166248949252196,
+          0.34079115928226467
+        ],
+        "palm_quat_wxyz": [
+          -0.11576492316539007,
+          0.006433105556803996,
+          0.99000059998657,
+          -0.08034867605404075
+        ],
+        "duration_s": 2.6,
+        "memory": "Lift gate passed with unsupported five-part retention; carry and level socket at fixed safe target [0.53,0.16,0.285], 20 mm above nut top"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 11.80000000000061
+      }
+    },
+    {
+      "sequence": 6,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.42592886306422345,
+          0.22532933164955615,
+          0.3455966090734735
+        ],
+        "palm_quat_wxyz": [
+          -0.11133840404958863,
+          0.0053339838390963875,
+          0.9873329117903794,
+          -0.11291160124462708
+        ],
+        "duration_s": 1.0,
+        "memory": "Completed 2.6 s safe alignment undershot fixed head target by 9.82 mm; invert fresh measured palm response bias and relevel to same target without hiding mismatch"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 12.800000000000944
+      }
+    },
+    {
+      "sequence": 7,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4254963277575406,
+          0.2283306622960002,
+          0.3427812594098593
+        ],
+        "palm_quat_wxyz": [
+          -0.098674829602473,
+          0.010870390421818303,
+          0.9832397722956274,
+          -0.15292044595489118
+        ],
+        "duration_s": 1.0,
+        "memory": "First feedback correction reduced fixed target error to 5.61 mm but insufficient; recompute fresh response for same target, tool currently clear and retained"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 13.800000000001278
+      }
+    },
+    {
+      "sequence": 8,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4267561264741688,
+          0.22585619419096054,
+          0.3441460876543388
+        ],
+        "palm_quat_wxyz": [
+          -0.09776806647627029,
+          0.015720924387132573,
+          0.9844855167244718,
+          -0.14485346068926186
+        ],
+        "duration_s": 1.0,
+        "memory": "Second fresh correction reduced error to 2.90 mm, already below half initial but above 2 mm; retain same safe head target and remove measured lateral bias"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 14.800000000001612
+      }
+    },
+    {
+      "sequence": 9,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.42665919929647705,
+          0.22697834381980322,
+          0.3394471282082593
+        ],
+        "palm_quat_wxyz": [
+          -0.0940387253500875,
+          0.02008473867580485,
+          0.9837362637805314,
+          -0.15171118854578983
+        ],
+        "duration_s": 0.5,
+        "memory": "Fixed safe target corrected to 1.097 mm error within three decisions; begin 2.90 mm bounded descent with fresh measured response and aligned axis"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 15.300000000001779
+      }
+    },
+    {
+      "sequence": 10,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4265734817220822,
+          0.2276972856184526,
+          0.3351603817035879
+        ],
+        "palm_quat_wxyz": [
+          -0.09136354151373058,
+          0.022680581691738817,
+          0.9830621858907155,
+          -0.15724831690025015
+        ],
+        "duration_s": 0.5,
+        "memory": "Descend 2.93 mm from fresh socket pose; lateral error 0.30 mm, tilt 0.75 deg and no nut contact"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 15.800000000001946
+      }
+    },
+    {
+      "sequence": 11,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.426549878256259,
+          0.22820236256964735,
+          0.33103690021644183
+        ],
+        "palm_quat_wxyz": [
+          -0.08908491299813576,
+          0.024825911345085074,
+          0.9823738157726211,
+          -0.16244764844817158
+        ],
+        "duration_s": 0.5,
+        "memory": "Lower 2.91 mm to begin socket overlap; fresh lateral offset 0.40 mm and tilt 0.68 deg, pressure low"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 16.300000000001845
+      }
+    },
+    {
+      "sequence": 12,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4265370474166906,
+          0.22872323135167066,
+          0.3268872462940894
+        ],
+        "palm_quat_wxyz": [
+          -0.08679786113301693,
+          0.02708856693400544,
+          0.9816564945390359,
+          -0.167579436607023
+        ],
+        "duration_s": 0.5,
+        "memory": "Continue 2.94 mm measured descent into socket clearance with lateral offset 0.40 mm and tilt 0.68 deg; no robot nut contact"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 16.800000000001567
+      }
+    },
+    {
+      "sequence": 13,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4265218771330936,
+          0.22924279233631104,
+          0.3227280335542068
+        ],
+        "palm_quat_wxyz": [
+          -0.08452781775476449,
+          0.02938725226347229,
+          0.9809287384348355,
+          -0.17254056781714394
+        ],
+        "duration_s": 0.5,
+        "memory": "Seat socket another 2.96 mm for greater axial overlap while maintaining centered low tilt; pressure 4.10 N and no direct robot nut contact"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 17.30000000000129
+      }
+    },
+    {
+      "sequence": 14,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4208306747016174,
+          0.22047342726493702,
+          0.32155192400250365
+        ],
+        "palm_quat_wxyz": [
+          -0.07455241937082528,
+          -0.011203801269664252,
+          0.980606906252164,
+          -0.18090469041356083
+        ],
+        "duration_s": 0.6,
+        "memory": "Begin positive turn with under 5 degree tool orientation change; socket overlaps nut axially by about 9 mm, centered within 0.36 mm and five hand contacts retained"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 17.900000000000958
+      }
+    },
+    {
+      "sequence": 15,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41625687290835295,
+          0.21201480069116016,
+          0.31991993996053353
+        ],
+        "palm_quat_wxyz": [
+          -0.0636012461088845,
+          -0.048503547198056905,
+          0.9784653644352992,
+          -0.19028352005126495
+        ],
+        "duration_s": 0.6,
+        "memory": "Socket has established nut contact; advance 4.5 degrees from fresh measured yaw while leveling 0.89 degree tilt and centering within 0.53 mm"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 18.500000000000625
+      }
+    },
+    {
+      "sequence": 16,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41230625719687775,
+          0.2026471849238061,
+          0.3190549481670215
+        ],
+        "palm_quat_wxyz": [
+          -0.05382552555468959,
+          -0.0887944514195918,
+          0.974899873392046,
+          -0.19694820399289692
+        ],
+        "duration_s": 0.6,
+        "memory": "Nut now turned positive 0.76 degree with socket contact; advance 4.8 degrees from observed yaw and remove only 0.53 degree tilt, keeping head centered"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 19.100000000000293
+      }
+    },
+    {
+      "sequence": 17,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.40924730832923956,
+          0.19275596653357996,
+          0.3187980487166649
+        ],
+        "palm_quat_wxyz": [
+          -0.0451063919893333,
+          -0.12934102738514147,
+          0.9700424006611967,
+          -0.20063412709736858
+        ],
+        "duration_s": 0.6,
+        "memory": "Measured nut progress 4.29 degrees, low pressure and 0.19 degree tilt; continue bounded 4.8 degree positive turn with fixed centered head"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 19.69999999999996
+      }
+    },
+    {
+      "sequence": 18,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.40705737084025523,
+          0.18245190177994727,
+          0.31878351374653685
+        ],
+        "palm_quat_wxyz": [
+          -0.03671752531860378,
+          -0.16984024272924797,
+          0.9637205542256625,
+          -0.202605055828155
+        ],
+        "duration_s": 0.6,
+        "memory": "Nut turned 8.80 degrees with stable contact; advance 4.8 degrees from current measured yaw, negligible tilt, head correction under 0.2 mm"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 20.299999999999628
+      }
+    },
+    {
+      "sequence": 19,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.40570994692699724,
+          0.1719981086282466,
+          0.3187595472989383
+        ],
+        "palm_quat_wxyz": [
+          -0.028193783020675444,
+          -0.2100242393936125,
+          0.9557040137002123,
+          -0.20426641344925567
+        ],
+        "duration_s": 0.6,
+        "memory": "Nut at positive 13.43 degrees, centered retained engagement and negligible tilt; continue 4.8 degree incremental positive turn"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 20.899999999999295
+      }
+    },
+    {
+      "sequence": 20,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.40524795446519857,
+          0.16143209644881684,
+          0.31875137616925436
+        ],
+        "palm_quat_wxyz": [
+          -0.019598600619124898,
+          -0.2498565852162759,
+          0.9460696712617405,
+          -0.20527970868192585
+        ],
+        "duration_s": 0.6,
+        "memory": "Nut positive 18.13 degrees and low pressure; keep socket center and advance measured tool yaw by 4.8 degrees"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 21.499999999998963
+      }
+    },
+    {
+      "sequence": 21,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.40569172230537554,
+          0.15086344621028375,
+          0.31875659638680776
+        ],
+        "palm_quat_wxyz": [
+          -0.011013276296586359,
+          -0.2892580996909079,
+          0.9347690010752477,
+          -0.20594993114153623
+        ],
+        "duration_s": 0.6,
+        "memory": "Nut at 22.92 degrees, five retaining hand parts and no direct nut contact; continue centered incremental 4.8 degree turn"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 22.09999999999863
+      }
+    },
+    {
+      "sequence": 22,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.40706721882874225,
+          0.1403348530133543,
+          0.3188720269126234
+        ],
+        "palm_quat_wxyz": [
+          -0.002782404278773504,
+          -0.32825684210068307,
+          0.9218841900378715,
+          -0.20583790709860586
+        ],
+        "duration_s": 0.6,
+        "memory": "Nut advanced to 27.79 degrees with 4.26 N current maximum contact pressure; continue 4.8 degree measured turn while centering and leveling"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 22.699999999998298
+      }
+    },
+    {
+      "sequence": 23,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4093060331576822,
+          0.12999398020080935,
+          0.31893421352015494
+        ],
+        "palm_quat_wxyz": [
+          0.005577949020572383,
+          -0.3666263778685491,
+          0.9073139947996178,
+          -0.20575543826706283
+        ],
+        "duration_s": 0.6,
+        "memory": "Measured nut turn 32.62 degrees, stable centered socket contact and unsupported five-part tool retention; advance another 4.8 degrees"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 23.299999999997965
+      }
+    },
+    {
+      "sequence": 24,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41242021496964126,
+          0.11987539489922054,
+          0.31900843887278174
+        ],
+        "palm_quat_wxyz": [
+          0.013914960403458262,
+          -0.4043546614830551,
+          0.8911490839809377,
+          -0.2053216786747807
+        ],
+        "duration_s": 0.6,
+        "memory": "Nut at 37.48 degrees, quality limits comfortably satisfied; continue 4.8 degree positive socket rotation at measured axial height"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 23.899999999997632
+      }
+    },
+    {
+      "sequence": 25,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41638980865107533,
+          0.11005119571172442,
+          0.31908568585809205
+        ],
+        "palm_quat_wxyz": [
+          0.02219573599018465,
+          -0.44137687590380886,
+          0.8734105436853612,
+          -0.20456740918457575
+        ],
+        "duration_s": 0.6,
+        "memory": "Nut at positive 42.37 degrees; continue bounded 4.8 degree rotation to pass required angle with stable retained socket contact"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 24.4999999999973
+      }
+    },
+    {
+      "sequence": 26,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.42120613868799867,
+          0.10057241805423128,
+          0.3191939003413894
+        ],
+        "palm_quat_wxyz": [
+          0.03032921237260994,
+          -0.47765618730065107,
+          0.8541584494365727,
+          -0.20331760589376507
+        ],
+        "duration_s": 0.6,
+        "memory": "Nut now 47.30 degrees but turn dwell only 0.27 s; continue small positive rotation to build retained turn and withdrawal margin"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 25.099999999996967
+      }
+    },
+    {
+      "sequence": 27,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4268334467107782,
+          0.09149708980215275,
+          0.3193327769715146
+        ],
+        "palm_quat_wxyz": [
+          0.038267664563199834,
+          -0.5131339674766963,
+          0.8334199431341293,
+          -0.20159443359579138
+        ],
+        "duration_s": 0.6,
+        "memory": "Contact-qualified turn gate passed at retained nut angle 52.31 degrees; add one bounded 4.8 degree turn for supplied withdrawal policy entry margin above 55 degrees"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 25.699999999996635
+      }
+    },
+    {
+      "sequence": 28,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 0",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.03872818605347266,
+          -0.513046205363662,
+          0.8334608350684262,
+          -0.20156079771124952
+        ],
+        "palm_target_m": [
+          0.42703938324208457,
+          0.09128233564752047,
+          0.32071607607851466
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 25.99999999999647
+      }
+    },
+    {
+      "sequence": 29,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 1",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.041488819659851336,
+          -0.5125132877960976,
+          0.8336904871673334,
+          -0.2014174254685017
+        ],
+        "palm_target_m": [
+          0.42702037987385155,
+          0.0908498093209386,
+          0.32151628479452726
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 26.299999999996302
+      }
+    },
+    {
+      "sequence": 30,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 2",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.04554254330077598,
+          -0.5116114805962896,
+          0.8337082787576283,
+          -0.2027561974459988
+        ],
+        "palm_target_m": [
+          0.4267643529028519,
+          0.09048167694675446,
+          0.32200225124885284
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 26.599999999996136
+      }
+    },
+    {
+      "sequence": 31,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 3",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.04944814817971249,
+          -0.5107031833041088,
+          0.8336230092558159,
+          -0.20447449142600868
+        ],
+        "palm_target_m": [
+          0.42647517541582414,
+          0.09016880558808317,
+          0.32252691489770235
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 26.89999999999597
+      }
+    },
+    {
+      "sequence": 32,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 4",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.05328848370115374,
+          -0.5097891108064617,
+          0.8334890515151167,
+          -0.2063283815000264
+        ],
+        "palm_target_m": [
+          0.42617171191349323,
+          0.08987897984974326,
+          0.3230666775808151
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 27.199999999995804
+      }
+    },
+    {
+      "sequence": 33,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 5",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.057094469098957476,
+          -0.5088679843928333,
+          0.8333230040932598,
+          -0.20824592890923135
+        ],
+        "palm_target_m": [
+          0.4258659253625722,
+          0.08960645684416454,
+          0.32361291509370155
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 27.499999999995637
+      }
+    },
+    {
+      "sequence": 34,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 6",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.0609002031845925,
+          -0.5079370940210514,
+          0.8331414955581739,
+          -0.21015785055194672
+        ],
+        "palm_target_m": [
+          0.4255923560349039,
+          0.08932414126873797,
+          0.3241563415376618
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 27.79999999999547
+      }
+    },
+    {
+      "sequence": 35,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 7",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.06470368513094614,
+          -0.5069966417308619,
+          0.8329435902066236,
+          -0.21206794651197058
+        ],
+        "palm_target_m": [
+          0.4253490184648169,
+          0.08904439629608396,
+          0.32469802792429225
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 28.099999999995305
+      }
+    },
+    {
+      "sequence": 36,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 8",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.06849067032544143,
+          -0.506048200514032,
+          0.832722330279893,
+          -0.21400412960526205
+        ],
+        "palm_target_m": [
+          0.4251183624799776,
+          0.08878348970853193,
+          0.32524245386807266
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 28.39999999999514
+      }
+    },
+    {
+      "sequence": 37,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 9",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.07226855356128944,
+          -0.505091052962304,
+          0.8324813901162099,
+          -0.2159514285522851
+        ],
+        "palm_target_m": [
+          0.4248990052825082,
+          0.08853883258424074,
+          0.3257879185709125
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 28.699999999994972
+      }
+    },
+    {
+      "sequence": 38,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 10",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.07601793260705372,
+          -0.5041278052011693,
+          0.8322113857640349,
+          -0.21794641394137743
+        ],
+        "palm_target_m": [
+          0.42468647607655596,
+          0.08831022673306105,
+          0.32634021643686306
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 28.999999999994806
+      }
+    },
+    {
+      "sequence": 39,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 11",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.07973283666714756,
+          -0.5031596248523451,
+          0.8319097738451936,
+          -0.2199981701203358
+        ],
+        "palm_target_m": [
+          0.4244793428697686,
+          0.0880969299822906,
+          0.3269013292619198
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 29.29999999999464
+      }
+    },
+    {
+      "sequence": 40,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 12",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.08342235592089044,
+          -0.5021854966948666,
+          0.8315811316698697,
+          -0.22208840332758784
+        ],
+        "palm_target_m": [
+          0.42428841564810243,
+          0.08791408072617377,
+          0.3274689298961645
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 29.599999999994473
+      }
+    },
+    {
+      "sequence": 41,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 13",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.08708091136707727,
+          -0.501206579455136,
+          0.8312230856491669,
+          -0.22422547016393782
+        ],
+        "palm_target_m": [
+          0.42412074172927594,
+          0.08778418545036888,
+          0.3280425582557999
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 29.899999999994307
+      }
+    },
+    {
+      "sequence": 42,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 14",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.09071882205706568,
+          -0.5002213884861889,
+          0.8308405458900833,
+          -0.22639047049422076
+        ],
+        "palm_target_m": [
+          0.42397039136369974,
+          0.08771070662178866,
+          0.32861924795119135
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 30.19999999999414
+      }
+    },
+    {
+      "sequence": 43,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 15",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.09435526574880637,
+          -0.49922662706042953,
+          0.8304423072157486,
+          -0.22855072313498223
+        ],
+        "palm_target_m": [
+          0.42382914130171784,
+          0.08769288363975493,
+          0.3291937789243946
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 30.499999999993975
+      }
+    },
+    {
+      "sequence": 44,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 16",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.09799719664028546,
+          -0.4982209921351357,
+          0.8300316434832195,
+          -0.23069430695852094
+        ],
+        "palm_target_m": [
+          0.4236887104933567,
+          0.08772278005789501,
+          0.32976429653223305
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 30.79999999999381
+      }
+    },
+    {
+      "sequence": 45,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 17",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.10164088460712827,
+          -0.49720516410051324,
+          0.8296068895683278,
+          -0.2328273268944747
+        ],
+        "palm_target_m": [
+          0.42354496436217753,
+          0.08778859154798305,
+          0.33033186533650677
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 31.099999999993642
+      }
+    },
+    {
+      "sequence": 46,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 18",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.1052874435198217,
+          -0.49617889486598316,
+          0.8291686485763512,
+          -0.23494767661055851
+        ],
+        "palm_target_m": [
+          0.42339940623354144,
+          0.0878709808024865,
+          0.33089619376252677
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 31.399999999993476
+      }
+    },
+    {
+      "sequence": 47,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 19",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.10894436016878765,
+          -0.4951405797895492,
+          0.8287206769493025,
+          -0.23704213176093952
+        ],
+        "palm_target_m": [
+          0.4232613876459334,
+          0.087927827975362,
+          0.3314553356443044
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 31.69999999999331
+      }
+    },
+    {
+      "sequence": 48,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 20",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.11260419402682265,
+          -0.4940917511095026,
+          0.8282594225363633,
+          -0.23912332791437346
+        ],
+        "palm_target_m": [
+          0.42309572692896835,
+          0.08792584659503194,
+          0.3320114049452405
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 31.999999999993143
+      }
+    },
+    {
+      "sequence": 49,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 21",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.11625431970429022,
+          -0.49303522414251494,
+          0.8277785811573287,
+          -0.24121322824835106
+        ],
+        "palm_target_m": [
+          0.42286816647715203,
+          0.08786755489503262,
+          0.3325676827556445
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 32.29999999999351
+      }
+    },
+    {
+      "sequence": 50,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 22",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.11962450729957018,
+          -0.4920358314968107,
+          0.8271578307802776,
+          -0.24372246666124775
+        ],
+        "palm_target_m": [
+          0.4224150782392011,
+          0.08770393638906998,
+          0.33598035328573594
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 32.59999999999388
+      }
+    },
+    {
+      "sequence": 51,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 23",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.12241962708009609,
+          -0.49117395360682775,
+          0.8263323038270808,
+          -0.24685320710016115
+        ],
+        "palm_target_m": [
+          0.42175824812045853,
+          0.08773672008930423,
+          0.33868761157153005
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 32.89999999999424
+      }
+    },
+    {
+      "sequence": 52,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 24",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.12472994411269822,
+          -0.490432542066164,
+          0.825374343461457,
+          -0.2503508655462025
+        ],
+        "palm_target_m": [
+          0.42115542996874294,
+          0.08784099434245062,
+          0.3415416744065971
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 33.19999999999461
+      }
+    },
+    {
+      "sequence": 53,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 25",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.12687260234765024,
+          -0.4897275820436302,
+          0.8243669713500013,
+          -0.25394750383979187
+        ],
+        "palm_target_m": [
+          0.4205353500871606,
+          0.08795770092039179,
+          0.3443419025712001
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 33.49999999999498
+      }
+    },
+    {
+      "sequence": 54,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 26",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.12917809525682952,
+          -0.4889667358658436,
+          0.8233780943636687,
+          -0.25743555435209925
+        ],
+        "palm_target_m": [
+          0.4199275789446363,
+          0.08805813148551814,
+          0.34713192342274635
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 33.79999999999534
+      }
+    },
+    {
+      "sequence": 55,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 27",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.13185253836870572,
+          -0.48809102916697167,
+          0.8224643312275608,
+          -0.260642435591093
+        ],
+        "palm_target_m": [
+          0.41933740229228045,
+          0.08812399979733217,
+          0.34989669455109657
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 34.09999999999571
+      }
+    },
+    {
+      "sequence": 56,
+      "action": {
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extract 28",
+        "operation": "move",
+        "palm_quat_wxyz": [
+          0.13491161029414875,
+          -0.48709560017080056,
+          0.821654814043062,
+          -0.26347694445994174
+        ],
+        "palm_target_m": [
+          0.41876971610297603,
+          0.08814963275400355,
+          0.3526362381877466
+        ],
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 34.399999999996076
+      }
+    },
+    {
+      "sequence": 57,
+      "action": {
+        "duration_s": 1.2,
+        "memory": "Measured clear retained hold",
+        "operation": "hold",
+        "palm_quat_wxyz": null,
+        "palm_target_m": null,
+        "targets": []
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 35.59999999999754
+      }
+    },
+    {
+      "sequence": 58,
+      "action": {
+        "operation": "finish",
+        "targets": [],
+        "palm_target_m": null,
+        "palm_quat_wxyz": null,
+        "duration_s": 0.02,
+        "memory": "Fresh handoff views and state confirm lift, turn and retained withdrawal gates independently recorded passed; head clearance 34.415 mm, unsupported five hand contacts, nut 69.237 degrees, no robot nut contact or violations. Supplied local policy handed off after 30 actions; finish on observed gates, without claiming independent audit acceptance"
+      },
+      "result": {
+        "status": "finished",
+        "time_s": 35.59999999999754
+      }
+    }
+  ],
+  "notes": "Online actor episode recorded under its declared inputs. One episode only; this export does not train model weights or establish transfer. Use the initial poses as coordinate references, check fresh observations, and do not blindly replay targets.",
+  "skill_memory": {
+    "schema_version": 1,
+    "source_episode_id": "02739d437afb43c2a30cb1347fb6f345",
+    "kind": "single_accepted_native_episode_observational_memory",
+    "acquisition": {
+      "low_level_commands": 59,
+      "online_action_choices": 29,
+      "skill_selections": 1,
+      "online_model_choices": 30,
+      "local_motor_commands": 30,
+      "unclassified_commands": 0,
+      "source_brief": "origin_backend=native includes online choices plus an explicitly selected engineered local program.",
+      "count_scope": "Recorded action/skill choices; not measured service inference calls, API calls or token costs.",
+      "exact_model_identity_verified": false,
+      "api_or_token_cost_measured": false
+    },
+    "acceptance_provenance": {
+      "episode_id": "02739d437afb43c2a30cb1347fb6f345",
+      "stage": 2,
+      "accepted": true,
+      "path": "evidence/wrench-recovery-v3/acceptance.json",
+      "sha256": "1e9bb708d56263472af10a2910c2cd341fa0d2b1a327ec72913fbb21bc4039ab",
+      "source_files_sha256": {
+        "metadata.json": "d8a8f81c264ce98c7536705e5691c2f03d1775cc60830ba5a490c53adfffcb3c",
+        "summary.json": "cc179b44c4feeabef520c02d86efbf4382d97b921331776ca0c9d3b202aa5409",
+        "actions.json": "07232a3885257fab2bc6c71b7de5bd71a53bbc49a995e4a8ffda53a5ff9d5632",
+        "steps/000/request.json": "78d80146216c5506c0d61f6a49ec4ddc84a6afa70ee162a6bb5924ede3095707"
+      },
+      "audit_disclosure": "Original strict audit retained nonacceptance due safe_height_align label; two independent reviews confirmed frozen numerical eligibility. Exact alias correction was applied after execution; corrected retrospective supplemental audit accepted. No raw action, observation, criterion or physical evaluator changed.",
+      "original_strict_recovery_accepted": false,
+      "corrected_retrospective_recovery_accepted": true,
+      "unique_physical_recovery_events": 1,
+      "audits": [
+        {
+          "path": "runs/wrench-autonomy-dev/attempt-003/audit-physical-v3.json",
+          "sha256": "00aee677fc88e7f9d2c8e2f82313058554dec57e670f771a28e1dde63d443b75"
+        },
+        {
+          "path": "runs/wrench-autonomy-dev/attempt-003/audit-physical-v3-supplemental.json",
+          "sha256": "c69521b9fabc4901c9806790c2122228b44589e92d8b173d633d2c0f1e8a5396"
+        },
+        {
+          "path": "runs/wrench-autonomy-dev/attempt-003/audit-local-v3.json",
+          "sha256": "73ddcb34e1f75f3aa4f8d4c7dfc78135fb1b56ea707fedc2d5886fb746f64a2e"
+        },
+        {
+          "path": "runs/wrench-autonomy-dev/attempt-003/audit-correction-note.json",
+          "sha256": "f154bcbd19bad8f49906d76071b47564d7915b9d0d125f7abf631c550862d082"
+        }
+      ]
+    },
+    "lessons": [
+      {
+        "id": "fixed_head_target",
+        "condition": {
+          "task": "wrench_turn",
+          "after_lift": true,
+          "retained_unsupported": true,
+          "tool_nut_contact": false
+        },
+        "working_end_target": {
+          "frame": "nut_axis",
+          "axial_offset_m": 0.03999999999999998
+        },
+        "action_outline": "Recompute the head target from the fresh nut center and hinge axis. Check actual head error after a completed move; keep this intended goal fixed while applying fresh observed palm-response correction using the explicit last accepted command.",
+        "observed": {
+          "trigger_sequence": 6,
+          "after_sequence": 9,
+          "action_sequences": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "observation_sequences": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "before_error_m": 0.009821042397006843,
+          "after_error_m": 0.001096890869152833,
+          "error_reduction_fraction": 0.8883121745317857
+        },
+        "evidence": [
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/audit-physical-v3-supplemental.json",
+            "sha256": "c69521b9fabc4901c9806790c2122228b44589e92d8b173d633d2c0f1e8a5396"
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actions.json",
+            "sha256": "07232a3885257fab2bc6c71b7de5bd71a53bbc49a995e4a8ffda53a5ff9d5632",
+            "sequences": [
+              5,
+              6,
+              7,
+              8
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/006/request.json",
+            "sha256": "c8c5102854eea881e6728ea0414320b047fa712a4e718f4c4faf52ea4e160bdd",
+            "sequences": [
+              6
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/007/request.json",
+            "sha256": "9a85c6101864198262b45fe7eef71f18b4d5df5b8dc19d54d06a33a337c3b2c9",
+            "sequences": [
+              7
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/008/request.json",
+            "sha256": "7dd06a9d9cc4e6ad8b98acc7891cd16e2d6ca0f5898d3d5c2a900433052968a1",
+            "sequences": [
+              8
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/009/request.json",
+            "sha256": "251cf69a977aff861b87048bc149add24762ad434f5d46f202e15a444f7c44b3",
+            "sequences": [
+              9
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/intents/005.json",
+            "sha256": "0574950351551c3a127c408657af29b3a531e86a5eccd7e75f005e60def922e5",
+            "sequences": [
+              5
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/intents/006.json",
+            "sha256": "420ae6deb864a83c4bb519f815d79f00d343537b28d9188360f53b928b82c018",
+            "sequences": [
+              6
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/intents/007.json",
+            "sha256": "b22c33ab4060bc0965fcc1583c6bf241403ef25622174072c432809c49d5dff8",
+            "sequences": [
+              7
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/intents/008.json",
+            "sha256": "6fb1841048fbca599dac6be2ec3380d98131c72cf3781fbc3cc5e7678b95d205",
+            "sequences": [
+              8
+            ]
+          }
+        ],
+        "limitations": [
+          "One episode; this is observed tracking correction, not regrasp, training or universal calibration.",
+          "Recovery passed the corrected retrospective audit; the original strict audit did not accept its semantic label."
+        ]
+      },
+      {
+        "id": "incremental_seating_turn",
+        "condition": {
+          "task": "wrench_turn",
+          "after_lift": true,
+          "retained_unsupported": true
+        },
+        "action_outline": "Use fresh nut-axis-relative targets for small seating moves and incremental turns. Inspect actual contact, angle and continuous gate qualification; the recorded palm commands and relative heights are episode references, not a replay schedule.",
+        "observed": {
+          "relative_targets": [
+            {
+              "sequence": 9,
+              "operation": "bounded_socket_descent",
+              "working_end_target": {
+                "frame": "nut_axis",
+                "axial_offset_m": 0.03610000000000002
+              },
+              "requested_axial_step_m": -0.002874322064065238,
+              "duration_s": 0.5,
+              "nut_angle_before_deg": -1.127589644615535,
+              "nut_angle_after_deg": -1.127589644615535
+            },
+            {
+              "sequence": 10,
+              "operation": "bounded_socket_descent",
+              "working_end_target": {
+                "frame": "nut_axis",
+                "axial_offset_m": 0.032899999999999985
+              },
+              "requested_axial_step_m": -0.0029115827190728805,
+              "duration_s": 0.5,
+              "nut_angle_before_deg": -1.127589644615535,
+              "nut_angle_after_deg": -1.127589644615535
+            },
+            {
+              "sequence": 11,
+              "operation": "bounded_socket_descent",
+              "working_end_target": {
+                "frame": "nut_axis",
+                "axial_offset_m": 0.029200000000000004
+              },
+              "requested_axial_step_m": -0.0028869919670700406,
+              "duration_s": 0.5,
+              "nut_angle_before_deg": -1.127589644615535,
+              "nut_angle_after_deg": -1.127589644615535
+            },
+            {
+              "sequence": 12,
+              "operation": "bounded_socket_descent",
+              "working_end_target": {
+                "frame": "nut_axis",
+                "axial_offset_m": 0.025500000000000023
+              },
+              "requested_axial_step_m": -0.0029089397051172416,
+              "duration_s": 0.5,
+              "nut_angle_before_deg": -1.127589644615535,
+              "nut_angle_after_deg": -1.127589644615535
+            },
+            {
+              "sequence": 13,
+              "operation": "bounded_socket_seat",
+              "working_end_target": {
+                "frame": "nut_axis",
+                "axial_offset_m": 0.021799999999999986
+              },
+              "requested_axial_step_m": -0.002936580464343308,
+              "duration_s": 0.5,
+              "nut_angle_before_deg": -1.127589644615535,
+              "nut_angle_after_deg": -1.127589644615535
+            },
+            {
+              "sequence": 14,
+              "operation": "bounded_positive_turn",
+              "working_end_target": {
+                "frame": "nut_axis",
+                "axial_offset_m": 0.021100000000000008
+              },
+              "requested_axial_step_m": 2.0872122278303706e-05,
+              "duration_s": 0.6,
+              "nut_angle_before_deg": -1.127589644615535,
+              "nut_angle_after_deg": -1.096771703604604
+            },
+            {
+              "sequence": 15,
+              "operation": "bounded_positive_turn",
+              "working_end_target": {
+                "frame": "nut_axis",
+                "axial_offset_m": 0.019799999999999984
+              },
+              "requested_axial_step_m": -5.76202083923949e-06,
+              "duration_s": 0.6,
+              "nut_angle_before_deg": -1.096771703604604,
+              "nut_angle_after_deg": 0.7588101102213862
+            },
+            {
+              "sequence": 16,
+              "operation": "bounded_positive_turn",
+              "working_end_target": {
+                "frame": "nut_axis",
+                "axial_offset_m": 0.019550000000000012
+              },
+              "requested_axial_step_m": -9.464615705945256e-06,
+              "duration_s": 0.6,
+              "nut_angle_before_deg": 0.7588101102213862,
+              "nut_angle_after_deg": 4.2879696546430175
+            },
+            {
+              "sequence": 17,
+              "operation": "bounded_positive_turn",
+              "working_end_target": {
+                "frame": "nut_axis",
+                "axial_offset_m": 0.019419999999999993
+              },
+              "requested_axial_step_m": 1.6868831446137378e-06,
+              "duration_s": 0.6,
+              "nut_angle_before_deg": 4.2879696546430175,
+              "nut_angle_after_deg": 8.799129082137732
+            },
+            {
+              "sequence": 18,
+              "operation": "bounded_positive_turn",
+              "working_end_target": {
+                "frame": "nut_axis",
+                "axial_offset_m": 0.01935999999999999
+              },
+              "requested_axial_step_m": -4.171552642984189e-06,
+              "duration_s": 0.6,
+              "nut_angle_before_deg": 8.799129082137732,
+              "nut_angle_after_deg": 13.43264459609894
+            },
+            {
+              "sequence": 19,
+              "operation": "bounded_positive_turn",
+              "working_end_target": {
+                "frame": "nut_axis",
+                "axial_offset_m": 0.019340000000000024
+              },
+              "requested_axial_step_m": 1.462203129243278e-06,
+              "duration_s": 0.6,
+              "nut_angle_before_deg": 13.43264459609894,
+              "nut_angle_after_deg": 18.127486966898587
+            },
+            {
+              "sequence": 20,
+              "operation": "bounded_positive_turn",
+              "working_end_target": {
+                "frame": "nut_axis",
+                "axial_offset_m": 0.019299999999999984
+              },
+              "requested_axial_step_m": -3.271620704015099e-06,
+              "duration_s": 0.6,
+              "nut_angle_before_deg": 18.127486966898587,
+              "nut_angle_after_deg": 22.917195534931793
+            },
+            {
+              "sequence": 21,
+              "operation": "bounded_positive_turn",
+              "working_end_target": {
+                "frame": "nut_axis",
+                "axial_offset_m": 0.01929000000000003
+              },
+              "requested_axial_step_m": -5.864831292834438e-08,
+              "duration_s": 0.6,
+              "nut_angle_before_deg": 22.917195534931793,
+              "nut_angle_after_deg": 27.794185553850113
+            },
+            {
+              "sequence": 22,
+              "operation": "bounded_positive_turn",
+              "working_end_target": {
+                "frame": "nut_axis",
+                "axial_offset_m": 0.019230000000000025
+              },
+              "requested_axial_step_m": -3.67248547544774e-06,
+              "duration_s": 0.6,
+              "nut_angle_before_deg": 27.794185553850113,
+              "nut_angle_after_deg": 32.619597943450124
+            },
+            {
+              "sequence": 23,
+              "operation": "bounded_positive_turn",
+              "working_end_target": {
+                "frame": "nut_axis",
+                "axial_offset_m": 0.019199999999999995
+              },
+              "requested_axial_step_m": -4.338948282778254e-06,
+              "duration_s": 0.6,
+              "nut_angle_before_deg": 32.619597943450124,
+              "nut_angle_after_deg": 37.483547707265906
+            },
+            {
+              "sequence": 24,
+              "operation": "bounded_positive_turn",
+              "working_end_target": {
+                "frame": "nut_axis",
+                "axial_offset_m": 0.01917000000000002
+              },
+              "requested_axial_step_m": 4.425573411903638e-06,
+              "duration_s": 0.6,
+              "nut_angle_before_deg": 37.483547707265906,
+              "nut_angle_after_deg": 42.37200208434651
+            },
+            {
+              "sequence": 25,
+              "operation": "bounded_positive_turn",
+              "working_end_target": {
+                "frame": "nut_axis",
+                "axial_offset_m": 0.019120000000000026
+              },
+              "requested_axial_step_m": 1.0218556434349324e-07,
+              "duration_s": 0.6,
+              "nut_angle_before_deg": 42.37200208434651,
+              "nut_angle_after_deg": 47.297622406650994
+            },
+            {
+              "sequence": 26,
+              "operation": "bounded_positive_turn",
+              "working_end_target": {
+                "frame": "nut_axis",
+                "axial_offset_m": 0.01906000000000002
+              },
+              "requested_axial_step_m": 3.092527340542439e-06,
+              "duration_s": 0.6,
+              "nut_angle_before_deg": 47.297622406650994,
+              "nut_angle_after_deg": 52.31335905094031
+            },
+            {
+              "sequence": 27,
+              "operation": "bounded_positive_turn",
+              "working_end_target": {
+                "frame": "nut_axis",
+                "axial_offset_m": 0.018990000000000007
+              },
+              "requested_axial_step_m": 2.356031026551353e-06,
+              "duration_s": 0.6,
+              "nut_angle_before_deg": 52.31335905094031,
+              "nut_angle_after_deg": 57.23040741315825
+            }
+          ],
+          "turn_gate_passed_at_s": 24.729999999997172
+        },
+        "evidence": [
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actions.json",
+            "sha256": "07232a3885257fab2bc6c71b7de5bd71a53bbc49a995e4a8ffda53a5ff9d5632",
+            "sequences": [
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/intents/009.json",
+            "sha256": "31cf120205f4de335c3d10c7dc380ff38b773187f54e9c1d705a20874c8424e3",
+            "sequences": [
+              9
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/intents/010.json",
+            "sha256": "f03b8c8e1ce20a7f8dd3cbe32f583bc4e7ed590fca4004038fa3736b1184a419",
+            "sequences": [
+              10
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/intents/011.json",
+            "sha256": "958970586e6e2a980bd0e70a9bf193e3d142e81e33bf7560c2a84dd1797cf718",
+            "sequences": [
+              11
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/intents/012.json",
+            "sha256": "9dbaa44e734f4bc0985baf898be9b8a04b276546a61066aa2536c9f6ce3ea932",
+            "sequences": [
+              12
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/intents/013.json",
+            "sha256": "fc6c9633d4f544597ae26cf54f9d6d44adcb691bc1552285b073433fac889cd1",
+            "sequences": [
+              13
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/intents/014.json",
+            "sha256": "a8e8a4f611ef156fb2ef790c0f47a42cad2ae1d33b2cce2b57bcbd519358c3e9",
+            "sequences": [
+              14
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/intents/015.json",
+            "sha256": "5561009c7ce6b3a64476a70bd022d54b73b279e45722d5dfc35463e9b6f840a6",
+            "sequences": [
+              15
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/intents/016.json",
+            "sha256": "256c30041e5d5f70b711e210dbf8385da80f2a6c0e9718c1e7dc01ec4cfdcb1b",
+            "sequences": [
+              16
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/intents/017.json",
+            "sha256": "0ba76e2ea33a38146b20b513c07374dea09bf676b179cdd785205d232082d024",
+            "sequences": [
+              17
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/intents/018.json",
+            "sha256": "70f4e0e9be79bfa1f0914fcc6f957af2f960c342f0077b56a5988dbea67a4771",
+            "sequences": [
+              18
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/intents/019.json",
+            "sha256": "7fb283d0be464232bdf9e9f222c8c3517dc33ac57ea4e509bdb579dbc6499f5e",
+            "sequences": [
+              19
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/intents/020.json",
+            "sha256": "3e16868907bce82bb17ab43ed72be699b276698fed2b9cb44c8d444927a62c2b",
+            "sequences": [
+              20
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/intents/021.json",
+            "sha256": "ca5a1f3c25ad68c74cca36e8bc0f948bfb97370620f361a1fe3e5f8dfea261b4",
+            "sequences": [
+              21
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/intents/022.json",
+            "sha256": "1cc2f6bf40834ed901de46f47c5ec03d4f7a0a686c34cdd4c81bad456a7cfd8c",
+            "sequences": [
+              22
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/intents/023.json",
+            "sha256": "e815dc7b5c214a80bf15d3481ba4d9e5b1907b3cfdf19caa5a86a3fcd1667628",
+            "sequences": [
+              23
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/intents/024.json",
+            "sha256": "7dd3a62a407448d1d755cf96c83b2d600fcc29410e66db339497133705c6d586",
+            "sequences": [
+              24
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/intents/025.json",
+            "sha256": "d2325ae10ee686871f9eec657565e463f377bc32e3137c1cccbc203fa74c467b",
+            "sequences": [
+              25
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/intents/026.json",
+            "sha256": "db03b7d131058d333cbe95d76c10f72b74497bff14274a401866acceaaa81057",
+            "sequences": [
+              26
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/intents/027.json",
+            "sha256": "7b2ae93ecb6c451feb4c6ab4e5dc25890e3ff3a431216920dd371f5a339da596",
+            "sequences": [
+              27
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/009/request.json",
+            "sha256": "251cf69a977aff861b87048bc149add24762ad434f5d46f202e15a444f7c44b3",
+            "sequences": [
+              9
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/010/request.json",
+            "sha256": "36fd25c0a99223ecead4aa9d41350bb0637a0949676254e9df79194dae692608",
+            "sequences": [
+              10
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/011/request.json",
+            "sha256": "84fb2733bf5481e9458f199b5d3b916ea72b29de89226aa8becd1a60f19e37d2",
+            "sequences": [
+              11
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/012/request.json",
+            "sha256": "1b003ddf64e9cfb949dd9c615ec63bcb5cf6fe04ceeacc67ce09b6d94bfae58d",
+            "sequences": [
+              12
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/013/request.json",
+            "sha256": "ccee5c615303a7c176f4a113328a8406df7b8561c3ceb30c94950183fec79985",
+            "sequences": [
+              13
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/014/request.json",
+            "sha256": "fc48e8bf33302eae411a002f6df6c9ad695b2aa68b94b6cb0468400882ce234d",
+            "sequences": [
+              14
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/015/request.json",
+            "sha256": "e01a680064510eb54126b2f12c54c6bb4ccd0c83af9df36ee4582d4904022e2f",
+            "sequences": [
+              15
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/016/request.json",
+            "sha256": "a7dac37d1011802e77d4380d0598b0681d35277342eb06c27e3aec8b9d7aad4c",
+            "sequences": [
+              16
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/017/request.json",
+            "sha256": "8d5307187515fd2c156064cab3c126ea878e59e0163f53f97883aab2de061a49",
+            "sequences": [
+              17
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/018/request.json",
+            "sha256": "1b92cddfdeced30947ce322713d51afff7e1e8213d836a910a04c9621f64b16c",
+            "sequences": [
+              18
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/019/request.json",
+            "sha256": "f450a308a37e137fc621835cb99aef9bfdc0eb41808895331bb8629aa30b350c",
+            "sequences": [
+              19
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/020/request.json",
+            "sha256": "f8f6c628f2f1d337ed7bbbc59778873a1264fb8dc91c39d397087362cc3dad91",
+            "sequences": [
+              20
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/021/request.json",
+            "sha256": "9d7dc9d0f5e4c8e0a357ad131d4c3da504fd47aad3bec496fe41064cf598a4da",
+            "sequences": [
+              21
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/022/request.json",
+            "sha256": "6180952593a5e90a69d18f4eeda95f82c7473e0e53d16d5fee18a839f11958eb",
+            "sequences": [
+              22
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/023/request.json",
+            "sha256": "6ee86cadfdf8a1e7bbd5a54950bac89bd231d6752b3e22e62d6ef97c582fc695",
+            "sequences": [
+              23
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/024/request.json",
+            "sha256": "8f1013c5cd2dad5882b8be7297cab2e8c18127a17b7bd3c3817448053f0a84d1",
+            "sequences": [
+              24
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/025/request.json",
+            "sha256": "07f6549c4d36880f5f27b53fae48fc407da0968e14b046fcb247f12a7deeb4d9",
+            "sequences": [
+              25
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/026/request.json",
+            "sha256": "cbf9de1e3fd8ca18e55cb8327691dcf09c185327d6b18f8a9ad4d2b61f193b7d",
+            "sequences": [
+              26
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/027/request.json",
+            "sha256": "9dea8ea27dd41430cbcac5fe29e7aba30411246889794f55cbd88689bda2929b",
+            "sequences": [
+              27
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/028/request.json",
+            "sha256": "ec61240c5b57b3b04d0cdc1c5a6515dd086138ffeafb2edc154d94b0d6f52f2b",
+            "sequences": [
+              28
+            ]
+          }
+        ],
+        "limitations": [
+          "Requested axial increments are not realized displacements; measured nut increments are not commanded tool rotations.",
+          "Check the independent dwell gate; crossing an instantaneous angle alone does not qualify it."
+        ]
+      },
+      {
+        "id": "engineered_withdraw_selection",
+        "condition": {
+          "task": "wrench_turn",
+          "after_lift": true,
+          "after_turn": true,
+          "retained_unsupported": true,
+          "engineered_entry_min_nut_deg": 55.0
+        },
+        "action_outline": "Explicitly select the supplied observation-only WrenchWithdrawPolicy from a sufficient-turn retained state; inspect the independent withdrawal gate when it hands back clearance_check. This skill existed before this episode.",
+        "observed": {
+          "skill_call_id": "withdraw-57deg",
+          "entry_nut_deg": 57.23040741315825,
+          "action_sequence_range": [
+            28,
+            57
+          ],
+          "local_motor_commands": 30,
+          "replayed_decisions": 31,
+          "handoff_sequence": 58,
+          "handoff_status": "clearance_check",
+          "handoff_head_clearance_m": 0.03441533578712204,
+          "independent_withdraw_gate_passed": true
+        },
+        "evidence": [
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/skill-calls/withdraw-57deg-selection.json",
+            "sha256": "b205d6c5dcf223e1c1843fb1bdf308956076687acb3e9a7caa928cb393430870",
+            "sequences": [
+              28
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/skill-calls/withdraw-57deg/initial.json",
+            "sha256": "7c5986519ec6165d56d1d1c2f91275270c1b0897ce0ef158c751c71cb1f318bb",
+            "sequences": [
+              28
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/actor/skill-calls/withdraw-57deg/handoff.json",
+            "sha256": "cc6401e8d932e14e4ca4ac2b0ea71945d89d950f39b6e7b0fefe261bbb64fd93",
+            "sequences": [
+              58
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/028/request.json",
+            "sha256": "ec61240c5b57b3b04d0cdc1c5a6515dd086138ffeafb2edc154d94b0d6f52f2b",
+            "sequences": [
+              28
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/steps/058/request.json",
+            "sha256": "d32e2f69dcb4ffc396d7b5170888124d559456acd97a37b8b666ba5339df1641",
+            "sequences": [
+              58
+            ]
+          },
+          {
+            "path": "runs/wrench-autonomy-dev/attempt-003/audit-local-v3.json",
+            "sha256": "73ddcb34e1f75f3aa4f8d4c7dfc78135fb1b56ea707fedc2d5886fb746f64a2e"
+          }
+        ],
+        "limitations": [
+          "The entry margin is an engineered prior selected online, not a newly discovered necessary threshold.",
+          "Local motor commands are not online model choices; clearance_check delegates final acceptance.",
+          "No transfer, efficiency benefit, new neural training or general success-rate claim."
+        ]
+      }
+    ]
+  }
+}

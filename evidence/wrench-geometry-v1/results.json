@@ -1,0 +1,185 @@
+{
+  "stage": 5,
+  "accepted": true,
+  "kind": "same_known_geometry_fresh_actor_confirmation_demo",
+  "episode_id": "7783f8ea3820447e9568173b96845694",
+  "episode": "runs/wrench-geometry-confirmation-v2/episode",
+  "source_freeze": "experiments/wrench-geometry-confirmation-v2-freeze.json",
+  "source_freeze_sha256": "49fec4ced2b5fb797b091b6ee3e8b427840d8d7dd2ad9619d1cdbaa12c267a26",
+  "frozen_source_count": 119,
+  "frozen_source_mismatches_after_episode": 0,
+  "gates": {
+    "lift": {
+      "passed": true,
+      "passed_at_s": 7.91799999999935,
+      "required_continuous_s": 2.0,
+      "best_continuous_s": 14.024000000000257
+    },
+    "turn": {
+      "passed": true,
+      "passed_at_s": 26.69999999999608,
+      "required_continuous_s": 0.5,
+      "best_continuous_s": 7.695999999999103
+    },
+    "withdraw": {
+      "passed": true,
+      "passed_at_s": 38.12400000000063,
+      "required_continuous_s": 1.0,
+      "best_continuous_s": 1.3760000000016817
+    }
+  },
+  "metrics": {
+    "samples": 18750,
+    "last_time_s": 38.50000000000109,
+    "initial_height_m": 0.24196378799710389,
+    "initial_nut_angle_rad": 0.0,
+    "max_lift_m": 0.10305623339294862,
+    "max_nut_turn_rad": 1.137070449090183,
+    "max_head_clearance_m": 0.28922492109238135,
+    "max_contact_force_n": 3.850282821291535,
+    "max_penetration_m": 0.0004986390573720936,
+    "first_robot_nut_contact_s": null
+  },
+  "counts": {
+    "low_level_commands": 66,
+    "online_action_choices": 34,
+    "skill_selections": 1,
+    "online_model_choices": 35,
+    "local_motor_commands": 32,
+    "unclassified_commands": 0
+  },
+  "counts_scope": "Low-level records include finish; online choices include the local-skill selection and finish. These are not API/token measurements.",
+  "elapsed_wall_s": 953.9530000000086,
+  "simulation_clock_s": 38.50000000000109,
+  "final_nut_angle_deg": 65.14933774191263,
+  "final_head_clearance_m": 0.03261637243518078,
+  "retaining_parts": [
+    "little",
+    "ring",
+    "thumb"
+  ],
+  "high_target_adoption": [
+    {
+      "sequence": 5,
+      "operation": "align",
+      "declared_target_m": [
+        0.53,
+        0.16,
+        0.345
+      ],
+      "fresh_nut_axis_target_m": [
+        0.53,
+        0.16,
+        0.345
+      ],
+      "target_difference_m": 0.0
+    },
+    {
+      "sequence": 6,
+      "operation": "correct_alignment",
+      "declared_target_m": [
+        0.53,
+        0.16,
+        0.345
+      ],
+      "fresh_nut_axis_target_m": [
+        0.53,
+        0.16,
+        0.345
+      ],
+      "target_difference_m": 0.0
+    },
+    {
+      "sequence": 7,
+      "operation": "correct_alignment",
+      "declared_target_m": [
+        0.53,
+        0.16,
+        0.345
+      ],
+      "fresh_nut_axis_target_m": [
+        0.53,
+        0.16,
+        0.345
+      ],
+      "target_difference_m": 0.0
+    }
+  ],
+  "image_review_count": 35,
+  "image_review_attestations_consistent": true,
+  "independent_visual_timing_authenticated": false,
+  "procedure_review": {
+    "reviewer": "/root/long_wrench_preflight_review",
+    "accepted_within_declared_evidence_scope": true,
+    "basis": "119 frozen files/archive, actual grip targets and no later changes, five saved-file audits, all 35 receipt bindings/image hashes, actor report and helper implementation independently checked. No known ordering deviation.",
+    "limit": "Saved records and actor attestations do not independently authenticate actual model visual perception or tool-result arrival time."
+  },
+  "shared_controller_and_experience_unchanged": true,
+  "starting_grasp_targets_unchanged": true,
+  "geometry": {
+    "baseline_mass_kg": 0.135,
+    "tested_mass_kg": 0.165,
+    "baseline_head_local_x_m": 0.113,
+    "tested_head_local_x_m": 0.135,
+    "baseline_handle_endpoints_m": [
+      -0.085,
+      0.08
+    ],
+    "tested_handle_endpoints_m": [
+      -0.1,
+      0.1
+    ],
+    "same_socket_interface": true
+  },
+  "model_export": {
+    "changed_prior_frozen_inputs": [
+      "dexhand_agent/file_backend.py",
+      "dexhand_agent/run.py",
+      "tests/test_run.py"
+    ],
+    "new_regression_test_file": "tests/test_file_backend.py",
+    "change_scope": "Only bounded Windows JSON publication retry and accurate I/O error reporting; unchanged robot controls, physical model, grasp, experience, image ordering and budgets.",
+    "model_xml_and_home_byte_identical": true,
+    "old_model_xml_sha256": "e481169d081e4dfba79fb24d37e852c0ca2ab7fe9c2f79d9488172cb9a10821b",
+    "new_model_xml_sha256": "e481169d081e4dfba79fb24d37e852c0ca2ab7fe9c2f79d9488172cb9a10821b",
+    "new_manifest_sha256": "44d28fe900ebde1493a06692e1980f4d8906b1dffe29ad754bff4039e70b63bb",
+    "new_controller_sha256": "8b71abde74c686e7ac98e1905fe17a5f45ed1bbc4dc0ef3676fc85239e1c3ee2",
+    "new_zip": "bundles/panda-shadow-long-wrench-v1-io3.zip",
+    "new_zip_bytes": 5588000,
+    "new_zip_sha256": "cc5528884e9b9a9541f18ff7ada4445aeb6689de026b9d2ef3cd8020fd66df99",
+    "all_model_file_hashes_match": true,
+    "all_controller_sources_match": true,
+    "task_success_claimed": false
+  },
+  "previous_outcomes": [
+    {
+      "path": "evidence/wrench-geometry-v1/primary-result.json",
+      "physical_success": true,
+      "procedure_accepted": false,
+      "original_primary_accepted": false
+    },
+    {
+      "path": "evidence/wrench-geometry-v1/confirmation-001-interruption.json",
+      "physical_success": false,
+      "infrastructure_interrupted": true,
+      "accepted": false
+    }
+  ],
+  "previous_outcomes_reclassified": false,
+  "scope": "One longer/heavier socket-wrench instance confirmed on already known geometry by a new independent actor. No new heldout-model, population success-rate, unseen-category, vision-only, hardware or new-neural-weights claim. Source-assisted state/CAD/contacts and two RGB views.",
+  "code_verification": "1090 tests passed; real Windows reader conflict reproduced and bounded atomic-publication/error-reporting fix verified before this episode.",
+  "source_sha256": {
+    "metadata.json": "77529c77524e135a4c5605d63d92e294eebe5d910bb4be9942807d4c57212555",
+    "summary.json": "8857ce2d1743f95eedc1d42924687f3dccc8bedef2f7f6de1e58aedeb979be78",
+    "actions.json": "df137b9a506f41390b49ea482651ed05b8b326b958511284e787e605891d5bef",
+    "samples.jsonl": "5c53fd7505ea095c94c4baaeb041d65d0b0bfc53836d8e04ea2e586a1ac657cf",
+    "episode.mp4": "79f687d1808e09407327c4e7f5ab2e4e80ae02361e6b335fbd09013231944272",
+    "actor-binding.json": "030c797862f87aa69db5637916f7e0c90fa3db5d2d4b45d7476c4e262625c97d",
+    "actor/raw-report.json": "14af4ce67d667a0f996173494051638b06579d7cc58db61a7916da3e3c014a96",
+    "audit-physical.json": "853ad80a0bda25ae65ebbc55e5a615347760abfc9f2e6a694290b767ca5b51ca",
+    "audit-local.json": "b281b056418a635b7a66909142250f10146de5b638aa874182deabe24b05e46b",
+    "audit-memory.json": "6a1858252b97783775d83b53de4a73ae35122078c7e8c22b75bf44c35f75c09a",
+    "audit-transport.json": "521fe20c62d6f3e3fa5ead385109e0ecbfba635746b8fc824674f76b843a2f71",
+    "audit-images.json": "1979aa6c0d10bd84d25c8766fb58662c73ca311b89c110a4c94fe6d375905327"
+  }
+}

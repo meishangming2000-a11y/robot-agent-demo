@@ -1,0 +1,284 @@
+{
+  "format": "verified-model-experience-v1",
+  "id": "model-residual-priority-v3",
+  "status": "not_promoted",
+  "record_kind": "Source-backed negative model-learning/curation experiment lesson; not a motor policy",
+  "hypothesis": {
+    "NN_learning_goal": "A trained residual response model improves held-tool translation prediction over raw-input constant velocity.",
+    "curation_goal": "Obtained-experience priority sampling improves the same NN over equal-count uniform sampling.",
+    "NN_learning_goal_supported": false,
+    "curation_goal_supported": false
+  },
+  "applicability": {
+    "tasks": [
+      "hammer_button",
+      "wrench_turn",
+      "tweezers_transfer"
+    ],
+    "robot": "Same simulated Panda + adapted Shadow right wrist/hand and task-specific state schemas",
+    "model": {
+      "architecture": [
+        293,
+        64,
+        64,
+        3
+      ],
+      "activation": "ReLU",
+      "parameter_count": 23171,
+      "parameter_count_includes_normalization": false
+    },
+    "input": "Full privileged qpos/qvel including object truth, current control and retrospective mean/last executed controls, interval dt/tick count and masks/task onehot; no image or language input",
+    "output": "One interval held-tool world XYZ displacement in metres, usually about0.1s; no robot commands",
+    "control_scope": "Recorded executed controls evaluated; helper accepts supplied planned controls but planning/execution/closed-loop performance unvalidated",
+    "outside_scope": [
+      "unseen tools",
+      "arbitrary schema changes",
+      "RGB/language policy",
+      "autonomous rollout",
+      "hardware deployment",
+      "general world model"
+    ]
+  },
+  "comparison_contract": {
+    "candidate_acquisition": "Shared engineering-reference-controller pool; native experience lessons informed experiment design, not autonomous acquisition of this pool",
+    "D0_rows": 72,
+    "uniform_rows": 216,
+    "curated_rows": 216,
+    "rows_per_training_episode": {
+      "D0": 8,
+      "uniform_total": 24,
+      "curated_total": 24
+    },
+    "training_seeds": [
+      0,
+      1,
+      2
+    ],
+    "optimizer": "Adam",
+    "optimizer_updates_as_recorded": 1000,
+    "batch_size": 64,
+    "same_seed_initialization_hashes_verified": true,
+    "execution_authentication": "Frozen source/weights/snapshot metadata consistency; not independent external attestation of historical optimizer execution",
+    "primary_metric": "Mean of per-episode mean L2 physical displacement error in mm; NN arm summaries average3trainingseeds",
+    "sampling_label_use": "V3 uses complete obtained TRAIN displacement labels to rank ||Y-CV||; not label-free and no acquisition/label-cost reduction"
+  },
+  "measured_outcome": {
+    "rounds": [
+      {
+        "id": "experience-curation-v1",
+        "method": "phase-based metadata curation",
+        "NN_mean_primary_mm": {
+          "d0": 1.3013228821653235,
+          "uniform": 0.5875238523236036,
+          "curated": 0.7167729411790696
+        },
+        "CV_primary_mm": 0.34018253944887084,
+        "uniform_minus_curated_mm": -0.12924908885546604,
+        "final_cases": 6,
+        "final_intervals": 1745,
+        "new_initialization_seeds": [
+          4000,
+          4001
+        ],
+        "curated_aggregate_seed_wins": 0
+      },
+      {
+        "id": "experience-curation-v2",
+        "method": "task-scaled TRAIN-X greedy coverage",
+        "NN_mean_primary_mm": {
+          "d0": 1.3956857987621651,
+          "uniform": 0.7116117789015766,
+          "curated": 0.7720872605505374
+        },
+        "CV_primary_mm": 0.37042989617836625,
+        "uniform_minus_curated_mm": -0.06047548164896088,
+        "final_cases": 6,
+        "final_intervals": 1745,
+        "new_initialization_seeds": [
+          5000,
+          5001
+        ],
+        "curated_aggregate_seed_wins": 0
+      },
+      {
+        "id": "experience-residual-v3",
+        "method": "TRAIN-CV-error priorities and CV-residual learning with validation checkpoint fallback",
+        "NN_mean_primary_mm": {
+          "d0": 0.35928630584679516,
+          "uniform": 0.35928630584679516,
+          "curated": 0.35928630584679516
+        },
+        "CV_primary_mm": 0.35928630584679516,
+        "uniform_minus_curated_mm": 0.0,
+        "final_cases": 6,
+        "final_intervals": 1806,
+        "new_initialization_seeds": [
+          6000,
+          6001
+        ],
+        "all_selected_NN_step": 0,
+        "all_selected_NN_exactly_CV": true,
+        "ridge_primary_mm": {
+          "d0": 0.8214819892726511,
+          "uniform": 0.7461525370853761,
+          "curated": 1.2492018919960073
+        }
+      }
+    ],
+    "V3_known_validation_cases": 9,
+    "V3_known_validation_intervals": 2648,
+    "V3_validation_identity": "3original3000validation cases +6oldV1final4000/4001 cases; original acquisition study/partition preserved and current known-validation role explicit",
+    "V3_checkpoints_per_run": [
+      0,
+      100,
+      300,
+      600,
+      1000
+    ],
+    "V3_all_checkpoint_count": 45,
+    "V3_selected_step0_models": 9,
+    "V3_nonselected_trained_checkpoint_count": 36,
+    "V3_selected_zero_fallback_is_learning_gain": false,
+    "two_goals_supported": false,
+    "failed_final_case_retained": {
+      "id": "wrench_turn-final-6001",
+      "eligible_intervals": 253,
+      "physical_task_success": false,
+      "program_finished": true,
+      "execution_error": null
+    }
+  },
+  "workflow_action": {
+    "id": "local_tool_translation_response",
+    "status": "accepted_as_workflow_action_with_CV_fallback",
+    "learner_promotion": false,
+    "portable_package": "pretrained/tool-response-residual-v3",
+    "command": "python pretrained/tool-response-residual-v3/run_demo.py",
+    "dependencies": [
+      "Python>=3.10",
+      "NumPy"
+    ],
+    "requires_for_demo": {
+      "Torch": false,
+      "MuJoCo": false,
+      "robot_assets": false,
+      "cloud": false,
+      "training": false,
+      "network_download": false
+    },
+    "meaning": "Reusable input/output, integrity-check and fallback workflow only; selected9NN exports equal untrained CV and do not establish learned or motor-skill improvement",
+    "input_encoder": "model_input.encode_state_action(schema, task, qpos, qvel, current_ctrl, controls, dt)",
+    "input_encoder_check": {
+      "rows": 2709,
+      "bitwise_equal_to_original_TRAIN_X": true,
+      "maximum_absolute_difference": 0.0,
+      "packaged_helper_sha256": "0e9330f88a3196b85289233d8f979a1e4b9e4596e787ee3d9a9ff4160ae6bf1c",
+      "runtime_helper_sha256": "0e9330f88a3196b85289233d8f979a1e4b9e4596e787ee3d9a9ff4160ae6bf1c",
+      "future_targets_passed_to_encoder": false,
+      "recorded_control_sequences_only": true
+    },
+    "released_fixture": "Known fixed x/y/velocity/dt examples; demo parity is not fresh generalization"
+  },
+  "data_and_quality": {
+    "large_raw_files": "Original model.mjb, samples.npz and per-tick control streams remain local in runs/experience-learning-v1; not distributed in the small portable package",
+    "replay_acceptance_is_demonstration_quality": false,
+    "preserved_bad_records": [
+      {
+        "id": "wrench_turn-validation-3000",
+        "analysis_split": "val",
+        "actual_acquisition_study": "experience-curation-v1",
+        "actual_acquisition_partition": "validation",
+        "declared_acquisition_study": "experience-curation-v1",
+        "declared_acquisition_partition": "validation",
+        "task": "wrench_turn",
+        "seed": 3000,
+        "eligible_rows": 253,
+        "physical_success": false,
+        "completed_task_success": false,
+        "program_finished": true,
+        "error": null,
+        "max_contact_force_n": 247.2629230054941,
+        "max_penetration_m": 0.009679240801042646,
+        "first_robot_nut_contact_s": null,
+        "manifest_sha256": "4f700b29f17052348aed6e6bbacc4f5d6e15a74072576dac0689a9d5c5961f81",
+        "samples_sha256": "e09020dc8b68a700cddfee611931d622a6aaf00f510860f0f7f75e5497259837",
+        "model_sha256": "feefd2c2006215bfe4c22d9e74ec1b7d4e54383990285eeb941e1bc49a01f82f"
+      },
+      {
+        "id": "wrench_turn-final-6001",
+        "analysis_split": "final",
+        "actual_acquisition_study": "experience-residual-v3",
+        "actual_acquisition_partition": "final",
+        "declared_acquisition_study": "experience-residual-v3",
+        "declared_acquisition_partition": "final",
+        "task": "wrench_turn",
+        "seed": 6001,
+        "eligible_rows": 253,
+        "physical_success": false,
+        "completed_task_success": false,
+        "program_finished": true,
+        "error": null,
+        "max_contact_force_n": 346.51168380443534,
+        "max_penetration_m": 0.007449586869743388,
+        "first_robot_nut_contact_s": 24.673999999997204,
+        "manifest_sha256": "3a361d8ebb07cd286c144f7f78c2795d37c0681f640a9970aad8e63679254d30",
+        "samples_sha256": "7041caf209c73cda16767d44319d1c8bef55bf6e409844d55cf1091da0f56385",
+        "model_sha256": "c4647dbcffcb772d0313a6f4e6e40cf1d020fe6a905e15a5eec12ee1c0bb9294"
+      }
+    ],
+    "hammer_force_penetration_maxima": null,
+    "hammer_missing_value_interpretation": "Unknown/not retained in outcome summary, never zero",
+    "quality_gates": "Original task outcomes are retained; force/penetration remain diagnostics rather than post-hoc relabeling gates",
+    "task_success_interpretation": "Physical outcomes belong to engineering reference controllers, never model-control success rates"
+  },
+  "reusable_lessons": [
+    {
+      "condition": "Validation selects the untrained zero residual checkpoint",
+      "guidance": "Label exact CV fallback explicitly; preserve trained nonselected checkpoints and reject a learned-gain claim."
+    },
+    {
+      "condition": "Experience-priority and equal-count uniform models produce the same final prediction",
+      "guidance": "Report zero curation gain separately from baseline response accuracy; a reproducible workflow is not evidence for the learning hypothesis."
+    },
+    {
+      "condition": "Reusing prior final examples as known validation",
+      "guidance": "Preserve actual acquisition study/partition and declare the new analysis role; do not call those cases fresh or multiply correlated seeds."
+    },
+    {
+      "condition": "Large TRAIN residuals identify candidate rows",
+      "guidance": "Disclose obtained-label use and shared candidate costs; preserve high-force/penetration failures rather than claiming they are expert-quality experience."
+    },
+    {
+      "condition": "Float32 checkpoint metrics differ at sub-nanometre aggregate scale",
+      "guidance": "Use the existing documented parity tolerance, retain strict initial flags, and keep exact zero-step/final-CV checks; do not interpret rounding as a learning effect."
+    }
+  ],
+  "provenance": {
+    "report": "docs/experience-learning.md",
+    "results": "runs/experience-learning-v1/residual-v3/test-v3/results.json",
+    "freeze": "experiments/experience-residual-v3-final-freeze.json",
+    "independent_audit": "evidence/experience-learning-v1/residual-v3-independent-audit.json",
+    "data_validation": "evidence/experience-learning-v1/residual-v3-final-validation/summary.json",
+    "portable_package": "pretrained/tool-response-residual-v3",
+    "interpretation_author": "Codex, derived from saved sources/results and independent checks; not automatic motor-skill discovery",
+    "source_manifest_sha256": {
+      "docs/experience-learning.md": "8e94c812d1d9c54a56b2078c9ea9acb3e6f1b1a36acf2240862aae5005e837f2",
+      "runs/experience-learning-v1/residual-v3/test-v3/results.json": "3490c019355b9f6c74863a69ec0cace660aa0c7dab1e25b60680836b7d4a3d03",
+      "experiments/experience-residual-v3-final-freeze.json": "6b355338db219f6244944dae326ce153dd8016c6d61664e4a8d5b4e1f41e5b43",
+      "evidence/experience-learning-v1/residual-v3-independent-audit.json": "bbf9e4556b82413dcb4f6ce2b5947fe5135695d4012a248bd41e14da16fa60e3",
+      "evidence/experience-learning-v1/residual-v3-final-validation/summary.json": "6499c19202bf00486f646ff87bf148c36e927ee375d66d585f97300f091e86f8",
+      "pretrained/tool-response-residual-v3/provenance.json": "943c48bc2386d76b67d4fda6ead37f6e10b8825f25f3d5db0bfd34cebd5abc80"
+    },
+    "full_hash_ledger": {
+      "path": "evidence/experience-learning-v1/model-residual-priority-v3-full-card.json",
+      "sha256": "59493a407de9e91ff998e64bf2602948d01fcea3b54bd2accc5a1f4c0abe48fe"
+    },
+    "hash_scope": "The linked frozen audit/source/package manifests retain all leaf input hashes; this reusable card avoids duplicating those large ledgers."
+  },
+  "closed_study": {
+    "last_candidate_completed": true,
+    "new_candidate_started": false,
+    "next_candidate": null,
+    "claim": "Engineering data/validation/capability workflow delivered; NN-learning and experience-curation benefit hypotheses not supported."
+  }
+}

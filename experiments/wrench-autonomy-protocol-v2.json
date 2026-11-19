@@ -1,0 +1,127 @@
+{
+  "protocol_id": "wrench-native-recovery-development-v2",
+  "authorized_sequence": [
+    "inventory",
+    "same_episode_recovery",
+    "fresh_agent_experience_reuse",
+    "reserved_placement",
+    "new_wrench_geometry"
+  ],
+  "current_stage": 2,
+  "scope": "Development of one observable same-episode correction on the public wrench task. This is not a held-out success-rate experiment.",
+  "robot": "Public Panda + adapted Shadow hand",
+  "observation_mode": "Declared simulator state, named contacts, robot proprioception and fresh two-view RGB images",
+  "native_actor": "Fresh Codex sub-agent, no inherited conversation; exact service model is not independently exposed by this interface",
+  "base_guidance": {
+    "record": "evidence/kit-suite-v1/wrench_turn/experience.json",
+    "origin": "Developer-calibrated reference episode, explicitly supplied to the actor",
+    "rule": "Use current observed frames and contacts; the record is guidance, not a target sequence to replay without feedback. No novel skill-discovery claim.",
+    "experience_sha256": "61c40e654d57690df154502b958cf81a8451e466cb3405d5043b16490907fac4",
+    "source_episode_id": "c6dc58d29a8d44328602a8bc71dba379",
+    "source_seed": 0,
+    "source_outcome": true,
+    "source_backend": "reference",
+    "source_files_sha256": {
+      "metadata.json": "eb9b0775a92aea7a367ceceea1fe42e0be8a346872386994cd8363c4aa5bb3d8",
+      "summary.json": "cda5d6e9d218326c643c06c964a0cdc2a7d922b8dd8dd82ccfff905998026964",
+      "actions.json": "59448843abc4969620fa8fc5312cfec6bd41f2742e3f6889eba5cd5052f040a3",
+      "steps/000/request.json": "105960c852ede65af4676ca40615b3ba41fbdf881ebd41a0206d38b26faefd52"
+    },
+    "engineering_prior": "Manually calibrated nominal grip, staged moves and elastic compensation; no neural weights. This seed-0 record is supplied equally, not independently discovered by this trial.",
+    "known_scope": "Same public wrench geometry. Historical engineering reference XY trials were 4/5, including a retained seed-5 failure; deterministic nominal repeats are not independent transfer trials.",
+    "actor_instructions": "experiments/wrench-native-actor-v2.md"
+  },
+  "development_seed_order": [
+    5,
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "case_selection": "Seed 5 has a known historical engineering-reference failure. All listed seeds are development cases, not new held-out tests. Retain every attempt and reason for any revision.",
+  "maximum_native_development_attempts": 12,
+  "maximum_reference_diagnostic_attempts": 6,
+  "maximum_decisions_per_attempt": 64,
+  "physics": "Existing wrench geometry, nut, robot, 500 Hz sampler and independent evaluator remain unchanged. Only robot commands are executed; no runtime object state writes, welds, contact edits or tool forces.",
+  "quality_criteria": {
+    "maximum_individual_contact_normal_n": 25.0,
+    "maximum_global_penetration_m": 0.002,
+    "robot_nut_contacts": 0,
+    "first_violating_sample": "Retain and evaluate it, then stop; a stopped attempt remains a failure. These are simulation criteria."
+  },
+  "recovery_acceptance": {
+    "whole_task": "Independent physical gates pass, accepted finish, no runtime error or quality breach. Pre-execution rejected commands are retained and counted; rejection-only correction is planning recovery, not evidence of physical recovery.",
+    "same_episode": "A measured mismatch and a subsequent correcting action occur in one continuous physical episode, without reset or editing the scene.",
+    "trigger_evidence": "Saved fresh observations must show an actual attempted motion/contact did not establish the intended task relation, such as failed seating, measured working-end misalignment or slip. Initial planned approach alone is not recovery.",
+    "correction_evidence": "The actor explicitly chooses a correction from its current observation. Independently compare the pre/post measured relation and subsequent physical progress; text self-report alone is insufficient.",
+    "labeling": "Call it pose correction, seating recovery or regrasp only as established by the saved measurements. Do not manufacture a fault to illustrate a predetermined recovery.",
+    "numeric_rules": {
+      "alignment_after_attempt": {
+        "eligibility": "After a declared align/insert attempt, lift gate passed, head height within 15 mm above nut top; a planned initial approach is excluded.",
+        "trigger_xy_error_m_at_least": 0.003,
+        "after_xy_error_m_at_most": 0.0025,
+        "relative_error_reduction_at_least": 0.5,
+        "after_window_maximum_decisions": 6
+      },
+      "blocked_seating": {
+        "eligibility": "After an actual insert attempt aimed at or below nut center + 8 mm; actual head-nut contact; lift gate passed.",
+        "trigger_head_above_intended_target_m_at_least": 0.004,
+        "trigger_nut_angle_advance_rad_below": 0.05235987755982989,
+        "after": "Within six valid actions, actual head height approaches the declared intended target by at least 3 mm, followed by contact-qualified turn gate. Save intended working-end target in the actor intent, not inferred from prose."
+      },
+      "grip_loss": {
+        "eligibility": "After lift gate passed, previously >=2 distinct hand parts on unsupported tool, then <2 while the episode remains within quality limits.",
+        "after": "Actor-chosen grasp correction restores >=2 distinct hand parts unsupported for at least 2 continuous seconds before completing remaining gates."
+      },
+      "quality_boundary": "Only deviations below the physical quality-stop thresholds are recoverable in this protocol. An actual threshold breach ends the attempt; it cannot be recovered by weakening a criterion.",
+      "evidence": "Bind the first eligible trigger request/sample, correction action sequences, raw reply/executed action digests and measured after-window. Report which numeric rule passed; if none passes, a successful task is not an accepted recovery demo.",
+      "working_end_tracking": {
+        "eligibility": "After a completed level/align motion lasting >=0.5s, lift gate passed, tool retained by >=2 distinct hand parts unsupported, intended working end within 30mm XY of nut, desired head >=10mm above nut top. Exclude initial approach/lift and post-success decorative motion.",
+        "trigger_position_error_m_at_least": 0.004,
+        "after_position_error_m_at_most": 0.002,
+        "relative_error_reduction_at_least": 0.5,
+        "after_window_maximum_decisions": 6,
+        "same_intended_target_tolerance_m": 1e-06,
+        "after": "The actor explicitly selects a correction and retains the same intended working-end target (including during the measured after-window), reducing the actual 3D target error. Changing the goal to follow the observed error is not correction."
+      }
+    }
+  },
+  "records": [
+    "source hashes",
+    "actor instructions",
+    "declared experience hashes",
+    "every request and exact reply",
+    "fresh images",
+    "actions/results including interrupted action",
+    "500 Hz samples",
+    "continuous video",
+    "summary",
+    "independent replay",
+    "measured recovery audit",
+    "actor per-request intent records and independent action-binding audit"
+  ],
+  "protected_artifacts": [
+    "previous release ZIPs",
+    "pretrained/wrench-xy-v1/policy.json",
+    "pretrained/wrench-xy-v1/weights.npz",
+    "previous sealed final seeds 100-119"
+  ],
+  "external_services": "No DeepSeek calls or remote-workstation jobs. Native Codex operation only.",
+  "retention": "Initially at most 2 GB new evidence; losslessly compress physics samples and preserve failed attempts.",
+  "next_step_gate": "Do not begin experience-reuse testing until same-episode recovery is physically accepted and its lesson provenance is recorded. Placement and new geometry remain later stages.",
+  "actor_binding": {
+    "allowed_tools": "Only current assigned episode requests/images, the supplied reference experience, and published pure wrench_tools.tool_pose_action helper. No reference-controller source, evaluator source, other episodes, original project or training/test outputs.",
+    "root_role": "Launch and monitor only. Root must not choose, write, modify or replace any robot action during an episode. Any strategic intervention invalidates the independent actor claim and must be disclosed.",
+    "identity": "Save exact delegated task identity, instruction text/SHA, source hashes, episode id and declared experience SHA.",
+    "action_binding": "Independently compare current request ids, canonical observation SHA, native raw reply action and executed step action for every sequence.",
+    "intent_record": "Actor writes actor/intents/NNN.json before each reply: request_id, observation_sha256, semantic_operation, target_head_m or null, diagnosis, correction_trigger or null. Canonical JSON uses sort_keys=True,separators=(comma,colon),allow_nan=False."
+  },
+  "revision_of_sha256": "9b6a7da43080ed870b2929ab32cf0fca96e30f569948634eb6786a4b83a051c9",
+  "revision_reason": "Attempt001 is retained as failed: working-end correction occurred before contact, but extraction exceeded 2mm. Before a fresh attempt, explicitly evaluate safe-height working-end tracking correction with an unchanged intended target, and require finer contact motions. Never rescore attempt001 as accepted.",
+  "contact_motion_guidance": {
+    "maximum_requested_working_end_translation_m_when_in_contact": 0.003,
+    "maximum_requested_tool_rotation_rad_when_in_contact": 0.08726646259971647,
+    "scope": "Published guidance for the agent, not hidden action rewriting or a change to physical quality limits. Every action remains actor-selected."
+  }
+}

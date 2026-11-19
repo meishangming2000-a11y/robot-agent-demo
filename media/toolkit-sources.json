@@ -1,0 +1,28 @@
+{
+  "figure": "media/toolkit.png",
+  "sha256": "a9b8b45dde412f8f42105664de063d56f2ad126e87903064881498c988ed7fdc",
+  "frames": [
+    {
+      "frame": "media/source-frames/hammer-online.png",
+      "sha256": "454822b49439fd274fd53dbc7b57f78aa7434a163611d6c47250b2433e49095f",
+      "original": "evidence/experience-s1/steps/011/front.png",
+      "episode_result": "evidence/experience-s1/summary.json",
+      "controller_origin": "Hammer: online Codex + reference experience"
+    },
+    {
+      "frame": "media/source-frames/wrench-reference.png",
+      "sha256": "c4441884da18584b13bce6f97d814ac2aaaca6f1fc34bac2b88bb1596ed96119",
+      "original": "runs/kit-suite-v1/wrench_turn/steps/016/front.png",
+      "episode_result": "evidence/kit-suite-v1/wrench_turn/summary.json",
+      "controller_origin": "Socket wrench: engineering reference"
+    },
+    {
+      "frame": "media/source-frames/forceps-reference-detail.png",
+      "sha256": "d38346c46205d028cbf7891de90d08d04a8108e4ba22da6c4d84cde29e6fe02b",
+      "original": "runs/tweezers_dev/formal_v1_nominal_01/26_tweezers_transport_1_detail.png",
+      "episode_result": "evidence/tweezers-v1/formal/formal_v1_nominal_01/evaluation.json",
+      "controller_origin": "Spring forceps: reference, working-end closeup"
+    }
+  ],
+  "scope": "Different controller conditions are labelled. Reference success is not online-agent success or cross-tool learning. Spring-forceps placement includes lower-tip support after transport."
+}

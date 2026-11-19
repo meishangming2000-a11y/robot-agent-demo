@@ -1,0 +1,315 @@
+{
+  "protocol_id": "wrench-annealed-refinement-policy-v3",
+  "declared_at_utc": "2026-11-17T17:41:08.084163+00:00",
+  "prerequisite_kit": {
+    "archive": "release/dexhand-agent-toolkit-v1.zip",
+    "sha256": "ac9d30850b749f62300cb17cfb779c2ab6819536ed38f71968ec1180f41a478b",
+    "source_full_tests_passed": 444,
+    "model_pack_independent_loads_passed": 3,
+    "actual_one_command_tasks_passed": 3
+  },
+  "task": "wrench_turn",
+  "base_freeze_id": "wrench-v1-20261117",
+  "base_physics_sha256": {
+    "dexhand_agent/wrench.py": "b8d05b211c0302dd66373e44e266c2fa6f41626fb59b6f120313c28cc7fd0e5f",
+    "dexhand_agent/runtime.py": "570b26d26ebbfec41a821e05c1d6573937c06b0880f6135dfaa3f0912f2640ff",
+    "dexhand_agent/scene.py": "3711fd78a5965c58476141a29bfe0a398ef52fb870886236dedd595f6052d27e",
+    "dexhand_agent/wrench_evaluate.py": "b131f057ba99dc8775dc9b9cd6436e8ab4f6e6d94f4ebc8eb42af681f61a9520",
+    "tools/probe_wrench.py": "0c55d5849a1606f803926a08d1cf4e198d4518fb27f88d73dda476b52e41e164",
+    "tests/test_wrench_model.py": "49b1e4ab0edb1ae32b6a205e217e31cffcd51344ad03a54b21553a25c6c416a7"
+  },
+  "task_protocol_version": 1,
+  "fixed_conditions": "Public Panda + Shadow; unchanged wrench/nut geometry, inertia, friction, contacts, passive brake, observations, action bounds and independent evaluator. Only bounded controller parameters vary.",
+  "policy": {
+    "type": "contextual controller-parameter neural network",
+    "context": "initial naturally settled tool XY; no seed ID input",
+    "context_center_m": [
+      0.53,
+      -0.13
+    ],
+    "context_scale_m": [
+      0.01,
+      0.01
+    ],
+    "architecture": [
+      2,
+      16,
+      16,
+      5
+    ],
+    "activation": "tanh after every layer",
+    "parameter_names": [
+      "grasp_y_offset_m",
+      "grasp_z_offset_m",
+      "tool_pose_x_offset_m",
+      "tool_pose_y_offset_m",
+      "tool_pose_z_offset_m"
+    ],
+    "parameter_bounds_m": [
+      0.003,
+      0.003,
+      0.004,
+      0.004,
+      0.004
+    ],
+    "deployment": "NumPy NPZ weights plus versioned JSON contract, no Torch inference dependency"
+  },
+  "seeds": {
+    "training": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "checkpoint_validation": [
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39
+    ],
+    "untouched_final_test": [
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119
+    ]
+  },
+  "quality": {
+    "max_contact_normal_n": 25.0,
+    "max_global_penetration_m": 0.002,
+    "forbidden_robot_nut_contacts": 0,
+    "abort_candidate_on_first_violation": true,
+    "qualified_success": "all independent physical gates AND quality eligible AND no runtime error",
+    "note": "Simulation quality criteria, not hardware safety guarantees; independent task gates remain unchanged."
+  },
+  "search": {
+    "method": "reuse the exact audited V2 dataset; no new teacher/parameter searches",
+    "random_seed": 20261118,
+    "source_run": "runs/wrench-consistent-v2",
+    "shared_anchor_parameters_m": [
+      8.828715280093696e-05,
+      -0.0003299897125160592,
+      1.8875055484693515e-05,
+      0.0003977044425564356,
+      0.00022515367189789655
+    ],
+    "max_training_candidate_rollouts": 0
+  },
+  "score": {
+    "formula": "1000*qualified_success + 100*sum(clip(best_continuous_s/required_s,0,1)) + 10*clip(max_nut_turn_rad/(pi/4),0,1) - 0.2*max_contact_force_n - 500*max_penetration_m - 1000*quality_violation",
+    "none_extrema": "zero only for scoring an empty attempt; raw summaries retain null extrema",
+    "ranking": "formula is diagnostic for every attempt; only optimization-eligible completed attempts may be ranked as elites or labels"
+  },
+  "network_training": {
+    "framework": "local PyTorch; CPU sufficient",
+    "optimizer": "Adam",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "checkpoints_at_epochs": [
+      200,
+      600,
+      1200
+    ],
+    "loss": "same normalized-parameter MSE, now using consistently revalidated teachers; architecture and optimizer unchanged",
+    "constant_comparator": "componentwise median of best training parameter vectors",
+    "initialization": "all six float32 arrays loaded exactly from the sealed V2 checkpoint-1200",
+    "epoch_units": "additional gradient steps after the1200-step V2 parent; absolute totals1400,1800,2400"
+  },
+  "checkpoint_selection": {
+    "sets": "validation seeds only",
+    "priority": "highest qualified validation success count, then highest mean score",
+    "stability": "last three checkpoints each >=7/8 qualified successes; success counts differ by <=1 across them",
+    "final_test_only_after": "freeze chosen policy weights and implementation hashes",
+    "final_test_prerequisite": "all three declared checkpoints satisfy the stability criterion, then freeze selected weights, policy and rollout implementation hashes, comparator vectors and training provenance; otherwise leave seeds100-119 untouched"
+  },
+  "final_evaluation": {
+    "policies": [
+      "zero-parameter original reference",
+      "training-median constant parameters",
+      "chosen neural policy"
+    ],
+    "seeds_per_policy": 20,
+    "release_gate": "neural qualified successes >=18/20 and not fewer than original reference; zero forbidden contacts in all twenty neural test episodes",
+    "no_retuning_on_final_test": true,
+    "if_not_met": "report experimental weights and unmet criterion; do not claim convergence or validated improvement",
+    "improvement_claim": "report paired outcomes vs original, V2 median and shared V1 anchor. If neural equals a successful constant, state distillation without contextual benefit.",
+    "additional_comparator": "original shared V1 training-median anchor; if exactly equal to V2 teacher median, alias its outcomes instead of running duplicate episodes; otherwise evaluate its fixed vector on the same20finalseeds after policy freeze",
+    "max_final_rollouts": 80
+  },
+  "resources": {
+    "local_only": true,
+    "max_cpu_workers": 8,
+    "per_worker_threads": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    },
+    "training_uses_images": false,
+    "visual_validation": "inspect selected validation rollout before freezing final policy"
+  },
+  "claim_scope": "Only initial XY variation of this fixed wrench task and robot. Parameter search plus supervised policy fitting, with traceable physical experience; no new foundation model, no new learning algorithm, no unseen-tool transfer claim.",
+  "asset_provenance": {
+    "manifest_sha256": "494d74b0003a1e81c58ca90cfcf0c5a627c56a1e08649380d0a7e0a724baa2be",
+    "vendor_files_sha256": {
+      "shadow_hand/right_hand.xml": "ac14d09dd12b62c3ca62233d0ac646101cc718146dda76e26d0b993a91abf399",
+      "shadow_hand/LICENSE": "d42cae9a0f292b7a713597ba26e1e1e23d50df906c488f0d36fd3538af200bc1",
+      "shadow_hand/README.md": "451943a22b2312a3152a55e9ec47fd449e89e3c674ccd8c763364e61cfe3f137",
+      "shadow_hand/assets/forearm_0.obj": "4d175854bbd3c93627eb6b9f09296efd4e133cd72885b9bc57c82f902c8c94c4",
+      "shadow_hand/assets/forearm_1.obj": "6ada902a47f61f000fb14cbb8245e2093ff32e3e6b43deea790fe5d034864774",
+      "shadow_hand/assets/forearm_collision.obj": "38328466d52194888812a15da0dd3d5a1ef786a005121338f6a5a8ce3057602d",
+      "shadow_hand/assets/wrist.obj": "fc5620e4d9ea46d9526f0b40f8586bb5607e8ca763e5e23dab907a1baaf4890d",
+      "shadow_hand/assets/palm.obj": "614cf65374fafaceb713f4ee711692be6a3a0a7851ff2e720925f3a858cb3882",
+      "shadow_hand/assets/f_knuckle.obj": "e997543c6c635fa80d152655869fe1d5bc1000a55f7fb648544a8755f068a075",
+      "shadow_hand/assets/f_proximal.obj": "ec7741fb5a9ee379faec68091de1086ade627b46a73f0a32b3cc09fec72524e3",
+      "shadow_hand/assets/f_middle.obj": "8e78001a2ff735088cd71e009498ac73e4f966a6055d3bc864db049eacdbda11",
+      "shadow_hand/assets/f_distal_pst.obj": "350fcd33bc8ead915c0f646c8303d6b7554ad50ce546a128671d8d1fc75d5807",
+      "shadow_hand/assets/lf_metacarpal.obj": "71d5317a6c0a5dcf6070791981f2a4720919d0419d0c17b400aef91343ce6baa",
+      "shadow_hand/assets/th_proximal.obj": "71ffd5329c80a0cef890da0ff490b8e04200ff53154e5b416ce0be24a6a1b256",
+      "shadow_hand/assets/th_middle.obj": "a83bd4451f98d88c6c43ca0bbba30b6fd95b205da13adf9aff5a56c5aff3b4a8",
+      "shadow_hand/assets/th_distal_pst.obj": "ca87b937114face76a91810f2ee60ea4fc217b57ffa9a7a7f166169a3ebf7da1",
+      "franka_emika_panda/panda_nohand.xml": "f05c9674dbc6081c8f096133d8537bdd977f87ec8eeb6264a77a9295ae88af09",
+      "franka_emika_panda/LICENSE": "a6cba85bc92e0cff7a450b1d873c0eaa2e9fc96bf472df0247a26bec77bf3ff9",
+      "franka_emika_panda/README.md": "e12684556d0154bdf2a9e77e7009ed680cd06ca89904f9e6303050f9fe59300c",
+      "franka_emika_panda/assets/link0.stl": "dfc6d94330de8ddb005b311bfdba9f3b8e1aa7c256b71592ee7ff32cb9a9a5aa",
+      "franka_emika_panda/assets/link1.stl": "e41a39a94108fcf56aacff603fc91ec80541f4c1af17b51a0de5617f5566e6d2",
+      "franka_emika_panda/assets/link2.stl": "370f7605a0fae3529db169ded50f52f171024aa792d4d773bc84197301f6a039",
+      "franka_emika_panda/assets/link3.stl": "0a8d638b9349c6c0eefc4e888636ac4838c4b27170f18a51699321118af709c1",
+      "franka_emika_panda/assets/link4.stl": "0180ebb5772ec9840cb049750cffb29a9ddc90311752a16ea34757782ef9e48d",
+      "franka_emika_panda/assets/link5_collision_0.obj": "3e5aa75fb13f193555c3dfb999df91d81df25006a5c3af5338297d78137c129b",
+      "franka_emika_panda/assets/link5_collision_1.obj": "87cd8f621071df010f774cbde789282b8463840dfe704f8bdfa2e29be0142e15",
+      "franka_emika_panda/assets/link5_collision_2.obj": "823ab6c8f7b1d79e0844fa071d82a03499ff68e34fddb1ba3451032c22736040",
+      "franka_emika_panda/assets/link6.stl": "20b768e99a0e0440b5754dcca108016434e57937cc356acd9c352ccd3cb27f77",
+      "franka_emika_panda/assets/link7.stl": "92ac6afcf7574c034d3170d8a68e95ac9048ab9d0dd5bbd8311b86e551b9ab1c",
+      "franka_emika_panda/assets/link0_0.obj": "6b9f41a4c203540daaeb7a33cc3d0d6c6a32dc8bba187074eeaf97b3e36b3f9c",
+      "franka_emika_panda/assets/link0_1.obj": "57673d2ee2a9db2e10c8986ae57c56a7c39c012b60fd26d7d8549553b664a5ed",
+      "franka_emika_panda/assets/link0_2.obj": "1ca435a2a87a9608a146a47955724d43dd7ce10fc3dd3018800aa98f8ba86e05",
+      "franka_emika_panda/assets/link0_3.obj": "3e9c6334d2b3b47944af3458ee5f20519abc20fe7ee23063bb53405ccab28046",
+      "franka_emika_panda/assets/link0_4.obj": "215d25789704936120f119c0bc1cc7f68516dd3f8f1df61457b71acac3873f26",
+      "franka_emika_panda/assets/link0_5.obj": "9361b104e93743045107aa5b15fb1a0835ba9c1f355aae71f56403cf6a9c33f6",
+      "franka_emika_panda/assets/link0_7.obj": "2dc0b8ebbbc80e4c065d71e195adbc384f673438641fac82b07b801b4d2837cb",
+      "franka_emika_panda/assets/link0_8.obj": "3b8c436999db5586b8eb47bed2b0aa7de6993868b2681b4c04246eeac42fdb7a",
+      "franka_emika_panda/assets/link0_9.obj": "45178f97d2b5da6bce11f610212c4ef7d08c73db33a4fc38e1b7f66b93d023f5",
+      "franka_emika_panda/assets/link0_10.obj": "c9198b9d8534d628d097b0f2b239bb30343353182df098ce0d9db6bc13326848",
+      "franka_emika_panda/assets/link0_11.obj": "f0adec78d6677b7799d25121981270e8bfe119b5c18d08a91ee37a54ad75f65c",
+      "franka_emika_panda/assets/link1.obj": "51091e776b16babdbe2f3849b5c041f921d1f11dd94ac19a0f1c81abf496fbae",
+      "franka_emika_panda/assets/link2.obj": "5c9f8e715de52c3eb71b475de35993b3b96081e02abea9f28c414768877fc59b",
+      "franka_emika_panda/assets/link3_0.obj": "ce2da87f51708e11b189249d41401065dabe89a06e251185a06cef4d5ff27178",
+      "franka_emika_panda/assets/link3_1.obj": "2880b7753a7173f38fa87ee21da4dfc7fa7be46fbe07bac5aef9e128513cb118",
+      "franka_emika_panda/assets/link3_2.obj": "670cff81ae84693769ca4ae658c154cf909d81167e7c8d22b70ea977f2504efa",
+      "franka_emika_panda/assets/link3_3.obj": "30ede0c812efd0e0b767d134a4eae0b84e0fa407bb6325a5a555e0569b3a3ffd",
+      "franka_emika_panda/assets/link4_0.obj": "443bf6d178177cf347951ecf107ccd10ca444e605e375b67304579e5f948806f",
+      "franka_emika_panda/assets/link4_1.obj": "ca935ec7cc8b3f0e86aa079c76b0b3bf593b1e9830bab0fa7131ac51577c74f0",
+      "franka_emika_panda/assets/link4_2.obj": "c89caf26d379c35bb9e191ee2d91d09ab29ecc792b48d8bc10b39e5b38222175",
+      "franka_emika_panda/assets/link4_3.obj": "1495d17f45bdb230cf58b0beef9da4e8c9cfe76a3d2d38da89017efe5e093136",
+      "franka_emika_panda/assets/link5_0.obj": "a3238b8f2af0f2eb66d9fe63dc5d41ac52d5d38507241b5ed10e3cb019ab3e71",
+      "franka_emika_panda/assets/link5_1.obj": "9d994bbf83ec241e301b5197a6846da13f2a4a0582edb2c0f76962c5549649d6",
+      "franka_emika_panda/assets/link5_2.obj": "83b4ffe9f772cd7fe182e98640650eebc899aaf01842656574b0416c90dd40a4",
+      "franka_emika_panda/assets/link6_0.obj": "0504c70ebf1b284ee8faae7dcb896b8830bc672a6552015dd5dbd121fa031fb9",
+      "franka_emika_panda/assets/link6_1.obj": "45f7ca77695198b6d86ec2417ad4e42e6275044f0f96266699ee8e1057757ac1",
+      "franka_emika_panda/assets/link6_2.obj": "e54eee4d8232947ee8af65afd5a067e09dac2da6e7e585cb1dccb65496457da0",
+      "franka_emika_panda/assets/link6_3.obj": "d4f6a25ef32fa1fa4734146981994ee760232cb077c80fea6487d78a077c7f27",
+      "franka_emika_panda/assets/link6_4.obj": "be353480fe71d46f7a96f0a3cbb7e112caaf8d88368826f321a36a253c8749b2",
+      "franka_emika_panda/assets/link6_5.obj": "7c87664623c3e1a6cb330db273227a69626dc5e53b4caff1d4ee7911eb3340c6",
+      "franka_emika_panda/assets/link6_6.obj": "8fbc031e0d07b795ebf99115c75223141caaba317cab569159f3d477a7821681",
+      "franka_emika_panda/assets/link6_7.obj": "7dc5ebb799fe281aab27d6e84e7a4efa0a8e42da2369ec83de3ea3f206f62d73",
+      "franka_emika_panda/assets/link6_8.obj": "e3f77381817a341030f9dcc4c4aa7c559f80411b453fd87eb0fefecca82151bf",
+      "franka_emika_panda/assets/link6_9.obj": "25a56ea9b02a03b6cb5a81f31c54f54d0185e1a0b3937c37e4289d896e50215a",
+      "franka_emika_panda/assets/link6_10.obj": "365f26c21d10332cab8d8704645cb46930c30b3085956f2d097498c793f24db4",
+      "franka_emika_panda/assets/link6_11.obj": "8ae61e08b3ad064f25bbf03b22e59cc15d65883b5a7ce92711aff29df2493901",
+      "franka_emika_panda/assets/link6_12.obj": "f28d1bfd62b0244ffd19fb35fe9edefdf583d3c9167db944e87185d919e1d021",
+      "franka_emika_panda/assets/link6_13.obj": "0a55fa92dccb261d07200e6565fca4c850fd17f0c1ecf38821c0b97d51796c7d",
+      "franka_emika_panda/assets/link6_14.obj": "750ae3ee4781e62e3a045c662195247b03f6642b05aa93104f08258e5f6eba26",
+      "franka_emika_panda/assets/link6_15.obj": "5999c1c2497a004a7c4bbe034cdf13744f839d85ae7a11b1bc386c48a3e642e6",
+      "franka_emika_panda/assets/link6_16.obj": "551d7a8b37c53e7a152d008b4e36992e5b5abe74a4be18b57ee6319c27def09f",
+      "franka_emika_panda/assets/link7_0.obj": "04586b0bde011715cfc22072ac72fe0717eb4d4817bcf665987ce6cd88eb2b93",
+      "franka_emika_panda/assets/link7_1.obj": "c3f72289f394c9d6749a4a327fb11f05b203c37c95032c92f28019b40ebe7e00",
+      "franka_emika_panda/assets/link7_2.obj": "d2faecedb304d0989040d082410378dc949dbbda23bd18c05134f08aae984db5",
+      "franka_emika_panda/assets/link7_3.obj": "b62d87c4d4bdb7b281ed341d347c39dad0e50bf36aed8ac11d050073701d5f70",
+      "franka_emika_panda/assets/link7_4.obj": "cb78ccb61fd4ad6c7bff4c4d2e6cb41e1964a5a3e1a28e67c0c6202371cfc018",
+      "franka_emika_panda/assets/link7_5.obj": "099071d3090b51471ba52f4f90814fd3089f4975d196e4d488117073d0bfe491",
+      "franka_emika_panda/assets/link7_6.obj": "99469e2d95ab74ce0292f2f16954c87a8a7dc16652e62e970fe37c94330a81bb",
+      "franka_emika_panda/assets/link7_7.obj": "426c3db8a19373f3dc73d4bec672e948121b2914c10e2e7b9c7ea80643a19e54"
+    },
+    "verify_when": "before and after candidate collection, checkpoint validation and final evaluation"
+  },
+  "prelaunch_review": {
+    "reason": "V2 physical successes8/8->6/8->8/8 failed stability. Test a lower-rate settling phase while preserving all earlier failures. This is a hypothesis, not a convergence claim.",
+    "validation_status": "32-39 are reused development/selection contexts",
+    "final_test_status": "100-119 remain untouched in both V1 and V2; V3 final gate remains mandatory",
+    "new_training_steps_before_declaration": 0
+  },
+  "parent_experiment": {
+    "run": "runs/wrench-consistent-v2",
+    "dataset_sha256": "0acfbba48f4ef32eb4fc9eeab03b3123132cf2f50fc4e6797e1d7da8d54985a2",
+    "teacher_audit_sha256": "56f295ed181b259a0c737da7978a5d68a42f605fe09e395a025c03e57e8e0625",
+    "source_snapshot_sha256": "f26889b1c584cce41eb7c7358aa6674851c0cc8670ba3464279847fbbe220c7f",
+    "validation_checkpoint_successes": [
+      8,
+      6,
+      8
+    ],
+    "final_test_accessed": false
+  },
+  "teacher_selection": {
+    "source": "byte-identical V2 dataset.json, all32teachers independently audited",
+    "new_raw_training_rollouts": 0,
+    "new_labels_or_interpolation": false,
+    "rollout_contract": "unmodified V1 physical runner and original per-episode protocol hashes retained; V3 orchestration/weights carry V3 protocol hash"
+  },
+  "parent_initialization": {
+    "policy_dir": "runs/wrench-consistent-v2/checkpoint-1200",
+    "policy_sha256": "03c29939ca7a5c6ff347faaf03be48ab7b575e514aa402c04730e78bdf43f1a5",
+    "weights_sha256": "fbd0a4f5d6cea4f3c35a880bf5852012ba9ef6a85deca4299ffd8a782d87ded4",
+    "prior_gradient_steps": 1200,
+    "choice": "last saved V2 checkpoint, not an unreported checkpoint search",
+    "optimizer_state": "Adam moments reinitialized because only weights were saved; this is fine-tuning, not exact optimizer-state continuation"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "protocol_id": "wrench-calibrated-grip-reserved-placement-v2",
+  "stage": 4,
+  "previous_reserved_result": "placement-30deg-v1 primary FAILED andimmutable; six separatelylabeleddevelopmentdiagnostics retained",
+  "development_source": "evidence/wrench-grip-v2/development-pickup.json; THJ4+.02rad achievedpickup only, fulltasknotyetverified",
+  "variant_id": "placement-minus20deg-v2",
+  "placement": {
+    "wrench_rack_translation_m": [0.015, -0.02, 0.0],
+    "wrench_rack_yaw_deg": -20.0,
+    "rotation_pivot": "seeded base wrench body center; translate that pivot, rotate wrench and all three supports together",
+    "nut_pedestal_translation_m": [-0.025, 0.015, 0.0]
+  },
+  "seed": 5,
+  "cases_in_order": ["v2-base-control", "v2-new-reserved-placement"],
+  "control_protocol": "experiments/wrench-placement-v2-control.json",
+  "control_case": "runs/wrench-placement-v2/base-control",
+  "experience": ["evidence/kit-suite-v1/wrench_turn/experience.json", "experiences/wrench-native-v2.json"],
+  "actor_instructions": ["experiments/wrench-native-actor-v3.md", "experiments/wrench-memory-actor.md", "experiments/wrench-grip-v2-actor.md"],
+  "starting_grasp": "Use source-backed v2 13-target posture asinitialcandidate: onlyTHJ4=.9453804236340059 differsfromnominal. No calibrationD3-D5 routineornewtrainednetwork isintroduced. Agentcanreact tofeedbackandmustloganylatergripchange.",
+  "frozen_control_resources": ["dexhand_agent/wrench_tools.py", "dexhand_agent/wrench_recovery.py", "tools/drive_native_skill.py"],
+  "maximum_robot_commands": 160,
+  "maximum_online_choices_including_skill_selections": 32,
+  "physical_rules": "experiments/wrench-autonomy-protocol-v3.json",
+  "unchanged_physics": "Robot/hand/table/cameras, tool/nutgeometryandmass/bodyinertia/contact/friction/gains/limits/timestepandindependentevaluator unchanged; onlydeclaredinitialtaskposes differ.",
+  "observation": "Same declaredsimulatorstate, geometry, namedcontactsandfresh2viewRGB. Nutworldyawdoesnotchange. Actorreadscommoninstructions/currentstate/experiences, notthescenefactoryorpresetcoordinates.",
+  "acceptance": "Bothplannednewv2casescompletephysicaltaskandstrictquality; boundfrozenlocalpolicytrace, actualsource-memoryadoptionandinitialcalibrated13targetgraspverified. Newreservedheadgoalusescurrentnutcoordinatesanddiffersfromsourcegoal. Allattemptsreported; noefficiencyorpopulationrateclaim.",
+  "initialization_checks": "XMLpose-onlydiffs, compiledconservationandtwoinitialrendersallowedbeforeinteraction. Zero controltrajectoryatnewminus20layoutbeforeprimary.",
+  "primary_attempts": "One freshindependentactorpercase; retainanyfailure. Furtherdevelopmentrequiresnewexplicitrecords, neverretroactivepromotion.",
+  "scope": "Newstartinggripconfigurationderivedfrom30degdevelopmentthenfrozenbeforetestingadifferentnegativeyaw/position. Thisisforwardtestingofv2, notgeneralizationofthefailedv1method. No newrobot/newtoolcategory/hardware/visiononlyclaim.",
+  "root_role": "Launch/monitoronly; no robotactionchoice/write/replacementorstrategichintswhileactorsrun.",
+  "external_services": "No DeepSeek/additionalexternalmodel/remotejobs.",
+  "next_gate": "Newwrenchgeometryworkonlyafterstage4accepted."
+}

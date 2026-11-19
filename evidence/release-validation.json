@@ -1,0 +1,129 @@
+{
+  "release": "v0.1.0",
+  "validated_on": "2026-11-19",
+  "platform": "Windows",
+  "python": "3.12.5",
+  "fresh_environment_installation": true,
+  "pip_check": "passed",
+  "mujoco": "3.5.0",
+  "numpy": "2.2.4",
+  "tests": {
+    "full_suite": {
+      "tests": 1002,
+      "passed": 1000,
+      "failures": 2
+    },
+    "repair": "Added five unchanged historical JSON fixture inputs missing from the curated package; no tests, runtime, or evaluators changed.",
+    "failed_test_recheck": {
+      "tests": 2,
+      "failures": 0
+    },
+    "remaining_known_failures": 0
+  },
+  "quickstart": {
+    "command": "python quickstart.py --task all --output runs/release-smoke-001",
+    "exit_code": 0,
+    "outcomes": {
+      "hammer_button": {
+        "success": true,
+        "error": null,
+        "decisions": 17,
+        "samples": 9900,
+        "independent_gate_replay_matches": true,
+        "accepted_finish": true,
+        "backend": "reference",
+        "metrics": {
+          "samples": 9900,
+          "last_time_s": 20.79999999999935,
+          "initial_height_m": 0.23996488169000543,
+          "max_lift_m": 0.15440589147783332,
+          "max_button_depth_m": 0.008746751962684252,
+          "max_head_clearance_m": 0.08159436440072154,
+          "first_robot_button_contact_s": null
+        }
+      },
+      "tweezers_transfer": {
+        "success": true,
+        "error": null,
+        "decisions": 41,
+        "samples": 21700,
+        "independent_gate_replay_matches": true,
+        "accepted_finish": true,
+        "backend": "reference",
+        "metrics": {
+          "samples": 21700,
+          "last_time_s": 44.4000000000083,
+          "initial_tool_height_m": 0.24191558105077623,
+          "initial_object_height_m": 0.22998969176723735,
+          "max_tool_lift_m": 0.159686554344564,
+          "max_object_lift_m": 0.04902352079211883,
+          "min_goal_distance_m": 0.0010911574130145815,
+          "max_object_bottom_clearance_m": 0.04867620861766567,
+          "max_tip_object_clearance_m": 0.1550470857840173,
+          "max_contact_force_n": 2.948058806498702,
+          "max_penetration_m": 0.0026826161122893554,
+          "first_robot_object_contact_s": null
+        }
+      },
+      "wrench_turn": {
+        "success": true,
+        "error": null,
+        "decisions": 20,
+        "samples": 12450,
+        "independent_gate_replay_matches": true,
+        "accepted_finish": true,
+        "backend": "reference",
+        "metrics": {
+          "samples": 12450,
+          "last_time_s": 25.899999999996524,
+          "initial_height_m": 0.2419772518071842,
+          "initial_nut_angle_rad": 0.0,
+          "max_lift_m": 0.10985637211863197,
+          "max_nut_turn_rad": 1.1444091789430944,
+          "max_head_clearance_m": 0.28681276302839925,
+          "max_contact_force_n": 3.9937048696293136,
+          "max_penetration_m": 0.0004955603807109153,
+          "first_robot_nut_contact_s": null
+        }
+      }
+    },
+    "scope": "Engineering-reference task gates plus accepted finish and no runtime error; not automatic expert-quality qualification.",
+    "setup_note": "The machine-configured mirror timed out on reinstall; switching this process to official PyPI succeeded."
+  },
+  "synchronized_reference_data": {
+    "task": "hammer_button",
+    "accepted": true,
+    "counts": {
+      "replayed_intervals": 5,
+      "frames": 199,
+      "ticks": 9900,
+      "actions": 17,
+      "complete_actions": 17,
+      "incomplete_actions": 0,
+      "complete_frame_intervals": 198,
+      "excluded_frame_intervals": 0,
+      "undeclared_ticks": 0
+    },
+    "errors": [],
+    "scope": "Saved data integrity/alignment and sampled physics continuation only."
+  },
+  "visual_review": {
+    "inspected": [
+      "wrench initial overview",
+      "wrench terminal overview",
+      "forceps terminal overview",
+      "historical agent-comparison poster"
+    ],
+    "result": "Visible robot, tool, fixture and changed poses; no blank frame or missing-model failure."
+  },
+  "source_asset_and_publication_checks": {
+    "markdown_missing_links": [],
+    "private_paths": [],
+    "credential_patterns": [],
+    "copied_source_mismatches": [],
+    "asset_mismatches": [],
+    "asset_files_checked": 78,
+    "claim": "Pattern scan and hash/link checks; not a proof of absence of every possible secret."
+  },
+  "native_agent": "Historical accepted and unsuccessful source records included; no new online-agent trial was performed for this release."
+}

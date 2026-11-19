@@ -1,0 +1,19 @@
+{
+  "episode": "experience-s1",
+  "video_sha256": "bb17988e8400689d068c8378b77e86a4fd0b7849544bb7385f66d6031be67e4a",
+  "image_sources": [
+    {
+      "path": "evidence/experience-s1/steps/005/front.png",
+      "sha256": "8b57988068d5f64e02755e9d98a833295384498c36272c6a303d0c27c9b5d82b"
+    },
+    {
+      "path": "evidence/experience-s1/steps/011/front.png",
+      "sha256": "454822b49439fd274fd53dbc7b57f78aa7434a163611d6c47250b2433e49095f"
+    },
+    {
+      "path": "evidence/experience-s1/steps/013/front.png",
+      "sha256": "b0dd6171a11d03c5cdf3f4d5f3e18471100d330cbaba4f003e65ab2087476b36"
+    }
+  ],
+  "note": "Original simulation frames, assembled with labels; no generated scene imagery."
+}

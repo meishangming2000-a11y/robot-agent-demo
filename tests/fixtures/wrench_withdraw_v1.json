@@ -1,0 +1,6532 @@
+{
+  "schema": "WRENCH_WITHDRAW_REGRESSION_V1",
+  "provenance": {
+    "scope": "Observed public pose/contact subset and commands from engineering replayed-prefix recovery; not native agent or held-out evaluation.",
+    "seed": 5,
+    "source_actions_path": "runs/wrench-autonomy-dev/control-search/run-001/actions.json",
+    "source_actions_sha256": "1d2b3a7e251cfd9342c046da18334bb41636a40a24babd76061d87232d61222a",
+    "source_trajectory_sha256": "81aea46406421b82537a294f59b1a8df83eefdf6f83668639d86887174c5c33e",
+    "source_driver_sha256": "6166250756a1cf259cbcb454c4678906f2d8c9877e6e81074062d8fd7c6c9b47",
+    "class_validation_result_sha256": "9f333c3218896aa2006c1aa5c564cf403f0082ed919309529348d2c8369c4973",
+    "class_validation_trajectory_sha256": "ea2ccc628a503c373a41b324267eaf75dfa222c7618c666c2cb24ce78bb012c7",
+    "class_validation_comparison": {
+      "sample_count_original": 19400,
+      "sample_count_policy": 19400,
+      "maximum_qpos_absolute_difference": 0.0,
+      "maximum_ctrl_absolute_difference": 0.0,
+      "maximum_head_position_difference_m": 0.0,
+      "maximum_nut_angle_difference_rad": 0.0,
+      "remaining_original_lines": 0,
+      "remaining_policy_lines": 0
+    },
+    "low_margin_source_actions_sha256": "1a8f3eb72836216befb0266162335313dd99d955cf8c47631703d512c42f09d4",
+    "initial_source_action_index": 15,
+    "recovery_source_action_indices": [
+      16,
+      81
+    ],
+    "observations_trimmed_to_policy_inputs": true,
+    "requires_runtime_artifacts": false
+  },
+  "initial_observation": {
+    "time_s": 19.100000000000293,
+    "robot": {
+      "palm_position_m": [
+        0.40819579101465625,
+        0.10041938967468796,
+        0.2970270161568646
+      ],
+      "palm_axes_world": [
+        [
+          -0.5552057545617132,
+          -0.7887221767974112,
+          0.26393919362138873
+        ],
+        [
+          -0.826554335881374,
+          0.48795156338332946,
+          -0.28055516681655035
+        ],
+        [
+          0.09249053971761859,
+          -0.37392592798536306,
+          -0.9228352509755063
+        ]
+      ]
+    },
+    "tool": {
+      "head_center_m": [
+        0.5285311303774581,
+        0.15932097503204803,
+        0.24800487215535094
+      ],
+      "quat_wxyz": [
+        0.8652609671675401,
+        0.032041949370671195,
+        0.017551425226552328,
+        0.49998871952208795
+      ]
+    },
+    "nut": {
+      "position_m": [
+        0.53,
+        0.16,
+        0.245
+      ],
+      "angle_rad": 1.046256979482108,
+      "initial_angle_rad": 0.0
+    },
+    "contacts": {
+      "tool_nut_contact": true,
+      "head_clearance_m": 0.0,
+      "max_contact_force_n": 6.711740399035766,
+      "max_penetration_m": 0.0006338738876245058,
+      "robot_nut_contact": false,
+      "hand_tool_contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring",
+        "thumb"
+      ]
+    },
+    "last_action": {
+      "status": "completed",
+      "time_s": 19.100000000000293
+    },
+    "wrench_feedback": {
+      "head_nut": {
+        "nut_hinge_axis_world": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "axis_angle_deg": 4.187429129540215
+      }
+    }
+  },
+  "previous_palm_action": {
+    "operation": "move",
+    "targets": [],
+    "palm_target_m": [
+      0.41081987995358804,
+      0.10107112467141195,
+      0.30196470351476795
+    ],
+    "palm_quat_wxyz": [
+      0.06259965627368749,
+      -0.46193179874035944,
+      0.8593399717273655,
+      -0.21032144288807628
+    ],
+    "duration_s": 0.6,
+    "memory": "Unload head by reducing tool yaw about 3 degrees toward measured nut orientation; then inspect friction and angle before withdrawal."
+  },
+  "sequence": [
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41049946390430436,
+          0.10160545316623583,
+          0.3009767474109946
+        ],
+        "palm_quat_wxyz": [
+          0.06605233823612162,
+          -0.4608923069943131,
+          0.8581834008022492,
+          -0.21618654110394372
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis unload 0"
+      },
+      "observation_after": {
+        "time_s": 19.400000000000126,
+        "robot": {
+          "palm_position_m": [
+            0.4069353481642904,
+            0.10168496470797794,
+            0.29589112642315396
+          ],
+          "palm_axes_world": [
+            [
+              -0.5637777107221359,
+              -0.7796673881775836,
+              0.27253157010748275
+            ],
+            [
+              -0.8208697738767815,
+              0.492484860238764,
+              -0.2891910731179021
+            ],
+            [
+              0.09125517644707294,
+              -0.3867524094921028,
+              -0.9176573797031566
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5285135217228093,
+            0.15914221067385836,
+            0.2486761873453406
+          ],
+          "quat_wxyz": [
+            0.8679249130435625,
+            0.028883880313044622,
+            0.012489552505063674,
+            0.4956975669242377
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0369891940375895,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 6.19456443833368,
+          "max_penetration_m": 0.000536570197197812,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 19.400000000000126
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 3.606621664441322
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41022320258250183,
+          0.10221516816912804,
+          0.30013587029416006
+        ],
+        "palm_quat_wxyz": [
+          0.06891159436037432,
+          -0.45995066502308285,
+          0.8568878011131346,
+          -0.22235079089365195
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis unload 1"
+      },
+      "observation_after": {
+        "time_s": 19.69999999999996,
+        "robot": {
+          "palm_position_m": [
+            0.40649140407450934,
+            0.10223280588242475,
+            0.2949842436617994
+          ],
+          "palm_axes_world": [
+            [
+              -0.5655204574075473,
+              -0.7753526307667056,
+              0.28109590928490014
+            ],
+            [
+              -0.8195170576986579,
+              0.49001994082133393,
+              -0.29710646195999946
+            ],
+            [
+              0.09261967606556801,
+              -0.3983826747746476,
+              -0.9125310077169455
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5284513124217594,
+            0.15919694632801024,
+            0.2491334525560195
+          ],
+          "quat_wxyz": [
+            0.8681487499448465,
+            0.023840850409740568,
+            0.00863023842138385,
+            0.495656010561489
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0371415473569652,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 5.913278544583087,
+          "max_penetration_m": 0.0005259921187288838,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 19.69999999999996
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 2.905760347305399
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.40999537698093835,
+          0.1028342347826873,
+          0.29938876179203244
+        ],
+        "palm_quat_wxyz": [
+          0.0713870105935966,
+          -0.45906857069455825,
+          0.8554948384936085,
+          -0.2286668393750126
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis unload 2"
+      },
+      "observation_after": {
+        "time_s": 19.999999999999794,
+        "robot": {
+          "palm_position_m": [
+            0.4061384905958934,
+            0.1027666343126712,
+            0.29418192999255044
+          ],
+          "palm_axes_world": [
+            [
+              -0.5669260621919813,
+              -0.7714005614740669,
+              0.2890259742047152
+            ],
+            [
+              -0.8182717717318719,
+              0.48687843481483895,
+              -0.3055825539834247
+            ],
+            [
+              0.0950060397778676,
+              -0.40974450999341483,
+              -0.9072393779681189
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.528361451251699,
+            0.1592926186054037,
+            0.24954294471357333
+          ],
+          "quat_wxyz": [
+            0.8681551521166797,
+            0.0183988549837671,
+            0.0052665398228380084,
+            0.4959237618292207
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.03773727801834,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 5.64601145594723,
+          "max_penetration_m": 0.0005177151543353589,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 19.999999999999794
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 2.193160987389838
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.40982169604291285,
+          0.10345585399112756,
+          0.29875136094885446
+        ],
+        "palm_quat_wxyz": [
+          0.07342249768307303,
+          -0.45826267562863393,
+          0.8540025114529247,
+          -0.23512585436689382
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis unload 3"
+      },
+      "observation_after": {
+        "time_s": 20.299999999999628,
+        "robot": {
+          "palm_position_m": [
+            0.4058667990794617,
+            0.10332135428118037,
+            0.2934839718208183
+          ],
+          "palm_axes_world": [
+            [
+              -0.5681695549614078,
+              -0.7675552133179099,
+              0.2967193140384557
+            ],
+            [
+              -0.8170632115608166,
+              0.4832717574724686,
+              -0.31441392581021854
+            ],
+            [
+              0.09793398352399402,
+              -0.4210788559616445,
+              -0.90172142701233
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5282801484416241,
+            0.15945338141049123,
+            0.24988885688027543
+          ],
+          "quat_wxyz": [
+            0.868008403638936,
+            0.012130593611110867,
+            0.002164335148251224,
+            0.49639659100782946
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0389407797049288,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 5.429832582436315,
+          "max_penetration_m": 0.0005119849902426605,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 20.299999999999628
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 1.4120513570985538
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4097198783215256,
+          0.10408293012272447,
+          0.2982860852415535
+        ],
+        "palm_quat_wxyz": [
+          0.07478844385950033,
+          -0.45759235683172045,
+          0.8523933993577265,
+          -0.2417465953548125
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis unload 4"
+      },
+      "observation_after": {
+        "time_s": 20.59999999999946,
+        "robot": {
+          "palm_position_m": [
+            0.4056891871772231,
+            0.1039080477134486,
+            0.29294002185515255
+          ],
+          "palm_axes_world": [
+            [
+              -0.5692121827899448,
+              -0.7639833188670183,
+              0.30385354935633135
+            ],
+            [
+              -0.8158762697855811,
+              0.4791383295370821,
+              -0.32368560914748506
+            ],
+            [
+              0.10170252388348222,
+              -0.4321526925304859,
+              -0.8960472347897623
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5282072755654619,
+            0.15968825871532222,
+            0.250156244004025
+          ],
+          "quat_wxyz": [
+            0.867677598858428,
+            0.00525105555493816,
+            -0.00032132684488916203,
+            0.49709949467273773
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0405382968898327,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 5.285767688489109,
+          "max_penetration_m": 0.0005073770474272148,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 20.59999999999946
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.6028549715162879
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4098403406223488,
+          0.10459671671197054,
+          0.2982553813816447
+        ],
+        "palm_quat_wxyz": [
+          0.07461676751514533,
+          -0.45737509090951406,
+          0.8510671508895485,
+          -0.2468300405093548
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis unload 5"
+      },
+      "observation_after": {
+        "time_s": 20.899999999999295,
+        "robot": {
+          "palm_position_m": [
+            0.4057210486301068,
+            0.10444375797977049,
+            0.29276388333093684
+          ],
+          "palm_axes_world": [
+            [
+              -0.5698029462604304,
+              -0.7617745119396662,
+              0.30825994775840515
+            ],
+            [
+              -0.8148607650863122,
+              0.4751679963644121,
+              -0.33198992266931526
+            ],
+            [
+              0.10642619957454552,
+              -0.44035777294162937,
+              -0.8914922859195168
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5282048543307492,
+            0.15996071657860533,
+            0.2504764371446357
+          ],
+          "quat_wxyz": [
+            0.8672112553721384,
+            0.00140713446588966,
+            -0.0005530623293800364,
+            0.49793810122397114
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0424280315238488,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 5.199958079956438,
+          "max_penetration_m": 0.0005006138920190112,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 20.899999999999295
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.17325345944340192
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.410169109312087,
+          0.1047474668317757,
+          0.2983684483690894
+        ],
+        "palm_quat_wxyz": [
+          0.0741207210682517,
+          -0.4574316102532547,
+          0.8506805069426067,
+          -0.2482037786926401
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis unload 6"
+      },
+      "observation_after": {
+        "time_s": 21.19999999999913,
+        "robot": {
+          "palm_position_m": [
+            0.4059735089934039,
+            0.10471874487837166,
+            0.2928044425303851
+          ],
+          "palm_axes_world": [
+            [
+              -0.5698436679059338,
+              -0.7613894694053116,
+              0.30913471177822816
+            ],
+            [
+              -0.8144726592243885,
+              0.4733417669121641,
+              -0.33553220273532874
+            ],
+            [
+              0.10914431512205841,
+              -0.44298267186783585,
+              -0.8898617144822943
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5282385275043396,
+            0.1602367607619664,
+            0.2507854830852237
+          ],
+          "quat_wxyz": [
+            0.8667029487728019,
+            0.0007189793062491007,
+            -0.0003984714362201132,
+            0.4988239397601137
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0446552589804863,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.9634581770329715,
+          "max_penetration_m": 0.0004961253026357238,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 21.19999999999913
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.09419613515411102
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4105147242153834,
+          0.10477913244918602,
+          0.2984564605705589
+        ],
+        "palm_quat_wxyz": [
+          0.07375603254487346,
+          -0.4574890781206623,
+          0.8504752337564061,
+          -0.24890895490225207
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis unload 7"
+      },
+      "observation_after": {
+        "time_s": 21.499999999998963,
+        "robot": {
+          "palm_position_m": [
+            0.4063172184426098,
+            0.10481619906431543,
+            0.29288080564104746
+          ],
+          "palm_axes_world": [
+            [
+              -0.5696940021905946,
+              -0.7614622777004507,
+              0.3092312136691621
+            ],
+            [
+              -0.8144065452441673,
+              0.4724966152121779,
+              -0.3368811773852817
+            ],
+            [
+              0.11041160686957341,
+              -0.4437591106132644,
+              -0.8893183506575144
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5282703693664562,
+            0.16048243589807082,
+            0.2510641841952824
+          ],
+          "quat_wxyz": [
+            0.8660498325415326,
+            0.00077931398862012,
+            -0.00040650482048067946,
+            0.49995691312184354
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0470389779676696,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.874474461376422,
+          "max_penetration_m": 0.0004909038321083761,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 21.499999999998963
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.10072178644893715
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4108482912234753,
+          0.10476841244238978,
+          0.298545371973057
+        ],
+        "palm_quat_wxyz": [
+          0.07338620780596447,
+          -0.4575443194851602,
+          0.8502535523299066,
+          -0.24967289993328254
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis unload 8"
+      },
+      "observation_after": {
+        "time_s": 21.799999999998796,
+        "robot": {
+          "palm_position_m": [
+            0.4066660462215699,
+            0.10486006996095501,
+            0.29295546829679553
+          ],
+          "palm_axes_world": [
+            [
+              -0.5695037307328908,
+              -0.7615566587300313,
+              0.3093492463628571
+            ],
+            [
+              -0.8144080368664837,
+              0.4717744186930277,
+              -0.3378882172466714
+            ],
+            [
+              0.11137796087465895,
+              -0.444365112729166,
+              -0.8888951549089446
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.528288543236953,
+            0.1607163932294294,
+            0.25127832837503256
+          ],
+          "quat_wxyz": [
+            0.8653270779237024,
+            0.0006577115862227718,
+            -0.0003910864957476506,
+            0.501207005815811
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0500536146853905,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.346946603153185,
+          "max_penetration_m": 0.00048768438506304954,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 21.799999999998796
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.08768562953568036
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41117197727204685,
+          0.1047056689437804,
+          0.2986329933710028
+        ],
+        "palm_quat_wxyz": [
+          0.0730286406607144,
+          -0.4576025262260656,
+          0.8500629093511997,
+          -0.25031938754348126
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis unload 9"
+      },
+      "observation_after": {
+        "time_s": 22.09999999999863,
+        "robot": {
+          "palm_position_m": [
+            0.40699665802726415,
+            0.10483096500476655,
+            0.2930344287112925
+          ],
+          "palm_axes_world": [
+            [
+              -0.5694113990428891,
+              -0.7616266996329499,
+              0.3093467779794024
+            ],
+            [
+              -0.8143205129374231,
+              0.4711020302546667,
+              -0.33903536585327043
+            ],
+            [
+              0.11248449159484013,
+              -0.44495802891525504,
+              -0.8884591108511968
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5283204227323822,
+            0.1608436962321373,
+            0.2514210173152994
+          ],
+          "quat_wxyz": [
+            0.8646812879088119,
+            0.0003216397984737414,
+            -0.00022565983899935398,
+            0.50232073017728
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0524983123010998,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.503240107438683,
+          "max_penetration_m": 0.0004854047406954772,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 22.09999999999863
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.04502362444518588
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41148790556128034,
+          0.1045855467259248,
+          0.2986847938670345
+        ],
+        "palm_quat_wxyz": [
+          0.07282097157420175,
+          -0.457639479488786,
+          0.8499673019754718,
+          -0.2506367859767554
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis unload 10"
+      },
+      "observation_after": {
+        "time_s": 22.399999999998464,
+        "robot": {
+          "palm_position_m": [
+            0.40730117033583635,
+            0.10471852998175404,
+            0.2930902124431785
+          ],
+          "palm_axes_world": [
+            [
+              -0.569448087253432,
+              -0.7617028105751633,
+              0.30909174088820995
+            ],
+            [
+              -0.8141598263873089,
+              0.47071120276774453,
+              -0.3399628519205149
+            ],
+            [
+              0.11345771467993894,
+              -0.4452412738626551,
+              -0.8881934220814547
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5283417989964782,
+            0.16086608920788673,
+            0.2514875363976899
+          ],
+          "quat_wxyz": [
+            0.8641213847406362,
+            -3.420074259095926e-06,
+            -3.409786550653299e-05,
+            0.5032834502142561
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0546855998276927,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.328727311937737,
+          "max_penetration_m": 0.00048270959878661014,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 22.399999999998464
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.003926931770688345
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41180108209891975,
+          0.10442485132885873,
+          0.29869368114833694
+        ],
+        "palm_quat_wxyz": [
+          0.07278796347152852,
+          -0.4576483300298893,
+          0.8499660120394985,
+          -0.2506345881401683
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis unload 11"
+      },
+      "observation_after": {
+        "time_s": 22.699999999998298,
+        "robot": {
+          "palm_position_m": [
+            0.40759893963717464,
+            0.10456395521687095,
+            0.29310416861571714
+          ],
+          "palm_axes_world": [
+            [
+              -0.569485592800824,
+              -0.7617981051733653,
+              0.3087876398863173
+            ],
+            [
+              -0.8140826214144061,
+              0.4706753925651425,
+              -0.34019723741484903
+            ],
+            [
+              0.1138228672250893,
+              -0.4451160767574193,
+              -0.8882094533997826
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5283584821035981,
+            0.16087463832468024,
+            0.25153844748796017
+          ],
+          "quat_wxyz": [
+            0.8635827036277977,
+            -1.1653100160940975e-05,
+            -3.577582682522591e-05,
+            0.5042072119468342
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0569593547744032,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.1811042584373155,
+          "max_penetration_m": 0.00048105240157391045,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 22.699999999998298
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.004311604083210516
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41211343930634753,
+          0.10426102041385976,
+          0.29870315324606733
+        ],
+        "palm_quat_wxyz": [
+          0.0727530595998028,
+          -0.4576581262660031,
+          0.8499666891069276,
+          -0.2506245382841921
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis unload 12"
+      },
+      "observation_after": {
+        "time_s": 22.99999999999813,
+        "robot": {
+          "palm_position_m": [
+            0.4079004790579525,
+            0.10439520904641755,
+            0.29311145627442214
+          ],
+          "palm_axes_world": [
+            [
+              -0.5695226464088478,
+              -0.7618558720097232,
+              0.3085767092827395
+            ],
+            [
+              -0.8140305975038974,
+              0.47069538153293405,
+              -0.34029405538594265
+            ],
+            [
+              0.11400939239776618,
+              -0.44499605401381653,
+              -0.8882456700469877
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5283742275730103,
+            0.16088099353509128,
+            0.25157213799397204
+          ],
+          "quat_wxyz": [
+            0.8630238507215348,
+            9.48450379359063e-06,
+            -1.2818163314157348e-05,
+            0.5051631744609973
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0591883351281597,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.230034312568493,
+          "max_penetration_m": 0.0004787426671342288,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 22.99999999999813
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.001827229196064345
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41242175356579863,
+          0.10409564962115192,
+          0.29870627156927604
+        ],
+        "palm_quat_wxyz": [
+          0.07274101976409256,
+          -0.4576607645188002,
+          0.8499634709344664,
+          -0.2506341292417684
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis unload 13"
+      },
+      "observation_after": {
+        "time_s": 23.299999999997965,
+        "robot": {
+          "palm_position_m": [
+            0.4081978780971779,
+            0.10422594930686005,
+            0.2931111907228252
+          ],
+          "palm_axes_world": [
+            [
+              -0.569558883128627,
+              -0.7619041546563237,
+              0.3083905604370873
+            ],
+            [
+              -0.8139851560199816,
+              0.470727336282425,
+              -0.34035854720511405
+            ],
+            [
+              0.11415272413917275,
+              -0.4448795724618996,
+              -0.8882856081113327
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5283864562307158,
+            0.16088674374359213,
+            0.25159225274125774
+          ],
+          "quat_wxyz": [
+            0.8624717182303707,
+            1.290237781390555e-05,
+            -8.741363082311864e-06,
+            0.5061052608004274
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0612889639660479,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.278918308957505,
+          "max_penetration_m": 0.0004763964497339398,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 23.299999999997965
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.0017858759098269884
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41272858083326747,
+          0.10392854647452067,
+          0.2987082720421021
+        ],
+        "palm_quat_wxyz": [
+          0.07273304442383378,
+          -0.45766214867478955,
+          0.8499596463843109,
+          -0.25064688595207546
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis unload 14"
+      },
+      "observation_after": {
+        "time_s": 23.5999999999978,
+        "robot": {
+          "palm_position_m": [
+            0.40849183955593926,
+            0.10405573042898902,
+            0.293107659891259
+          ],
+          "palm_axes_world": [
+            [
+              -0.5695983691469585,
+              -0.7619508405380349,
+              0.3082022298240312
+            ],
+            [
+              -0.8139385163361517,
+              0.47076702880948346,
+              -0.34041518210913096
+            ],
+            [
+              0.1142881861332439,
+              -0.4447575982366921,
+              -0.8883292685266538
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5283940546961026,
+            0.16089104644806906,
+            0.2516006073955455
+          ],
+          "quat_wxyz": [
+            0.8619227702237271,
+            3.677555966781602e-06,
+            1.1461187837098026e-06,
+            0.5070395824341712
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0634830064364702,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.315052397682695,
+          "max_penetration_m": 0.00047459986852299747,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 23.5999999999978
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.0004414034522057689
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41303435974856567,
+          0.10375898216028197,
+          0.29870790707269773
+        ],
+        "palm_quat_wxyz": [
+          0.07273428423736136,
+          -0.4576616219728378,
+          0.8499587900696793,
+          -0.25065039168721615
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis unload 15"
+      },
+      "observation_after": {
+        "time_s": 23.899999999997632,
+        "robot": {
+          "palm_position_m": [
+            0.40878436625856174,
+            0.10388220747639557,
+            0.29310286538822505
+          ],
+          "palm_axes_world": [
+            [
+              -0.5696442566870351,
+              -0.761991659003077,
+              0.30801644831601294
+            ],
+            [
+              -0.8138885839583329,
+              0.4708151270089846,
+              -0.3404680441419001
+            ],
+            [
+              0.11441500655845949,
+              -0.44463673688669675,
+              -0.8883734453961213
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.528397649605885,
+            0.16089170328649335,
+            0.251597499499984
+          ],
+          "quat_wxyz": [
+            0.8613729355986383,
+            -3.1199380099267494e-05,
+            2.2184800063504928e-05,
+            0.5079730941227275
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.065679539363491,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.096843708907699,
+          "max_penetration_m": 0.00047302524564296795,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 23.899999999997632
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.004386876678794527
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4133398852441145,
+          0.10358519342150828,
+          0.3002027960555152
+        ],
+        "palm_quat_wxyz": [
+          0.07275451270343518,
+          -0.45765802993518234,
+          0.8499681129687215,
+          -0.25061946343714875
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 16"
+      },
+      "observation_after": {
+        "time_s": 24.199999999997466,
+        "robot": {
+          "palm_position_m": [
+            0.4090460506588498,
+            0.10369118153770822,
+            0.2941666659903583
+          ],
+          "palm_axes_world": [
+            [
+              -0.5697731774985219,
+              -0.7621330027884256,
+              0.30742773502716425
+            ],
+            [
+              -0.8137573846435581,
+              0.47101592968995876,
+              -0.34050391028059696
+            ],
+            [
+              0.1147059071770541,
+              -0.444181584533846,
+              -0.8885636020115204
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5284052507900989,
+            0.1608876782414419,
+            0.25171962250100083
+          ],
+          "quat_wxyz": [
+            0.8608239152604293,
+            -5.414613655543301e-05,
+            0.0034236123517883263,
+            0.5088914057658733
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0678061088128334,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.43234356565429,
+          "max_penetration_m": 0.0004831433248388625,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 24.199999999997466
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.3923669056424972
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41336516113898636,
+          0.10324307810486984,
+          0.30082476385013196
+        ],
+        "palm_quat_wxyz": [
+          0.07605433427383083,
+          -0.4567934928482135,
+          0.8501990421282783,
+          -0.2504336876178031
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 17"
+      },
+      "observation_after": {
+        "time_s": 24.4999999999973,
+        "robot": {
+          "palm_position_m": [
+            0.40915624905702175,
+            0.10338770072712648,
+            0.2950038620905746
+          ],
+          "palm_axes_world": [
+            [
+              -0.5702964963135256,
+              -0.7601752390541843,
+              0.311280439831078
+            ],
+            [
+              -0.8140022412741896,
+              0.4721098193123537,
+              -0.33839720700598463
+            ],
+            [
+              0.11028262552692249,
+              -0.4463697172051092,
+              -0.8880269241802966
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5284570628762802,
+            0.1609017454724136,
+            0.2519144529756087
+          ],
+          "quat_wxyz": [
+            0.860104344949963,
+            0.0005473037772521727,
+            0.00644208178725172,
+            0.510077166553274
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0706001882315281,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.633138651092592,
+          "max_penetration_m": 0.0004872330779147199,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 24.4999999999973
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.740872683826859
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41328752319175566,
+          0.102882753530425,
+          0.3011996683239119
+        ],
+        "palm_quat_wxyz": [
+          0.08026102146197504,
+          -0.4556609597734675,
+          0.8503680332795021,
+          -0.250610187639197
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 18"
+      },
+      "observation_after": {
+        "time_s": 24.799999999997134,
+        "robot": {
+          "palm_position_m": [
+            0.4090971393449533,
+            0.10303439160550495,
+            0.29544428818859303
+          ],
+          "palm_axes_world": [
+            [
+              -0.5711622625115065,
+              -0.7569851526399116,
+              0.3174069132288454
+            ],
+            [
+              -0.814296940042031,
+              0.47381883603869696,
+              -0.3352852577330481
+            ],
+            [
+              0.10341258782623641,
+              -0.44996576458399723,
+              -0.8870381318643619
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5285462797780149,
+            0.16086661696219773,
+            0.2522268369166535
+          ],
+          "quat_wxyz": [
+            0.8594750961697484,
+            0.004050726533814313,
+            0.009699713629072751,
+            0.5110695317019629
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0729440120311573,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.61637906647158,
+          "max_penetration_m": 0.0004861208035452612,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 24.799999999997134
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 1.204557884204469
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41316963578198757,
+          0.10264418686216178,
+          0.30163091488435045
+        ],
+        "palm_quat_wxyz": [
+          0.08421306419684314,
+          -0.45452479523589845,
+          0.850166728250699,
+          -0.25205536001014756
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 19"
+      },
+      "observation_after": {
+        "time_s": 25.099999999996967,
+        "robot": {
+          "palm_position_m": [
+            0.4089638338946652,
+            0.10277147769163517,
+            0.2958357058077451
+          ],
+          "palm_axes_world": [
+            [
+              -0.5720874923032218,
+              -0.7533843566888645,
+              0.3242343477281756
+            ],
+            [
+              -0.8144017163521946,
+              0.474885683399957,
+              -0.3335167643527891
+            ],
+            [
+              0.09729206315424378,
+              -0.45485777864983246,
+              -0.885233672907289
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5286373612363336,
+            0.1608254366883775,
+            0.25260621588314597
+          ],
+          "quat_wxyz": [
+            0.8589384610460322,
+            0.007855598260672359,
+            0.013330724764015997,
+            0.5118449975227923
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0748149258591349,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.614177173082792,
+          "max_penetration_m": 0.0004883435450343046,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 25.099999999996967
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 1.7731641625347305
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4130455912137383,
+          0.10246077218571491,
+          0.3021189398871785
+        ],
+        "palm_quat_wxyz": [
+          0.08793147368009221,
+          -0.45341888617485165,
+          0.8497965796093503,
+          -0.2540179971589652
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 20"
+      },
+      "observation_after": {
+        "time_s": 25.3999999999968,
+        "robot": {
+          "palm_position_m": [
+            0.408815437914478,
+            0.10258315186574563,
+            0.2962760273993971
+          ],
+          "palm_axes_world": [
+            [
+              -0.572971620466817,
+              -0.7496616541298289,
+              0.3312263975998241
+            ],
+            [
+              -0.8143744701609714,
+              0.47531194126365117,
+              -0.3329756460196674
+            ],
+            [
+              0.092183211539114,
+              -0.4605279175245585,
+              -0.8828455655950403
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5287431019491435,
+            0.16078726917529346,
+            0.2530336145304507
+          ],
+          "quat_wxyz": [
+            0.8584429497252622,
+            0.011687852171563958,
+            0.01746456221199495,
+            0.5124783753929043
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.076394835904897,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.606540701665062,
+          "max_penetration_m": 0.0004884739483876181,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 25.3999999999968
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 2.408282347947215
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4129187134549646,
+          0.10229684463237859,
+          0.30263501521447417
+        ],
+        "palm_quat_wxyz": [
+          0.09153163719290204,
+          -0.45232746442878546,
+          0.8493481882066038,
+          -0.25618251210098403
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 21"
+      },
+      "observation_after": {
+        "time_s": 25.699999999996635,
+        "robot": {
+          "palm_position_m": [
+            0.4086703798208639,
+            0.10242109169837134,
+            0.29675428670180587
+          ],
+          "palm_axes_world": [
+            [
+              -0.5738038676294592,
+              -0.7458549448812484,
+              0.3383038910353532
+            ],
+            [
+              -0.8142956055386064,
+              0.47538802817961634,
+              -0.3330598887047293
+            ],
+            [
+              0.0875887452472324,
+              -0.4665904240977114,
+              -0.880125893180248
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5288498696117241,
+            0.16075041797834905,
+            0.25349942150114885
+          ],
+          "quat_wxyz": [
+            0.8579394825023998,
+            0.01538261545582915,
+            0.02178444503667334,
+            0.5130581423773485
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0777850692908062,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.66653272306568,
+          "max_penetration_m": 0.0004901422359694513,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 25.699999999996635
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 3.0563000904002657
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4127885090740887,
+          0.10213777142598249,
+          0.3031630416219625
+        ],
+        "palm_quat_wxyz": [
+          0.09507647525914578,
+          -0.45123884299074996,
+          0.8488571439549069,
+          -0.2584289449449983
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 22"
+      },
+      "observation_after": {
+        "time_s": 25.99999999999647,
+        "robot": {
+          "palm_position_m": [
+            0.4085252385090841,
+            0.10226903749029433,
+            0.29724951343255634
+          ],
+          "palm_axes_world": [
+            [
+              -0.5745824827017613,
+              -0.7420035373443663,
+              0.3453776500306968
+            ],
+            [
+              -0.8142060679813847,
+              0.47531557997721574,
+              -0.3333820305493599
+            ],
+            [
+              0.08320726791916422,
+              -0.4727640532013504,
+              -0.8772517885795719
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5289543165455981,
+            0.16071484945273454,
+            0.25400735266797786
+          ],
+          "quat_wxyz": [
+            0.8574330107499175,
+            0.01883345499229332,
+            0.025950215891595813,
+            0.5135956769138202
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0791774911411676,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.686433300448567,
+          "max_penetration_m": 0.0004907182987787442,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 25.99999999999647
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 3.6749162158617534
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4126543452923256,
+          0.1019776304290708,
+          0.30369636683824985
+        ],
+        "palm_quat_wxyz": [
+          0.09859174251420179,
+          -0.45014782826886757,
+          0.848336585003109,
+          -0.26071371187203984
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 23"
+      },
+      "observation_after": {
+        "time_s": 26.299999999996302,
+        "robot": {
+          "palm_position_m": [
+            0.4083844352254791,
+            0.10211870914905916,
+            0.2977555173559463
+          ],
+          "palm_axes_world": [
+            [
+              -0.5752997430425786,
+              -0.7380701998427296,
+              0.35253735370773764
+            ],
+            [
+              -0.8141299650584545,
+              0.47513496865708754,
+              -0.3338250463238888
+            ],
+            [
+              0.07888349414840265,
+              -0.479060686827191,
+              -0.8742300913876149
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5290752849063749,
+            0.16067450866032076,
+            0.2545668889600597
+          ],
+          "quat_wxyz": [
+            0.8568993998024109,
+            0.02271182010884769,
+            0.03043267248955546,
+            0.5140831102951678
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.080276199189466,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.787527352044069,
+          "max_penetration_m": 0.0004907227608423447,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 26.299999999996302
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 4.352470347958043
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41251472204057993,
+          0.1018140759421582,
+          0.30423521926080177
+        ],
+        "palm_quat_wxyz": [
+          0.10207602212370502,
+          -0.4490550085709444,
+          0.8477860811197544,
+          -0.26303772665600217
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 24"
+      },
+      "observation_after": {
+        "time_s": 26.599999999996136,
+        "robot": {
+          "palm_position_m": [
+            0.4082408927934051,
+            0.10196779031512299,
+            0.29826670232290486
+          ],
+          "palm_axes_world": [
+            [
+              -0.5759653430585695,
+              -0.7340900756246267,
+              0.35968831571911136
+            ],
+            [
+              -0.8140610995016331,
+              0.4748914971268551,
+              -0.3343390378564901
+            ],
+            [
+              0.07462204683345014,
+              -0.4853759644090764,
+              -0.8711152181544887
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5291841769320068,
+            0.1606408075379,
+            0.25513589546350196
+          ],
+          "quat_wxyz": [
+            0.8563611541147425,
+            0.025964353769360526,
+            0.03457500733161439,
+            0.5145638880883727
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0816375992217653,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.724010975398361,
+          "max_penetration_m": 0.0004917102497942211,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 26.599999999996136
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 4.956326783130802
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4123679379569949,
+          0.1016415250448657,
+          0.3047734398028863
+        ],
+        "palm_quat_wxyz": [
+          0.10555301775720846,
+          -0.4479549251862018,
+          0.847216918578638,
+          -0.26536472696628005
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 25"
+      },
+      "observation_after": {
+        "time_s": 26.89999999999597,
+        "robot": {
+          "palm_position_m": [
+            0.40809323835925093,
+            0.10181213349678576,
+            0.29877910676757624
+          ],
+          "palm_axes_world": [
+            [
+              -0.5765777487544289,
+              -0.7300608701896536,
+              0.3668367831327678
+            ],
+            [
+              -0.8140071605141228,
+              0.4746181706358895,
+              -0.33485808148225066
+            ],
+            [
+              0.07035937942454115,
+              -0.4916794869833034,
+              -0.8679290522887376
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5292995262900282,
+            0.16060068126192084,
+            0.25573528101594956
+          ],
+          "quat_wxyz": [
+            0.8558226320619541,
+            0.029311964021274138,
+            0.03874030827629366,
+            0.5149831256754169
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0827360292942647,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.702514485129165,
+          "max_penetration_m": 0.0004913041731481847,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 26.89999999999597
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 5.569033758901556
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41221226248260295,
+          0.10145853353933366,
+          0.30531134709174595
+        ],
+        "palm_quat_wxyz": [
+          0.1090210662081007,
+          -0.446848037242689,
+          0.8466283401046901,
+          -0.2676970161708617
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 26"
+      },
+      "observation_after": {
+        "time_s": 27.199999999995804,
+        "robot": {
+          "palm_position_m": [
+            0.407944362848411,
+            0.101648965302062,
+            0.299294361118975
+          ],
+          "palm_axes_world": [
+            [
+              -0.5771277149336778,
+              -0.7259509313598,
+              0.374057276246924
+            ],
+            [
+              -0.8139778798182047,
+              0.4742972695713854,
+              -0.3353835285815122
+            ],
+            [
+              0.06605764014925955,
+              -0.4980334781266863,
+              -0.8646380993473186
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5294437902382756,
+            0.16054210151371975,
+            0.25638356771178145
+          ],
+          "quat_wxyz": [
+            0.8552640775180032,
+            0.03365629665768893,
+            0.0435343551660134,
+            0.5152624295665733
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0835486021544714,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.623123653673353,
+          "max_penetration_m": 0.0004893142627575842,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 27.199999999995804
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 6.308832598394912
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4120429481728108,
+          0.10126313529684237,
+          0.30585294226183807
+        ],
+        "palm_quat_wxyz": [
+          0.11246389190205021,
+          -0.44573858071370775,
+          0.8460127127472469,
+          -0.27005829102550727
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 27"
+      },
+      "observation_after": {
+        "time_s": 27.499999999995637,
+        "robot": {
+          "palm_position_m": [
+            0.4077842077949943,
+            0.10147334974201425,
+            0.29981085049854994
+          ],
+          "palm_axes_world": [
+            [
+              -0.5776378455708304,
+              -0.7217882648647991,
+              0.38125610823664247
+            ],
+            [
+              -0.8139496474093568,
+              0.47393064196951795,
+              -0.3359698172225336
+            ],
+            [
+              0.061810119288604276,
+              -0.5043921562691291,
+              -0.8612595786681883
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5295520723890849,
+            0.16048061610954026,
+            0.25701854971575266
+          ],
+          "quat_wxyz": [
+            0.854725816414692,
+            0.036886167582895174,
+            0.047675583110497716,
+            0.51556786960628
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0842986183473087,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.777866355732452,
+          "max_penetration_m": 0.0004905183709282106,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 27.499999999995637
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 6.9116476426636515
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4118624266301871,
+          0.1010558176208306,
+          0.30639216315897316
+        ],
+        "palm_quat_wxyz": [
+          0.11590497494583098,
+          -0.4446205325974559,
+          0.8453811667175699,
+          -0.27241384277382075
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 28"
+      },
+      "observation_after": {
+        "time_s": 27.79999999999547,
+        "robot": {
+          "palm_position_m": [
+            0.40760968442860424,
+            0.1012892427356829,
+            0.3003241264354087
+          ],
+          "palm_axes_world": [
+            [
+              -0.5781037267597797,
+              -0.7176110967289533,
+              0.3883688903065243
+            ],
+            [
+              -0.8139300288711437,
+              0.4735751975874583,
+              -0.336518112932747
+            ],
+            [
+              0.057567258127092236,
+              -0.5106474773084333,
+              -0.8578608073051595
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5296597078507689,
+            0.16040447239350203,
+            0.25766949754276486
+          ],
+          "quat_wxyz": [
+            0.8542482726184536,
+            0.039747749344573195,
+            0.051421301860717285,
+            0.5157866369589071
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0851592455703718,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.654666231419174,
+          "max_penetration_m": 0.000490213967882772,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 27.79999999999547
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 7.452852807415533
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4116695416775351,
+          0.10083623781826037,
+          0.30692846688982356
+        ],
+        "palm_quat_wxyz": [
+          0.11934591692255536,
+          -0.4434934581381782,
+          0.844734511947657,
+          -0.27476118544493644
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 29"
+      },
+      "observation_after": {
+        "time_s": 28.099999999995305,
+        "robot": {
+          "palm_position_m": [
+            0.4074295484423577,
+            0.1010904966728298,
+            0.30084062366468667
+          ],
+          "palm_axes_world": [
+            [
+              -0.5785295709346542,
+              -0.7133294032324756,
+              0.3955561882187715
+            ],
+            [
+              -0.813918004006167,
+              0.47317622254579483,
+              -0.33710791324427347
+            ],
+            [
+              0.05330120363351101,
+              -0.5169771995951966,
+              -0.8543380810837863
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5298105753386328,
+            0.16029071073602572,
+            0.2583646705552822
+          ],
+          "quat_wxyz": [
+            0.8537637586791575,
+            0.04394540362075536,
+            0.056066406491226614,
+            0.5157642910572675
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0852333175437743,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.6423819526230785,
+          "max_penetration_m": 0.0004878051781242905,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 28.099999999995305
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 8.170022753477907
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4114424500165705,
+          0.10059632391128534,
+          0.30746604771958713
+        ],
+        "palm_quat_wxyz": [
+          0.12276924838472995,
+          -0.44236222660333513,
+          0.8440644231776174,
+          -0.27712564235635656
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 30"
+      },
+      "observation_after": {
+        "time_s": 28.39999999999514,
+        "robot": {
+          "palm_position_m": [
+            0.4072256452203241,
+            0.10087396387864832,
+            0.30135736607149055
+          ],
+          "palm_axes_world": [
+            [
+              -0.5789032672554192,
+              -0.7089729279326075,
+              0.4027758615156365
+            ],
+            [
+              -0.8139201652352356,
+              0.47272668815270247,
+              -0.337732798128374
+            ],
+            [
+              0.04904051166580717,
+              -0.5233420160534027,
+              -0.8507103869406513
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5299230305427846,
+            0.16016529684045194,
+            0.25904602522064435
+          ],
+          "quat_wxyz": [
+            0.8533183280403797,
+            0.047229427911988926,
+            0.06019458418414788,
+            0.5157458911172962
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0853796692857012,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.683655971036057,
+          "max_penetration_m": 0.0004887530280557016,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 28.39999999999514
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 8.776146815986614
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41110417429307544,
+          0.10048178764669252,
+          0.30800099444619344
+        ],
+        "palm_quat_wxyz": [
+          0.12618957674456233,
+          -0.4412227642858676,
+          0.8433779446697909,
+          -0.27948578754835685
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 31"
+      },
+      "observation_after": {
+        "time_s": 28.699999999994972,
+        "robot": {
+          "palm_position_m": [
+            0.40692429541939645,
+            0.1007169832309241,
+            0.3018779783918166
+          ],
+          "palm_axes_world": [
+            [
+              -0.5793758307613285,
+              -0.7044941687217553,
+              0.4098921967623442
+            ],
+            [
+              -0.8138161136082501,
+              0.47223764055337175,
+              -0.3386664200598357
+            ],
+            [
+              0.045021994193739034,
+              -0.5297920130406123,
+              -0.8469317817611944
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5300320509544304,
+            0.16002559922384701,
+            0.25975704981112185
+          ],
+          "quat_wxyz": [
+            0.8531108421898856,
+            0.050371021769051894,
+            0.06406780093380265,
+            0.5153251090210067
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0846228899841066,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.67770335228816,
+          "max_penetration_m": 0.0004883556661831635,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 28.699999999994972
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 9.34935129220796
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41065848003516436,
+          0.10050727563569391,
+          0.3085328459277546
+        ],
+        "palm_quat_wxyz": [
+          0.12960456664541742,
+          -0.4400757667614847,
+          0.8426739869757599,
+          -0.28184486422200755
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 32"
+      },
+      "observation_after": {
+        "time_s": 28.999999999994806,
+        "robot": {
+          "palm_position_m": [
+            0.40651609856500714,
+            0.10065509833383467,
+            0.3024108571338898
+          ],
+          "palm_axes_world": [
+            [
+              -0.5799864970637955,
+              -0.699760578301937,
+              0.4170740896749675
+            ],
+            [
+              -0.8135791415585868,
+              0.4716172453676244,
+              -0.3400972718100561
+            ],
+            [
+              0.04128733031399823,
+              -0.536574605182158,
+              -0.8428422446870767
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5301470510247022,
+            0.15989417306505554,
+            0.2605142815335442
+          ],
+          "quat_wxyz": [
+            0.8531168904528618,
+            0.05424087305544501,
+            0.06846254514449916,
+            0.5143562761613403
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0828024222018438,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.625982726506348,
+          "max_penetration_m": 0.0004891753965570074,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 28.999999999994806
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 10.021798866757079
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.41009998320197316,
+          0.10066582740296316,
+          0.30906262522326605
+        ],
+        "palm_quat_wxyz": [
+          0.13300629073350398,
+          -0.4389236547697267,
+          0.8419487354177017,
+          -0.2842141425711138
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 33"
+      },
+      "observation_after": {
+        "time_s": 29.29999999999464,
+        "robot": {
+          "palm_position_m": [
+            0.40599274480076086,
+            0.10069901299532191,
+            0.30294815814865594
+          ],
+          "palm_axes_world": [
+            [
+              -0.5807010672160897,
+              -0.6948477484655272,
+              0.42423210272971906
+            ],
+            [
+              -0.8132390240007187,
+              0.47090080699993964,
+              -0.3418986981682746
+            ],
+            [
+              0.03779630109481458,
+              -0.5435430400797989,
+              -0.8385299059689864
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5302025429585838,
+            0.15981814744389805,
+            0.26125923633505066
+          ],
+          "quat_wxyz": [
+            0.8534332993984776,
+            0.056322009624740745,
+            0.07163245412730916,
+            0.5131746546989208
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0804039938811392,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.788101939749481,
+          "max_penetration_m": 0.0004933625025525593,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 29.29999999999464
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 10.456416405137364
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4094877570874451,
+          0.10089912946544967,
+          0.30958521444290293
+        ],
+        "palm_quat_wxyz": [
+          0.13641143798183344,
+          -0.4377613413883133,
+          0.8412103717483564,
+          -0.28656942969658367
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 34"
+      },
+      "observation_after": {
+        "time_s": 29.599999999994473,
+        "robot": {
+          "palm_position_m": [
+            0.405394203477048,
+            0.10082543339379764,
+            0.3034806294426573
+          ],
+          "palm_axes_world": [
+            [
+              -0.5814387678002044,
+              -0.6898651592066135,
+              0.43129458773767404
+            ],
+            [
+              -0.8128636224345526,
+              0.47017915223628165,
+              -0.34377942946742046
+            ],
+            [
+              0.0343757272149047,
+              -0.5504703687894579,
+              -0.8341466792256871
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5302629347278369,
+            0.15977445076575536,
+            0.2620351486364486
+          ],
+          "quat_wxyz": [
+            0.8539542539788234,
+            0.058173489924012604,
+            0.07439248951446283,
+            0.5117066881382092
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0771948055760796,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.814409644562239,
+          "max_penetration_m": 0.0004960149078882935,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 29.599999999994473
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 10.837863962994094
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.408817305223454,
+          0.1011753930452388,
+          0.3101009714445224
+        ],
+        "palm_quat_wxyz": [
+          0.1398166185663731,
+          -0.43658985919296933,
+          0.8404572984204005,
+          -0.2889154505290613
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 35"
+      },
+      "observation_after": {
+        "time_s": 29.899999999994307,
+        "robot": {
+          "palm_position_m": [
+            0.40474357869614175,
+            0.10100633848676178,
+            0.3040100636065388
+          ],
+          "palm_axes_world": [
+            [
+              -0.5821245727252335,
+              -0.684789088448754,
+              0.4384003720014261
+            ],
+            [
+              -0.8125128797735865,
+              0.4694299238196401,
+              -0.34562749720576386
+            ],
+            [
+              0.030883685523227927,
+              -0.5574042078816875,
+              -0.8296666481209732
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.530337042600756,
+            0.15975687378439385,
+            0.26284416828742285
+          ],
+          "quat_wxyz": [
+            0.8545676586765881,
+            0.06055815666702074,
+            0.07742916980614205,
+            0.5099524978546914
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0729655003652998,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.902584392394035,
+          "max_penetration_m": 0.0005029008238006585,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 29.899999999994307
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 11.282381247606404
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4081285936451319,
+          0.10143132070742884,
+          0.3106111957150989
+        ],
+        "palm_quat_wxyz": [
+          0.14321465693309363,
+          -0.43541152024979307,
+          0.8396859806880776,
+          -0.29126246567177494
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 36"
+      },
+      "observation_after": {
+        "time_s": 30.19999999999414,
+        "robot": {
+          "palm_position_m": [
+            0.404066117992065,
+            0.10120582044745649,
+            0.30452583026732793
+          ],
+          "palm_axes_world": [
+            [
+              -0.5826770170772619,
+              -0.6797555294703196,
+              0.4454435025056125
+            ],
+            [
+              -0.8122476955483825,
+              0.4687240798483543,
+              -0.3472051526787205
+            ],
+            [
+              0.027224526557575457,
+              -0.5641189210838766,
+              -0.8252446110268619
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5303668556650011,
+            0.15978866746713016,
+            0.26364109793581597
+          ],
+          "quat_wxyz": [
+            0.855249635935673,
+            0.06179335078356884,
+            0.07953845360612155,
+            0.5083338238094968
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0698205565627459,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.967874820978707,
+          "max_penetration_m": 0.000509336799287113,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 30.19999999999414
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 11.561417297850435
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.40742289828306183,
+          0.1016562779600012,
+          0.3111140118405521
+        ],
+        "palm_quat_wxyz": [
+          0.14661346545499784,
+          -0.43422372931033104,
+          0.8389004431590847,
+          -0.2935988608945784
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 37"
+      },
+      "observation_after": {
+        "time_s": 30.499999999993975,
+        "robot": {
+          "palm_position_m": [
+            0.40337380366392356,
+            0.1013942484678136,
+            0.3050316824342869
+          ],
+          "palm_axes_world": [
+            [
+              -0.583119242325584,
+              -0.6747339794763766,
+              0.45244447854914316
+            ],
+            [
+              -0.812048868352306,
+              0.46805598869951215,
+              -0.34856882656120874
+            ],
+            [
+              0.023421883728100917,
+              -0.5706642168407718,
+              -0.8208494179690526
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5304218039045965,
+            0.1598085081623223,
+            0.26447761859973423
+          ],
+          "quat_wxyz": [
+            0.855955034549638,
+            0.06357427333557866,
+            0.08174622505329836,
+            0.5065736326423994
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0652868353848979,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.970073515189854,
+          "max_penetration_m": 0.0005172718332114214,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 30.499999999993975
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 11.888116267239
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4067048174068848,
+          0.10185179909378493,
+          0.31161155308468447
+        ],
+        "palm_quat_wxyz": [
+          0.15000390809370034,
+          -0.43302956707323903,
+          0.838096094060623,
+          -0.29593776156027723
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 38"
+      },
+      "observation_after": {
+        "time_s": 30.79999999999381,
+        "robot": {
+          "palm_position_m": [
+            0.4026753284756917,
+            0.10157087468758497,
+            0.3055309498975968
+          ],
+          "palm_axes_world": [
+            [
+              -0.5834273530618552,
+              -0.6696958562674912,
+              0.4594779470196445
+            ],
+            [
+              -0.811932073762576,
+              0.4673866704457898,
+              -0.349737055350444
+            ],
+            [
+              0.019463588950607985,
+              -0.5771110468425886,
+              -0.8164337133640497
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5304810407898176,
+            0.1598391233213407,
+            0.26532762605390187
+          ],
+          "quat_wxyz": [
+            0.856650901009801,
+            0.06560756889293676,
+            0.08409967673701003,
+            0.5047495666920218
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0615154818274295,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.947209557708643,
+          "max_penetration_m": 0.0005331517332024172,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 30.79999999999381
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 12.246036283969657
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.40597675028752345,
+          0.1020146174830036,
+          0.3121043974640294
+        ],
+        "palm_quat_wxyz": [
+          0.15338344430345427,
+          -0.43182996012235475,
+          0.8372716743848623,
+          -0.298282664308709
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 39"
+      },
+      "observation_after": {
+        "time_s": 31.099999999993642,
+        "robot": {
+          "palm_position_m": [
+            0.40196112217433627,
+            0.10172491522707414,
+            0.30601713945543213
+          ],
+          "palm_axes_world": [
+            [
+              -0.5836738205393437,
+              -0.6647056840849891,
+              0.46635954451700623
+            ],
+            [
+              -0.8118405008831048,
+              0.4667622042992007,
+              -0.35078204880469244
+            ],
+            [
+              0.015487812720728078,
+              -0.5833518648147572,
+              -0.8120718745740859
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5304904937132892,
+            0.15987026881871078,
+            0.26615561178960506
+          ],
+          "quat_wxyz": [
+            0.857424886325308,
+            0.06624109313324343,
+            0.08540110345127074,
+            0.5031315269587581
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0579856263984515,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 5.0060661819057,
+          "max_penetration_m": 0.0005627710432670069,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 31.099999999993642
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 12.409265965699609
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4052451280244328,
+          0.10215515008376022,
+          0.31259009101724144
+        ],
+        "palm_quat_wxyz": [
+          0.15676237114692024,
+          -0.43062131046251,
+          0.8364325031822257,
+          -0.3006185516368905
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 40"
+      },
+      "observation_after": {
+        "time_s": 31.399999999993476,
+        "robot": {
+          "palm_position_m": [
+            0.4012455792738927,
+            0.1018563021403974,
+            0.30650032083822415
+          ],
+          "palm_axes_world": [
+            [
+              -0.5838656537348329,
+              -0.6596389145888201,
+              0.4732625072292095
+            ],
+            [
+              -0.8117691915678192,
+              0.4661114278088122,
+              -0.3518109101312205
+            ],
+            [
+              0.01147510392647813,
+              -0.5895902299276268,
+              -0.8076210019333095
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5305422724404156,
+            0.15986579097455783,
+            0.2670300266876363
+          ],
+          "quat_wxyz": [
+            0.8581949824290952,
+            0.06787583383726825,
+            0.08725007977094905,
+            0.501280028421624
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0536203624205582,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 4.952509936987693,
+          "max_penetration_m": 0.0005804433912223205,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 31.399999999993476
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 12.69321028062246
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.40451568175608205,
+          0.10229117281041561,
+          0.3130710604279463
+        ],
+        "palm_quat_wxyz": [
+          0.16013028502891566,
+          -0.4294073774777272,
+          0.8355732495212917,
+          -0.3029602955317522
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 41"
+      },
+      "observation_after": {
+        "time_s": 31.69999999999331,
+        "robot": {
+          "palm_position_m": [
+            0.40052602284948813,
+            0.10197892814114815,
+            0.3069751777255376
+          ],
+          "palm_axes_world": [
+            [
+              -0.5840364274502822,
+              -0.6545651129581774,
+              0.48004787710097907
+            ],
+            [
+              -0.8116928155321347,
+              0.46547536580018833,
+              -0.35282780084156357
+            ],
+            [
+              0.007498308117461355,
+              -0.5957157012629652,
+              -0.8031603691941892
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5305637296559764,
+            0.15986556003131572,
+            0.2678871474119495
+          ],
+          "quat_wxyz": [
+            0.8589949100379659,
+            0.068932432236418,
+            0.08879355271892689,
+            0.4994915107490705
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0499904592638332,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 5.24814426216305,
+          "max_penetration_m": 0.0006095903032925977,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 31.69999999999331
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 12.908503611283702
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.40378886123327257,
+          0.10242423109040318,
+          0.31354600217733786
+        ],
+        "palm_quat_wxyz": [
+          0.16349293112020186,
+          -0.42818609199991814,
+          0.8346969332540952,
+          -0.3052994623443862
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 42"
+      },
+      "observation_after": {
+        "time_s": 31.999999999993143,
+        "robot": {
+          "palm_position_m": [
+            0.39981151092609934,
+            0.10210453816747482,
+            0.30743721462355017
+          ],
+          "palm_axes_world": [
+            [
+              -0.5841261958496227,
+              -0.6494845835931367,
+              0.4867919093381651
+            ],
+            [
+              -0.8116554668206304,
+              0.4648490993278689,
+              -0.35373820550550067
+            ],
+            [
+              0.0034627304877839493,
+              -0.6017350667269751,
+              -0.7986882489236022
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.53046736156761,
+            0.15987134740918318,
+            0.26873681582531017
+          ],
+          "quat_wxyz": [
+            0.859877346565818,
+            0.06740231873139024,
+            0.08850533224176223,
+            0.4982315550598289
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0477967073456942,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 5.503450874695954,
+          "max_penetration_m": 0.0006833694543089492,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 31.999999999993143
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 12.774601751826616
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.40306794527711687,
+          0.102565582789642,
+          0.3140104086423626
+        ],
+        "palm_quat_wxyz": [
+          0.16687043122056308,
+          -0.4269498527862395,
+          0.8338142281858997,
+          -0.30760675425748185
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 43"
+      },
+      "observation_after": {
+        "time_s": 32.29999999999351,
+        "robot": {
+          "palm_position_m": [
+            0.39909572652281416,
+            0.10221879139130582,
+            0.30789655595515913
+          ],
+          "palm_axes_world": [
+            [
+              -0.5842920089884717,
+              -0.644284654151225,
+              0.49345732607536685
+            ],
+            [
+              -0.8115433658572984,
+              0.46421579740564933,
+              -0.3548253919493966
+            ],
+            [
+              -0.0004621311735460709,
+              -0.6077836604123807,
+              -0.7941025176704233
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5304445003636207,
+            0.1598050703762128,
+            0.2696687472858409
+          ],
+          "quat_wxyz": [
+            0.8608665625639026,
+            0.06668291027173116,
+            0.0884815170390831,
+            0.4966217595711697
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.04289509246673,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 5.451043238133897,
+          "max_penetration_m": 0.000695522228230277,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 32.29999999999351
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 12.722321548318652
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.40236787956865966,
+          0.10275290344570598,
+          0.3144665768456757
+        ],
+        "palm_quat_wxyz": [
+          0.17025196187273328,
+          -0.42570269901958907,
+          0.8329195411888738,
+          -0.3098975950723683
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 44"
+      },
+      "observation_after": {
+        "time_s": 32.59999999999388,
+        "robot": {
+          "palm_position_m": [
+            0.39838472553551507,
+            0.10235344341448074,
+            0.30834770086681884
+          ],
+          "palm_axes_world": [
+            [
+              -0.5845462968633213,
+              -0.6390303444118723,
+              0.49994584281121934
+            ],
+            [
+              -0.8113491991494497,
+              0.4636157703246287,
+              -0.3560518144116758
+            ],
+            [
+              -0.004254863443553997,
+              -0.6137594287887915,
+              -0.7894816398814679
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5304680083755196,
+            0.1597521268065895,
+            0.27063760098909606
+          ],
+          "quat_wxyz": [
+            0.8618233603188586,
+            0.06739492325868146,
+            0.08937960042595781,
+            0.49470163427601743
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0394584062717285,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 5.739023998765215,
+          "max_penetration_m": 0.0006992262601189979,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 32.59999999999388
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 12.854436279102348
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4016836237989994,
+          0.1029638256738246,
+          0.3149177608846118
+        ],
+        "palm_quat_wxyz": [
+          0.17362473700930972,
+          -0.4244496156900697,
+          0.8320059889697511,
+          -0.312190660906866
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 45"
+      },
+      "observation_after": {
+        "time_s": 32.89999999999424,
+        "robot": {
+          "palm_position_m": [
+            0.39767184046745235,
+            0.10250023926433498,
+            0.30878507625186286
+          ],
+          "palm_axes_world": [
+            [
+              -0.5849222640983612,
+              -0.6337979240452258,
+              0.5061285769821819
+            ],
+            [
+              -0.811051500538593,
+              0.4630749748354759,
+              -0.3574311558261527
+            ],
+            [
+              -0.007836353497837872,
+              -0.619565782751989,
+              -0.7849056200631841
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5304507648552431,
+            0.1597112271293477,
+            0.27156472974244544
+          ],
+          "quat_wxyz": [
+            0.8628628319597187,
+            0.06686657272151236,
+            0.08951952949712715,
+            0.4929329046772468
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0351947084212345,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 5.573905480790652,
+          "max_penetration_m": 0.0007098112829589519,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 32.89999999999424
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 12.830770822448953
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4010179946663271,
+          0.10319829759803129,
+          0.3153613604713219
+        ],
+        "palm_quat_wxyz": [
+          0.17699984173866512,
+          -0.42318618371388417,
+          0.8310796983408939,
+          -0.31446946583694635
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 46"
+      },
+      "observation_after": {
+        "time_s": 33.19999999999461,
+        "robot": {
+          "palm_position_m": [
+            0.3969751923685827,
+            0.10266855015197898,
+            0.3092148414584258
+          ],
+          "palm_axes_world": [
+            [
+              -0.5852902237804539,
+              -0.6285157624233967,
+              0.5122531506319503
+            ],
+            [
+              -0.8107435866316733,
+              0.46253726659190547,
+              -0.35882323468428856
+            ],
+            [
+              -0.011410113173568825,
+              -0.6253216879327167,
+              -0.7802836637520623
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5304682529931246,
+            0.15967979160670906,
+            0.27251235716246996
+          ],
+          "quat_wxyz": [
+            0.8638822265672803,
+            0.06706336480316395,
+            0.09007142823230624,
+            0.49101643713691284
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0308655626189192,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 5.673710992111698,
+          "max_penetration_m": 0.000707614452600904,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 33.19999999999461
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 12.895356068346263
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.40036258825322074,
+          0.10344123135042148,
+          0.3157991847994816
+        ],
+        "palm_quat_wxyz": [
+          0.18037010478791962,
+          -0.42191529904399744,
+          0.8301367660229506,
+          -0.3167444639269425
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 47"
+      },
+      "observation_after": {
+        "time_s": 33.49999999999498,
+        "robot": {
+          "palm_position_m": [
+            0.39628888324591455,
+            0.10284578436365416,
+            0.3096380126396295
+          ],
+          "palm_axes_world": [
+            [
+              -0.5856598529396708,
+              -0.6231825914158755,
+              0.5183107122285578
+            ],
+            [
+              -0.8104189413778895,
+              0.4619963996494839,
+              -0.36025056025890223
+            ],
+            [
+              -0.014955805248189735,
+              -0.6310331088517512,
+              -0.7756117194977586
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5304935888409442,
+            0.15965799010273862,
+            0.2734526621390215
+          ],
+          "quat_wxyz": [
+            0.8649006623305674,
+            0.06756078273398473,
+            0.09091717108076681,
+            0.4889953506314628
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0259295683293324,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 5.698007710779246,
+          "max_penetration_m": 0.000712675548143608,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 33.49999999999498
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 13.007854630357734
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.3997128379976442,
+          0.10368588193241168,
+          0.31623168812065755
+        ],
+        "palm_quat_wxyz": [
+          0.18373389035031001,
+          -0.42063765531211184,
+          0.8291763238113407,
+          -0.31901793758498587
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 48"
+      },
+      "observation_after": {
+        "time_s": 33.79999999999534,
+        "robot": {
+          "palm_position_m": [
+            0.3956031424456956,
+            0.10303857268103475,
+            0.3100432485911815
+          ],
+          "palm_axes_world": [
+            [
+              -0.5859645360768831,
+              -0.6179653324692173,
+              0.5241797500155934
+            ],
+            [
+              -0.8101244488857503,
+              0.4615457549342842,
+              -0.36148844161286575
+            ],
+            [
+              -0.01854561343713762,
+              -0.6364702380852922,
+              -0.7710782685654477
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5304790007353078,
+            0.15967776782217596,
+            0.2743574905189024
+          ],
+          "quat_wxyz": [
+            0.8659500127519688,
+            0.06702730902446687,
+            0.09096722557535353,
+            0.4871990138854214
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0224256587851497,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 5.994829420690766,
+          "max_penetration_m": 0.000715818699589134,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 33.79999999999534
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 12.975897715259647
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.3990644035046821,
+          0.10392533555437927,
+          0.3166572398278881
+        ],
+        "palm_quat_wxyz": [
+          0.18709862183737544,
+          -0.41935010761874014,
+          0.8282026093687311,
+          -0.32127874312118926
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 49"
+      },
+      "observation_after": {
+        "time_s": 34.09999999999571,
+        "robot": {
+          "palm_position_m": [
+            0.3949282096360559,
+            0.1032336934020658,
+            0.3104453731158354
+          ],
+          "palm_axes_world": [
+            [
+              -0.5861848161520662,
+              -0.6126577243025483,
+              0.5301300540105119
+            ],
+            [
+              -0.8098724466064452,
+              0.4610578289610836,
+              -0.36267381843935176
+            ],
+            [
+              -0.0222256954999398,
+              -0.6419316094461404,
+              -0.7664397088182664
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5305203355829018,
+            0.15966805423590896,
+            0.27531196925513923
+          ],
+          "quat_wxyz": [
+            0.8669948873726566,
+            0.06794107506723132,
+            0.09182355724251313,
+            0.4850487706650902
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0174224915434433,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 5.790806578640007,
+          "max_penetration_m": 0.0007084191034664069,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "middle",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 34.09999999999571
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 13.11795589662315
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.3984160940861772,
+          0.10415865476277386,
+          0.31707932042392867
+        ],
+        "palm_quat_wxyz": [
+          0.19044983551127423,
+          -0.4180589028962703,
+          0.8272074600530678,
+          -0.3235481909939353
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 50"
+      },
+      "observation_after": {
+        "time_s": 34.399999999996076,
+        "robot": {
+          "palm_position_m": [
+            0.3942509591562088,
+            0.10342286661904132,
+            0.31084077524810827
+          ],
+          "palm_axes_world": [
+            [
+              -0.5863934474844634,
+              -0.6073404068438477,
+              0.5359854055494727
+            ],
+            [
+              -0.8096131527869448,
+              0.46057362534756396,
+              -0.3638660171939426
+            ],
+            [
+              -0.025870206448085464,
+              -0.6473094822794957,
+              -0.7617881375877299
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5305202199272965,
+            0.15969074270804728,
+            0.276217686361912
+          ],
+          "quat_wxyz": [
+            0.8680692995162427,
+            0.0676134974043079,
+            0.0920241765860682,
+            0.4831310972497981
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0134659141996032,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 6.006956189776763,
+          "max_penetration_m": 0.0007091055359374536,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 34.399999999996076
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 13.11415784318169
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.3977661655145559,
+          0.10438164978954431,
+          0.31749486311267916
+        ],
+        "palm_quat_wxyz": [
+          0.19380000111073,
+          -0.4167585979527507,
+          0.8261980369606137,
+          -0.3258076646188164
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 51"
+      },
+      "observation_after": {
+        "time_s": 34.69999999999644,
+        "robot": {
+          "palm_position_m": [
+            0.3935781147132485,
+            0.10360885569568158,
+            0.31123081197973246
+          ],
+          "palm_axes_world": [
+            [
+              -0.5865200923749002,
+              -0.6019725523562531,
+              0.541870120462675
+            ],
+            [
+              -0.8093941108769627,
+              0.4600710748256181,
+              -0.3649873688040298
+            ],
+            [
+              -0.02958639076039521,
+              -0.6526589096292917,
+              -0.7570739680924674
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5305489205045015,
+            0.15971154347846822,
+            0.2771362635426258
+          ],
+          "quat_wxyz": [
+            0.8691184825911137,
+            0.06796056867425054,
+            0.09263408364723245,
+            0.4810752029265591
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0093540436689026,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 6.089655903893184,
+          "max_penetration_m": 0.0007049787767266527,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 34.69999999999644
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 13.194561044638498
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.3971117125152274,
+          0.1045886104420505,
+          0.31790533701722395
+        ],
+        "palm_quat_wxyz": [
+          0.19714283262809443,
+          -0.4154520013451361,
+          0.8251707814782577,
+          -0.3280663340183713
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 52"
+      },
+      "observation_after": {
+        "time_s": 34.99999999999681,
+        "robot": {
+          "palm_position_m": [
+            0.39290286135567354,
+            0.10378102205639946,
+            0.31161562360388395
+          ],
+          "palm_axes_world": [
+            [
+              -0.586613579516705,
+              -0.5965585152005436,
+              0.5477247906278466
+            ],
+            [
+              -0.8091817547160879,
+              0.45955652803706737,
+              -0.36610474644984614
+            ],
+            [
+              -0.033307599150771194,
+              -0.6579709229747437,
+              -0.752306366022894
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5305858053738794,
+            0.15971760881190572,
+            0.2780446048321813
+          ],
+          "quat_wxyz": [
+            0.8701844853955727,
+            0.06861071613056487,
+            0.09351651289209037,
+            0.4788801445303371
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0036020312752783,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": true,
+          "head_clearance_m": 0.0,
+          "max_contact_force_n": 6.020046780096248,
+          "max_penetration_m": 0.0006919919279196594,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 34.99999999999681
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 13.321006685003669
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.3964562439940241,
+          0.104785027514552,
+          0.31831117212513443
+        ],
+        "palm_quat_wxyz": [
+          0.20047632388361028,
+          -0.41414005839911777,
+          0.8241245788194546,
+          -0.330327010970865
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 53"
+      },
+      "observation_after": {
+        "time_s": 35.299999999997176,
+        "robot": {
+          "palm_position_m": [
+            0.3922168829513407,
+            0.10450214148951767,
+            0.3117735574357899
+          ],
+          "palm_axes_world": [
+            [
+              -0.5836706774035804,
+              -0.5953739928277859,
+              0.55213979117932
+            ],
+            [
+              -0.8109854466253308,
+              0.46125541144571214,
+              -0.35992506271994684
+            ],
+            [
+              -0.04038744484560086,
+              -0.6578550403214558,
+              -0.7520609019371352
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5246812198022052,
+            0.1639084343146014,
+            0.28896783296778694
+          ],
+          "quat_wxyz": [
+            0.8637775802552788,
+            0.011535526255719717,
+            0.018098865682696117,
+            0.5034159855858167
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.0030692729884947,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": false,
+          "head_clearance_m": 0.012897754523814371,
+          "max_contact_force_n": 2.492969637163613,
+          "max_penetration_m": 0.0004274902787769243,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 35.299999999997176
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 2.459605916617723
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.3954841065525074,
+          0.10456764981571269,
+          0.31976038176820465
+        ],
+        "palm_quat_wxyz": [
+          0.20399566079742643,
+          -0.41273070437552994,
+          0.8231853967688574,
+          -0.33227238613522686
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 54"
+      },
+      "observation_after": {
+        "time_s": 35.59999999999754,
+        "robot": {
+          "palm_position_m": [
+            0.391292622694808,
+            0.10441756796968842,
+            0.3128796205237091
+          ],
+          "palm_axes_world": [
+            [
+              -0.5834377468767641,
+              -0.5904007448051088,
+              0.557698266137647
+            ],
+            [
+              -0.8109224454843723,
+              0.46134804536800056,
+              -0.3599482857922376
+            ],
+            [
+              -0.04477926896466711,
+              -0.6622574586735117,
+              -0.7479370799086591
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5231663643322286,
+            0.1641377227809574,
+            0.2926499255253334
+          ],
+          "quat_wxyz": [
+            0.86267820777923,
+            0.00459972899525928,
+            0.00554663225930808,
+            0.5057018757989388
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.003069278884816,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": false,
+          "head_clearance_m": 0.01726774427307933,
+          "max_contact_force_n": 2.4563384347346306,
+          "max_penetration_m": 0.00042496381982960393,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 35.59999999999754
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.8257237072485311
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.39444402561772784,
+          0.10442220776878096,
+          0.32091311555435115
+        ],
+        "palm_quat_wxyz": [
+          0.20724772302329772,
+          -0.4114396644053062,
+          0.8220651051790658,
+          -0.3346262791572696
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 55"
+      },
+      "observation_after": {
+        "time_s": 35.89999999999791,
+        "robot": {
+          "palm_position_m": [
+            0.3902863676396066,
+            0.10424425215336157,
+            0.3140773287038504
+          ],
+          "palm_axes_world": [
+            [
+              -0.5831661936138827,
+              -0.5848404353427786,
+              0.563807463425203
+            ],
+            [
+              -0.810888526424497,
+              0.4607381786013841,
+              -0.36080483435256794
+            ],
+            [
+              -0.04875436738385963,
+              -0.6675941850908719,
+              -0.7429273286761305
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5219374339904511,
+            0.16414791545817628,
+            0.2953803397733494
+          ],
+          "quat_wxyz": [
+            0.8620670977359405,
+            0.0003880438122966341,
+            -0.0006338731407058221,
+            0.5067936134443429
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.003069278884816,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": false,
+          "head_clearance_m": 0.020343563795022848,
+          "max_contact_force_n": 2.44579856598343,
+          "max_penetration_m": 0.0004246361632641426,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 35.89999999999791
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.08516652972458139
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.3933078483190312,
+          0.10427889003533096,
+          0.32216051242307087
+        ],
+        "palm_quat_wxyz": [
+          0.20669031441832783,
+          -0.4116925027612016,
+          0.8219179344166097,
+          -0.3350213518273197
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 56"
+      },
+      "observation_after": {
+        "time_s": 36.199999999998276,
+        "robot": {
+          "palm_position_m": [
+            0.38914120353609827,
+            0.10407689291354483,
+            0.31527223413927163
+          ],
+          "palm_axes_world": [
+            [
+              -0.5834167212165349,
+              -0.5841009090125834,
+              0.5643146794968392
+            ],
+            [
+              -0.8107299468071104,
+              0.46023845935951035,
+              -0.3617976145257494
+            ],
+            [
+              -0.048393003162506665,
+              -0.668585588101521,
+              -0.7420589118310321
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5204547493261719,
+            0.16417095566903506,
+            0.29692808906265616
+          ],
+          "quat_wxyz": [
+            0.8614859439905859,
+            -0.0019301850297483315,
+            -0.0027904398360371727,
+            0.5077700819641928
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.003069278884816,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": false,
+          "head_clearance_m": 0.021754067673347782,
+          "max_contact_force_n": 2.431247287308116,
+          "max_penetration_m": 0.00042366353409021944,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 36.199999999998276
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.388805172924934
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.39211047120261067,
+          0.10410826082829702,
+          0.3233747565796109
+        ],
+        "palm_quat_wxyz": [
+          0.20400897236512597,
+          -0.4127730260996741,
+          0.8226950412421896,
+          -0.3334241101578496
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 57"
+      },
+      "observation_after": {
+        "time_s": 36.49999999999864,
+        "robot": {
+          "palm_position_m": [
+            0.3879369001700749,
+            0.1039116494904044,
+            0.31648766759434044
+          ],
+          "palm_axes_world": [
+            [
+              -0.5837034653560464,
+              -0.5876288064859867,
+              0.5603415479144801
+            ],
+            [
+              -0.8106960304049884,
+              0.46036705211976214,
+              -0.3617099993201077
+            ],
+            [
+              -0.0454115713990918,
+              -0.6653980486223364,
+              -0.745106184427864
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5189073671736897,
+            0.16420416661927612,
+            0.29759115724967566
+          ],
+          "quat_wxyz": [
+            0.8610546486572531,
+            -0.0010949563586850517,
+            -0.0012712307648402813,
+            0.5085096627092258
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.003069278884816,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": false,
+          "head_clearance_m": 0.022501293690075502,
+          "max_contact_force_n": 2.4195978192772807,
+          "max_penetration_m": 0.00042274775305147817,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 36.49999999999864
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.1922599039050156
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.3909584337108842,
+          0.10394931281455248,
+          0.32457081802306886
+        ],
+        "palm_quat_wxyz": [
+          0.20277242834576803,
+          -0.4132625957215748,
+          0.8231296049523489,
+          -0.3324981544779084
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 58"
+      },
+      "observation_after": {
+        "time_s": 36.79999999999901,
+        "robot": {
+          "palm_position_m": [
+            0.38680504994573356,
+            0.10374773140357937,
+            0.3177199743060824
+          ],
+          "palm_axes_world": [
+            [
+              -0.5837459575394227,
+              -0.5900176504990757,
+              0.5577811660104078
+            ],
+            [
+              -0.810765100020139,
+              0.4604707997844655,
+              -0.361423014119447
+            ],
+            [
+              -0.043595981990473764,
+              -0.6632087263037199,
+              -0.7471636873596581
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5175661027226649,
+            0.16420704988081297,
+            0.2984001699820031
+          ],
+          "quat_wxyz": [
+            0.8607814380973734,
+            0.0002143659068156878,
+            0.00042579993837684805,
+            0.5089745460911452
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.003069278884816,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": false,
+          "head_clearance_m": 0.02337621044866832,
+          "max_contact_force_n": 2.4013548841714076,
+          "max_penetration_m": 0.00042220952198238244,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 36.79999999999901
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.05462765399656415
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.3898727385987706,
+          0.10380806854192183,
+          0.32578558340121205
+        ],
+        "palm_quat_wxyz": [
+          0.20317721510406056,
+          -0.41309787438988443,
+          0.8230437734268663,
+          -0.3326681716972377
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 59"
+      },
+      "observation_after": {
+        "time_s": 37.099999999999376,
+        "robot": {
+          "palm_position_m": [
+            0.38574333982324166,
+            0.10359675472091924,
+            0.3189569069269584
+          ],
+          "palm_axes_world": [
+            [
+              -0.5836696571615204,
+              -0.5898557694355933,
+              0.558032169836556
+            ],
+            [
+              -0.8108116038560638,
+              0.460410330018294,
+              -0.3613957264063879
+            ],
+            [
+              -0.043752421205098424,
+              -0.6633946783597133,
+              -0.746989441935227
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5164377236912872,
+            0.1641833121604748,
+            0.2995776695612393
+          ],
+          "quat_wxyz": [
+            0.8606318079252935,
+            0.001144159726322188,
+            0.001529948118862401,
+            0.5092241562853386
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.003069278884816,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": false,
+          "head_clearance_m": 0.02447794737266927,
+          "max_contact_force_n": 2.373984056136208,
+          "max_penetration_m": 0.0004214269798041969,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 37.099999999999376
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.2189222825925046
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.3888355184806121,
+          0.10368093493775157,
+          0.3270129449829553
+        ],
+        "palm_quat_wxyz": [
+          0.204655161384865,
+          -0.41250704024595536,
+          0.8225879636487322,
+          -0.33362141526929706
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 60"
+      },
+      "observation_after": {
+        "time_s": 37.39999999999974,
+        "robot": {
+          "palm_position_m": [
+            0.3847237538543983,
+            0.10346147859478284,
+            0.32018713248614594
+          ],
+          "palm_axes_world": [
+            [
+              -0.5835117026143715,
+              -0.5877737855164917,
+              0.5603892129330188
+            ],
+            [
+              -0.8108399865548435,
+              0.4601644947419658,
+              -0.3616450663048098
+            ],
+            [
+              -0.045305729392829786,
+              -0.6654101102616958,
+              -0.7451018561550488
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5154546146857607,
+            0.16414392742471956,
+            0.30102604892151763
+          ],
+          "quat_wxyz": [
+            0.8605727374007953,
+            0.0017156621505811927,
+            0.002170553097723475,
+            0.5093200455952378
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.003069278884816,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": false,
+          "head_clearance_m": 0.02588011442253811,
+          "max_contact_force_n": 2.3413349865043367,
+          "max_penetration_m": 0.00042035082857016376,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 37.39999999999974
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.31704435980260587
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.387827124624566,
+          0.1035642100796371,
+          0.32823865038170835
+        ],
+        "palm_quat_wxyz": [
+          0.20675669062849,
+          -0.41166667102967,
+          0.8218999459319094,
+          -0.3350562664998626
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 61"
+      },
+      "observation_after": {
+        "time_s": 37.70000000000011,
+        "robot": {
+          "palm_position_m": [
+            0.3837290303835519,
+            0.1033364700615082,
+            0.32140474437942235
+          ],
+          "palm_axes_world": [
+            [
+              -0.5833013070235799,
+              -0.5844809364071513,
+              0.5640404419908213
+            ],
+            [
+              -0.8108562053801383,
+              0.45975545548694063,
+              -0.3621286171328038
+            ],
+            [
+              -0.04766339707893752,
+              -0.6685857881578201,
+              -0.742105952308887
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5145532607292725,
+            0.1640933495083146,
+            0.3026624024099542
+          ],
+          "quat_wxyz": [
+            0.8605683589820247,
+            0.0018392585848053275,
+            0.0022687322080717455,
+            0.509326584325825
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.003069278884816,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": false,
+          "head_clearance_m": 0.027507637661627997,
+          "max_contact_force_n": 2.3210656887443157,
+          "max_penetration_m": 0.00041965824642147855,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 37.70000000000011
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.3346788119368119
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.38682720019906514,
+          0.10345175161554995,
+          0.32945809512772667
+        ],
+        "palm_quat_wxyz": [
+          0.2089545392750189,
+          -0.4107852162645853,
+          0.8211559160038233,
+          -0.3365954073167709
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 62"
+      },
+      "observation_after": {
+        "time_s": 38.000000000000476,
+        "robot": {
+          "palm_position_m": [
+            0.38274061046663993,
+            0.10321454730692944,
+            0.3226099186961923
+          ],
+          "palm_axes_world": [
+            [
+              -0.5830963249443181,
+              -0.5808003987238137,
+              0.568040115378031
+            ],
+            [
+              -0.8108493313680649,
+              0.45929067720924244,
+              -0.3627332844510346
+            ],
+            [
+              -0.05021989303443264,
+              -0.672103392842896,
+              -0.738752320925407
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5136703502768041,
+            0.16403206142793775,
+            0.30441114771849975
+          ],
+          "quat_wxyz": [
+            0.860586654103991,
+            0.0015899084466917072,
+            0.0017472876022789838,
+            0.5092985666141839
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.003069278884816,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": false,
+          "head_clearance_m": 0.029283493197381466,
+          "max_contact_force_n": 2.3064331138712446,
+          "max_penetration_m": 0.000419113637909925,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 38.000000000000476
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.2707086605307187
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.3858121795786245,
+          0.1033406475044749,
+          0.33067329058691863
+        ],
+        "palm_quat_wxyz": [
+          0.21065714367095864,
+          -0.4101053341364748,
+          0.8205092062769642,
+          -0.3379376054066014
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 63"
+      },
+      "observation_after": {
+        "time_s": 38.30000000000084,
+        "robot": {
+          "palm_position_m": [
+            0.3817365330170698,
+            0.10309055349873614,
+            0.3238093731993624
+          ],
+          "palm_axes_world": [
+            [
+              -0.5829652063283419,
+              -0.5776357208146764,
+              0.5713917589968025
+            ],
+            [
+              -0.8108179027671333,
+              0.4587862946116742,
+              -0.3634411430050194
+            ],
+            [
+              -0.05221012126837549,
+              -0.6751682086083411,
+              -0.7358138306132483
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5127629882097537,
+            0.1639561767601866,
+            0.3060741944082598
+          ],
+          "quat_wxyz": [
+            0.8606263866505021,
+            0.0014198087467653402,
+            0.0013746536606454706,
+            0.5092330675352265
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.003069278884816,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": false,
+          "head_clearance_m": 0.030965528748672144,
+          "max_contact_force_n": 2.293914011477028,
+          "max_penetration_m": 0.00041858428653634636,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 38.30000000000084
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.22646071574762305
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.384786350765195,
+          0.1032296892637449,
+          0.3318807830675199
+        ],
+        "palm_quat_wxyz": [
+          0.21200665214497152,
+          -0.409570340410782,
+          0.8199297026095851,
+          -0.339146868599188
+        ],
+        "duration_s": 0.3,
+        "memory": "Measured centering and axis extraction 64"
+      },
+      "observation_after": {
+        "time_s": 38.60000000000121,
+        "robot": {
+          "palm_position_m": [
+            0.3807230809201328,
+            0.10296673779999788,
+            0.3250067159344905
+          ],
+          "palm_axes_world": [
+            [
+              -0.5828524026365355,
+              -0.5750058257824887,
+              0.574152747147493
+            ],
+            [
+              -0.8108059637954835,
+              0.45818429279684597,
+              -0.3642263621814432
+            ],
+            [
+              -0.05363549025124792,
+              -0.6778166818177678,
+              -0.7332719686685533
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5118442763414458,
+            0.1638726444459162,
+            0.30762573475048965
+          ],
+          "quat_wxyz": [
+            0.8606865316319834,
+            0.0014449831676344924,
+            0.001372583601349875,
+            0.509131340918245
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.003069278884816,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": false,
+          "head_clearance_m": 0.03251590718980411,
+          "max_contact_force_n": 2.2745773543024446,
+          "max_penetration_m": 0.0004178040273738418,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 38.60000000000121
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 0.2283786299792714
+          }
+        }
+      }
+    },
+    {
+      "expected_action": {
+        "operation": "hold",
+        "targets": [],
+        "palm_target_m": null,
+        "palm_quat_wxyz": null,
+        "duration_s": 1.2,
+        "memory": "Measured clear retained hold"
+      },
+      "observation_after": {
+        "time_s": 39.800000000002676,
+        "robot": {
+          "palm_position_m": [
+            0.38041774831801745,
+            0.10292396965513578,
+            0.3253402421581092
+          ],
+          "palm_axes_world": [
+            [
+              -0.5829167498115417,
+              -0.5743978000009653,
+              0.5746957718160081
+            ],
+            [
+              -0.8107418675735301,
+              0.4580922262098841,
+              -0.3644847547558811
+            ],
+            [
+              -0.05390442423893327,
+              -0.6783941919268774,
+              -0.7327179767191097
+            ]
+          ]
+        },
+        "tool": {
+          "head_center_m": [
+            0.5118547831523802,
+            0.16400617242308668,
+            0.30736570215016606
+          ],
+          "quat_wxyz": [
+            0.8611924058545424,
+            0.00815471062427515,
+            0.008986965168397656,
+            0.5081342098797927
+          ]
+        },
+        "nut": {
+          "position_m": [
+            0.53,
+            0.16,
+            0.245
+          ],
+          "angle_rad": 1.003069278884816,
+          "initial_angle_rad": 0.0
+        },
+        "contacts": {
+          "tool_nut_contact": false,
+          "head_clearance_m": 0.031712918162056083,
+          "max_contact_force_n": 2.2000034011506435,
+          "max_penetration_m": 0.0004149132500049762,
+          "robot_nut_contact": false,
+          "hand_tool_contacts": [
+            "index",
+            "little",
+            "ring",
+            "thumb"
+          ]
+        },
+        "last_action": {
+          "status": "completed",
+          "time_s": 39.800000000002676
+        },
+        "wrench_feedback": {
+          "head_nut": {
+            "nut_hinge_axis_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_angle_deg": 1.3906339739063995
+          }
+        }
+      }
+    }
+  ],
+  "low_margin_observation": {
+    "time_s": 25.699999999996635,
+    "robot": {
+      "palm_position_m": [
+        0.40972287954714576,
+        0.12314051311678774,
+        0.3160506842123399
+      ],
+      "palm_axes_world": [
+        [
+          -0.6880570229077596,
+          -0.7253850905063169,
+          0.019849526403667453
+        ],
+        [
+          -0.7040638170518848,
+          0.6607100381926067,
+          -0.26030057039862853
+        ],
+        [
+          0.17570337146918308,
+          -0.19307696885611067,
+          -0.9653235775384831
+        ]
+      ]
+    },
+    "tool": {
+      "head_center_m": [
+        0.5288119759913155,
+        0.16008581357023793,
+        0.2580048013541804
+      ],
+      "quat_wxyz": [
+        0.9140579519202281,
+        0.028971754958807067,
+        0.005896071926830035,
+        0.4045045540928306
+      ]
+    },
+    "nut": {
+      "position_m": [
+        0.53,
+        0.16,
+        0.245
+      ],
+      "angle_rad": 0.8324511894596768,
+      "initial_angle_rad": 0.0
+    },
+    "contacts": {
+      "tool_nut_contact": true,
+      "head_clearance_m": 0.0,
+      "max_contact_force_n": 4.686782715626584,
+      "max_penetration_m": 0.0004893692236504089,
+      "robot_nut_contact": false,
+      "hand_tool_contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring",
+        "thumb"
+      ]
+    },
+    "last_action": {
+      "status": "completed",
+      "time_s": 25.699999999996635
+    },
+    "wrench_feedback": {
+      "head_nut": {
+        "nut_hinge_axis_world": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "axis_angle_deg": 3.388464973968354
+      }
+    }
+  },
+  "low_margin_previous_palm_action": {
+    "operation": "move",
+    "targets": [],
+    "palm_target_m": [
+      0.41260305711631773,
+      0.12252639771111862,
+      0.3212363027228883
+    ],
+    "palm_quat_wxyz": [
+      -0.036128115303165696,
+      -0.39178616669295385,
+      0.9086995070938676,
+      -0.13951188006776746
+    ],
+    "duration_s": 0.6,
+    "memory": "Actual nut 43.27 degree is below required 45. One further bounded 4.84 degree combined turn/level should cross threshold; inspect actual gate and hold before unload."
+  }
+}

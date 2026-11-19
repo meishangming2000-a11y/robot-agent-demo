@@ -1,0 +1,32 @@
+{
+  "protocol_id": "wrench-high-clearance-reserved-placement-v3",
+  "stage": 4,
+  "previous_results": "v1 reserved pickup failed; v2 base control passed and reserved-minus20 failed during transport. All remain immutable failures/successes under their original protocols.",
+  "development_source": "runs/wrench-placement-v3-development/run-002-raised/candidate-audit.json; engineering transport and alignment only, not full task or held-out evidence",
+  "variant_id": "placement-plus15deg-v3",
+  "placement": {
+    "wrench_rack_translation_m": [-0.02, -0.015, 0.0],
+    "wrench_rack_yaw_deg": 15.0,
+    "rotation_pivot": "seeded base wrench body center; translate that pivot, rotate wrench and all three supports together",
+    "nut_pedestal_translation_m": [0.015, 0.02, 0.0]
+  },
+  "seed": 5,
+  "cases_in_order": ["v3-base-control", "v3-new-reserved-placement"],
+  "control_protocol": "experiments/wrench-placement-v3-control.json",
+  "control_case": "runs/wrench-placement-v3/base-control",
+  "experience": ["evidence/kit-suite-v1/wrench_turn/experience.json", "experiences/wrench-native-v2.json", "experiences/wrench-transport-v3.json"],
+  "actor_instructions": ["experiments/wrench-native-actor-v3.md", "experiments/wrench-memory-actor.md", "experiments/wrench-grip-v2-actor.md", "experiments/wrench-transport-v3-actor.md"],
+  "frozen_control_resources": ["dexhand_agent/wrench_tools.py", "dexhand_agent/wrench_recovery.py", "tools/drive_native_skill.py"],
+  "maximum_robot_commands": 160,
+  "maximum_online_choices_including_skill_selections": 48,
+  "physical_rules": "experiments/wrench-autonomy-protocol-v3.json",
+  "unchanged_physics": "Only declared initial tool/rack and nut/pedestal poses differ. Robot, tool/nut geometry, mass, inertia, contacts, friction, gains, limits, timestep and evaluator remain unchanged.",
+  "observation": "Same declared simulator state, geometry, named contacts and fresh two-view RGB; not vision-only. Actor receives no preset scene coordinates or factory source.",
+  "acceptance": "Both planned cases complete the independent physical task within unchanged quality limits. Frozen local-policy trace, v2 source-memory adoption and initial thirteen-target grasp pass. The additional transport lesson is supplied identically, cited in an online transport/align choice, and its head target is computed from the fresh nut axis. Report every attempted case without an efficiency or population success-rate claim.",
+  "initialization_checks": "XML pose-only differences, compiled-physics conservation and initial two-view rendering are allowed; zero control trajectory on plus15 layout before its primary attempt.",
+  "primary_attempts": "One fresh independent actor per case. No source, memory or prompt changes between cases. Further development requires new records and never promotes a failed case retroactively.",
+  "scope": "Forward evaluation of a revised engineering skill and source-backed experience after two failures. One new position/orientation condition, not a broad generalization benchmark or a new neural model.",
+  "root_role": "Launch and monitor only; no robot-action choice, write, replacement or strategic hints while actors run.",
+  "external_services": "No external model API or remote jobs.",
+  "next_gate": "Different-wrench geometry work begins only after stage 4 acceptance."
+}

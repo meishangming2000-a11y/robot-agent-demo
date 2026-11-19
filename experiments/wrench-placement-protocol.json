@@ -1,0 +1,31 @@
+{
+  "protocol_id": "wrench-reserved-placement-v1",
+  "stage": 4,
+  "prerequisite": "evidence/wrench-memory-v1/results.json accepted before any changed-placement construction/test",
+  "variant_id": "placement-30deg-v1",
+  "placement": {
+    "wrench_rack_translation_m": [-0.03, 0.025, 0.0],
+    "wrench_rack_yaw_deg": 30.0,
+    "rotation_pivot": "seeded base wrench body center; translate that pivot, rotate wrench and all three supports together",
+    "nut_pedestal_translation_m": [0.02, 0.03, 0.0]
+  },
+  "seed": 5,
+  "control_case": "runs/wrench-memory-pilot-v1/memory-s5",
+  "contrast": "Previously accepted same-memory base-placement case versus one fresh actor at this predeclared changed placement. Same prompt, experience, robot controls, quality/physical rules and motor skill. This is not a randomized contemporaneous comparison or an efficiency-effect estimate.",
+  "unchanged_physics": "Robot/hand/table/cameras, tool/nut geometry and mass, inertia in body frames, friction/contact settings, actuator gains/limits, timestep and evaluator stay unchanged. Only declared initial task-object/support positions/orientations differ.",
+  "initialization": "Transform source XML before model compilation. Use the unchanged HandRuntime initialization and inherited WrenchRuntime execution/observation/evaluation. No object-state writes, welds, contact edits or external forces after initialization.",
+  "observation": "Same simulator-state assistance, measured tool/palm/nut poses, named contacts and two RGB views. Public geometry metadata reflects actual compiled placement; source world XY is not the current task goal.",
+  "experience": ["evidence/kit-suite-v1/wrench_turn/experience.json", "experiences/wrench-native-v1.json"],
+  "actor_instructions": ["experiments/wrench-native-actor-v3.md", "experiments/wrench-memory-actor.md"],
+  "frozen_control_resources": ["dexhand_agent/wrench_tools.py", "dexhand_agent/wrench_recovery.py", "tools/drive_native_skill.py"],
+  "maximum_robot_commands": 160,
+  "maximum_online_choices_including_skill_selections": 32,
+  "physical_rules": "experiments/wrench-autonomy-protocol-v3.json",
+  "acceptance": "Independent complete physical task, quality criteria, action/local-policy trace, source-memory adoption and model-conservation checks pass. At least one memory-informed head target uses current nut coordinates and differs from the source world target. Fresh actor and no root action intervention.",
+  "preinteraction_checks": "Pure XML invariants, compiled geometry/dynamics conservation and two-view initial static render are allowed. No controller trajectory on this reserved layout before the primary native test.",
+  "attempts": "One primary reserved-case trial. Retain any failure. Further debugging requires explicitly separate development records and cannot be relabeled as the original reserved result.",
+  "scope": "One same-wrench placement/yaw transfer example. No new-category tool, new robot, vision-only, hardware or distribution-level success-rate claim.",
+  "root_role": "Launch and monitor only; never choose/write/replace robot actions or supply live strategic hints.",
+  "external_services": "No DeepSeek, additional external model or remote-workstation calls.",
+  "next_gate": "Begin new-wrench geometry work only after stage4 is accepted."
+}

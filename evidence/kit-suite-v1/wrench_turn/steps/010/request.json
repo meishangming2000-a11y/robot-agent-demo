@@ -1,0 +1,601 @@
+{
+  "request_id": "c6dc58d29a8d44328602a8bc71dba379-10",
+  "episode_id": "c6dc58d29a8d44328602a8bc71dba379",
+  "sequence": 10,
+  "task_id": "wrench_turn",
+  "max_decisions": 32,
+  "goal": "Lift the free wrench at least 20 mm with no fixture or nut support for 2 continuous seconds. Use its head to turn the passive braked nut at least positive 45 degrees from its initial angle for 0.5 continuous seconds. Withdraw the head at least 30 mm clear of the nut while retaining the unsupported tool and the nut angle for 1 second. Keep at least two distinct hand parts contacting the tool. Never touch the nut directly with the robot.",
+  "observation": {
+    "mode": "simulator_state",
+    "time_s": 15.800000000001946,
+    "physics_step": 7900,
+    "robot": {
+      "joints_rad": {
+        "joint1": 0.3823711060523521,
+        "joint2": 0.1128941925225166,
+        "joint3": 0.32931496509958025,
+        "joint4": -1.8752607364607408,
+        "joint5": -0.4379565610010351,
+        "joint6": 1.4162594887665079,
+        "joint7": 0.0632947768439336,
+        "rh_WRJ2": -0.00048024267568560076,
+        "rh_WRJ1": -0.06290378713058938,
+        "rh_FFJ4": 0.02831325569584161,
+        "rh_FFJ3": 0.7225449512336408,
+        "rh_FFJ2": -0.0010624435705249202,
+        "rh_FFJ1": 1.4336318695826429,
+        "rh_MFJ4": 0.0069341218574873326,
+        "rh_MFJ3": 0.743804166386137,
+        "rh_MFJ2": 0.3825936119946359,
+        "rh_MFJ1": 1.1065215887503712,
+        "rh_RFJ4": -0.010148867293073228,
+        "rh_RFJ3": 0.7221478617034242,
+        "rh_RFJ2": 0.36352253311875304,
+        "rh_RFJ1": 1.1219902327874725,
+        "rh_LFJ5": -0.007338179421743827,
+        "rh_LFJ4": -0.02429228232853604,
+        "rh_LFJ3": 0.6940396214742268,
+        "rh_LFJ2": 0.12134266184843699,
+        "rh_LFJ1": 1.3391738409532783,
+        "rh_THJ5": 0.6708806904613981,
+        "rh_THJ4": 0.8346729306698866,
+        "rh_THJ3": -0.11961393367584514,
+        "rh_THJ2": -0.08266901616943137,
+        "rh_THJ1": 0.3989687719139034
+      },
+      "actuators": {
+        "actuator1": {
+          "measured": 0.3823711060523521,
+          "velocity": 0.004027950892397533,
+          "commanded": 0.3827531667324464,
+          "range": [
+            -2.8973,
+            2.8973
+          ],
+          "transmission": "joint"
+        },
+        "actuator2": {
+          "measured": 0.1128941925225166,
+          "velocity": 0.005146010338722436,
+          "commanded": 0.10636670296418657,
+          "range": [
+            -1.7628,
+            1.7628
+          ],
+          "transmission": "joint"
+        },
+        "actuator3": {
+          "measured": 0.32931496509958025,
+          "velocity": 0.0016943982850238725,
+          "commanded": 0.3297630795038868,
+          "range": [
+            -2.8973,
+            2.8973
+          ],
+          "transmission": "joint"
+        },
+        "actuator4": {
+          "measured": -1.8752607364607408,
+          "velocity": -0.0014433852070039974,
+          "commanded": -1.869158037736448,
+          "range": [
+            -3.0718,
+            -0.0698
+          ],
+          "transmission": "joint"
+        },
+        "actuator5": {
+          "measured": -0.4379565610010351,
+          "velocity": -0.010834779853807142,
+          "commanded": -0.43931947672771454,
+          "range": [
+            -2.8973,
+            2.8973
+          ],
+          "transmission": "joint"
+        },
+        "actuator6": {
+          "measured": 1.4162594887665079,
+          "velocity": -0.002713866397319016,
+          "commanded": 1.4162394991783325,
+          "range": [
+            -0.0175,
+            3.7525
+          ],
+          "transmission": "joint"
+        },
+        "actuator7": {
+          "measured": 0.0632947768439336,
+          "velocity": 0.010987820963135594,
+          "commanded": 0.0644130873064667,
+          "range": [
+            -2.8973,
+            2.8973
+          ],
+          "transmission": "joint"
+        },
+        "rh_A_WRJ2": {
+          "measured": -0.00048024267568560076,
+          "velocity": 0.002893448428797593,
+          "commanded": 0.0,
+          "range": [
+            -0.523599,
+            0.174533
+          ],
+          "transmission": "joint"
+        },
+        "rh_A_WRJ1": {
+          "measured": -0.06290378713058938,
+          "velocity": -0.0038888910964661122,
+          "commanded": 0.0,
+          "range": [
+            -0.698132,
+            0.488692
+          ],
+          "transmission": "joint"
+        },
+        "rh_A_THJ5": {
+          "measured": 0.6708806904613981,
+          "velocity": -0.005705950205969663,
+          "commanded": 0.9763313232421871,
+          "range": [
+            -1.0472,
+            1.0472
+          ],
+          "transmission": "joint"
+        },
+        "rh_A_THJ4": {
+          "measured": 0.8346729306698866,
+          "velocity": 0.010208177232371581,
+          "commanded": 0.9253804236340059,
+          "range": [
+            0.0,
+            1.22173
+          ],
+          "transmission": "joint"
+        },
+        "rh_A_THJ3": {
+          "measured": -0.11961393367584514,
+          "velocity": 0.014264059627654611,
+          "commanded": 0.0,
+          "range": [
+            -0.20944,
+            0.20944
+          ],
+          "transmission": "joint"
+        },
+        "rh_A_THJ2": {
+          "measured": -0.08266901616943137,
+          "velocity": 0.0001965438210141234,
+          "commanded": -3.4637906367758015e-05,
+          "range": [
+            -0.698132,
+            0.698132
+          ],
+          "transmission": "joint"
+        },
+        "rh_A_THJ1": {
+          "measured": 0.3989687719139034,
+          "velocity": -0.0002649165299195798,
+          "commanded": 0.45,
+          "range": [
+            -0.261799,
+            1.5708
+          ],
+          "transmission": "joint"
+        },
+        "rh_A_FFJ4": {
+          "measured": 0.02831325569584161,
+          "velocity": -0.000818281831674521,
+          "commanded": 0.0,
+          "range": [
+            -0.349066,
+            0.349066
+          ],
+          "transmission": "joint"
+        },
+        "rh_A_FFJ3": {
+          "measured": 0.7225449512336408,
+          "velocity": -0.00037666502223502235,
+          "commanded": 0.8,
+          "range": [
+            -0.261799,
+            1.5708
+          ],
+          "transmission": "joint"
+        },
+        "rh_A_FFJ0": {
+          "measured": 1.432569426012118,
+          "velocity": 0.003052327713568953,
+          "commanded": 1.5,
+          "range": [
+            0.0,
+            3.1415
+          ],
+          "transmission": "tendon"
+        },
+        "rh_A_MFJ4": {
+          "measured": 0.0069341218574873326,
+          "velocity": -0.0010129888878004894,
+          "commanded": 0.0,
+          "range": [
+            -0.349066,
+            0.349066
+          ],
+          "transmission": "joint"
+        },
+        "rh_A_MFJ3": {
+          "measured": 0.743804166386137,
+          "velocity": 0.005314006272085311,
+          "commanded": 0.8,
+          "range": [
+            -0.261799,
+            1.5708
+          ],
+          "transmission": "joint"
+        },
+        "rh_A_MFJ0": {
+          "measured": 1.489115200745007,
+          "velocity": 0.0011925094914911408,
+          "commanded": 1.5,
+          "range": [
+            0.0,
+            3.1415
+          ],
+          "transmission": "tendon"
+        },
+        "rh_A_RFJ4": {
+          "measured": -0.010148867293073228,
+          "velocity": 0.0006076111778079893,
+          "commanded": 0.0,
+          "range": [
+            -0.349066,
+            0.349066
+          ],
+          "transmission": "joint"
+        },
+        "rh_A_RFJ3": {
+          "measured": 0.7221478617034242,
+          "velocity": 5.711419778176143e-06,
+          "commanded": 0.8,
+          "range": [
+            -0.261799,
+            1.5708
+          ],
+          "transmission": "joint"
+        },
+        "rh_A_RFJ0": {
+          "measured": 1.4855127659062255,
+          "velocity": 0.00014471075398289276,
+          "commanded": 1.5,
+          "range": [
+            0.0,
+            3.1415
+          ],
+          "transmission": "tendon"
+        },
+        "rh_A_LFJ5": {
+          "measured": -0.007338179421743827,
+          "velocity": -0.0005921202672775788,
+          "commanded": 0.0,
+          "range": [
+            0.0,
+            0.785398
+          ],
+          "transmission": "joint"
+        },
+        "rh_A_LFJ4": {
+          "measured": -0.02429228232853604,
+          "velocity": -9.210173167397955e-05,
+          "commanded": 0.0,
+          "range": [
+            -0.349066,
+            0.349066
+          ],
+          "transmission": "joint"
+        },
+        "rh_A_LFJ3": {
+          "measured": 0.6940396214742268,
+          "velocity": -0.005104071070126586,
+          "commanded": 0.8,
+          "range": [
+            -0.261799,
+            1.5708
+          ],
+          "transmission": "joint"
+        },
+        "rh_A_LFJ0": {
+          "measured": 1.4605165028017153,
+          "velocity": -0.0007943731351586075,
+          "commanded": 1.5,
+          "range": [
+            0.0,
+            3.1415
+          ],
+          "transmission": "tendon"
+        }
+      },
+      "palm_position_m": [
+        0.41962796776484396,
+        0.24192118208326988,
+        0.35523315145730033
+      ],
+      "palm_quat_wxyz": [
+        -0.052841594025688575,
+        0.034233075647473264,
+        0.9510781809333267,
+        -0.30246678532541676
+      ],
+      "palm_axes_world": [
+        [
+          -0.9920717249450761,
+          0.03315100847626212,
+          -0.12122171093292457
+        ],
+        [
+          0.09708231678194523,
+          0.8146838806132438,
+          -0.571721259388868
+        ],
+        [
+          0.07980423756135237,
+          -0.5789569805313258,
+          -0.8114432194314637
+        ]
+      ]
+    },
+    "tool": {
+      "name": "wrench",
+      "position_m": [
+        0.4173660307604449,
+        0.1605229596319272,
+        0.3279796739889373
+      ],
+      "quat_wxyz": [
+        0.9999977247474144,
+        0.0014967080718224582,
+        0.0005623039617612468,
+        -0.0014121540980112652
+      ],
+      "head_center_m": [
+        0.5303655086179679,
+        0.16020400373461882,
+        0.32785211591308916
+      ],
+      "initial_height_m": 0.2419772518071842
+    },
+    "nut": {
+      "position_m": [
+        0.53,
+        0.16,
+        0.245
+      ],
+      "angle_rad": 0.0,
+      "initial_angle_rad": 0.0,
+      "top_m": 0.265,
+      "half_height_m": 0.02
+    },
+    "contacts": {
+      "time_s": 15.800000000001946,
+      "wrench_pos_m": [
+        0.4173660307604449,
+        0.1605229596319272,
+        0.3279796739889373
+      ],
+      "wrench_quat_wxyz": [
+        0.9999977247474144,
+        0.0014967080718224582,
+        0.0005623039617612468,
+        -0.0014121540980112652
+      ],
+      "hand_tool_contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring",
+        "thumb"
+      ],
+      "tool_support_contacts": [],
+      "head_nut_contact": false,
+      "tool_nut_contact": false,
+      "robot_nut_contact": false,
+      "nut_angle_rad": 0.0,
+      "head_clearance_m": 0.0527675283761829,
+      "max_contact_force_n": 2.672886757904965,
+      "raw_mj_head_distance_m": 0.052803053555737396,
+      "max_penetration_m": 0.0004326597232453249
+    },
+    "last_action": {
+      "status": "completed",
+      "time_s": 15.800000000001946
+    },
+    "task_progress": {
+      "task_id": "wrench_turn",
+      "protocol_version": 1,
+      "success": false,
+      "gates": {
+        "lift": {
+          "passed": true,
+          "passed_at_s": 7.901999999999352,
+          "required_continuous_s": 2.0,
+          "best_continuous_s": 9.898000000002373
+        },
+        "turn": {
+          "passed": false,
+          "passed_at_s": null,
+          "required_continuous_s": 0.5,
+          "best_continuous_s": 0.0
+        },
+        "withdraw": {
+          "passed": false,
+          "passed_at_s": null,
+          "required_continuous_s": 1.0,
+          "best_continuous_s": 0.0
+        }
+      },
+      "violations": [],
+      "metrics": {
+        "samples": 7400,
+        "last_time_s": 15.800000000001946,
+        "initial_height_m": 0.2419772518071842,
+        "initial_nut_angle_rad": 0.0,
+        "max_lift_m": 0.10985637211863197,
+        "max_nut_turn_rad": 0.0,
+        "max_head_clearance_m": 0.28681276302839925,
+        "max_contact_force_n": 3.9937048696293136,
+        "max_penetration_m": 0.0004830520007492699,
+        "first_robot_nut_contact_s": null
+      }
+    },
+    "previous_memory": "Engineering wrench reference: wrench_align_level_2"
+  },
+  "recent_actions": [
+    {
+      "sequence": 7,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4230980761463182,
+          0.23559165120670494,
+          0.38484031289662746
+        ],
+        "palm_quat_wxyz": null,
+        "duration_s": 2.6,
+        "memory": "Engineering wrench reference: wrench_align"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 13.800000000001278
+      }
+    },
+    {
+      "sequence": 8,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.421208806759456,
+          0.2397473720082277,
+          0.3667133027607245
+        ],
+        "palm_quat_wxyz": [
+          -0.054710286824052365,
+          0.031922705930592335,
+          0.94650885018212,
+          -0.31639962371756875
+        ],
+        "duration_s": 1.0,
+        "memory": "Engineering wrench reference: wrench_align_level_1"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 14.800000000001612
+      }
+    },
+    {
+      "sequence": 9,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.42063392377736336,
+          0.2404892376423057,
+          0.36249303262558513
+        ],
+        "palm_quat_wxyz": [
+          -0.04873026891503614,
+          0.03436228070235983,
+          0.9422011423627306,
+          -0.32969925976071773
+        ],
+        "duration_s": 1.0,
+        "memory": "Engineering wrench reference: wrench_align_level_2"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 15.800000000001946
+      }
+    }
+  ],
+  "action_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "operation": {
+        "type": "string",
+        "enum": [
+          "move",
+          "hold",
+          "finish"
+        ]
+      },
+      "targets": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "actuator": {
+              "type": "string"
+            },
+            "value": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "actuator",
+            "value"
+          ]
+        }
+      },
+      "palm_target_m": {
+        "anyOf": [
+          {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 3,
+            "maxItems": 3
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "palm_quat_wxyz": {
+        "anyOf": [
+          {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 4,
+            "maxItems": 4
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "duration_s": {
+        "type": "number",
+        "minimum": 0.02,
+        "maximum": 3.0
+      },
+      "memory": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "operation",
+      "targets",
+      "palm_target_m",
+      "palm_quat_wxyz",
+      "duration_s",
+      "memory"
+    ]
+  },
+  "experience": []
+}

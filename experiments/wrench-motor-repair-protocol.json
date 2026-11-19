@@ -1,0 +1,28 @@
+{
+  "protocol_id": "wrench-motor-interface-repair-development-v1",
+  "stage": 2,
+  "scope": "Engineering motor diagnosis within the current recovery step. Not native-agent evidence, experience-reuse evaluation, held-out tests or new-geometry transfer.",
+  "historical_inputs": [
+    "runs/wrench-autonomy-dev/attempt-001",
+    "runs/wrench-autonomy-dev/attempt-002",
+    "runs/wrench-autonomy-dev/motor-nominal-001",
+    "runs/wrench-autonomy-dev/motor-feedback-001",
+    "runs/wrench-autonomy-dev/motor-feedback-full-001",
+    "runs/wrench-autonomy-dev/motor-frozen-full-001",
+    "runs/wrench-autonomy-dev/motor-hybrid-full-001"
+  ],
+  "historical_findings": {
+    "native": "Both completed lift/turn but not whole-task withdrawal. Attempt001 crossed the unchanged 2mm penetration stop; attempt002 stayed within limits but exhausted 64 decisions.",
+    "controlled_free_space": "Identical first seven reference actions/states. Same fixed head target: nominal error17.227mm vs command-feedback0.916mm.",
+    "contact": "Instantaneous, fixed-free-space and hybrid bias approaches have not completed the fixed-program insertion probe. No full-task motor repair is yet accepted."
+  },
+  "new_diagnostic_method": "Fresh public WrenchRuntime seed5; replay only saved robot actions through an original pre-withdrawal prefix, independently compare the endpoint with the original request, then test measured tool/nut-frame recovery. Never reset a live object's state.",
+  "frozen_physics": "Panda/Shadow assets, wrench/nut geometry, mass, contact/friction, gains, task evaluator and quality thresholds stay unchanged.",
+  "quality": {"max_individual_contact_normal_n": 25.0, "max_global_penetration_m": 0.002, "robot_nut_contacts": 0, "first_breach": "retain sample and interrupted action, then terminate as failure"},
+  "maximum_total_motor_diagnostics": 12,
+  "budget_accounting": "Includes five completed motor probes, one root-owned targeted prefix diagnostic and at most six independent solver-lane probes. Every failure and source version is retained.",
+  "resources": "Local headless CPU only, independent models/outputs per lane. No original Isaac launch, remote workstation, DeepSeek or other helper API. New runtime evidence remains under the initial 2GB ceiling.",
+  "acceptance": "A repaired local primitive needs actual independent physical gates, quality pass and an accepted finish. This only validates an engineering primitive; a fresh native actor must subsequently demonstrate same-episode correction and whole task before step3 begins.",
+  "provenance": "Save exact controller/probe source, metadata, prefix command hashes and endpoint comparison, every command/result/observation, 500Hz raw samples and independent evaluator results. Distinguish code error, convergence failure, quality stop and physical task failure. No post-hoc relabeling of earlier attempts.",
+  "later_steps": "Fresh-agent experience reuse, reserved placement and a different wrench remain unstarted."
+}

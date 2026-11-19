@@ -1,0 +1,20 @@
+{
+  "episode_id": "3bdac15172c248c1b73e5691fcc12f34",
+  "backend": "reference",
+  "seed": 0,
+  "mujoco": "3.5.0",
+  "observation_mode": "simulator_state",
+  "source_sha256": {
+    "dexhand_agent/codex_backend.py": "085f7366afa7e8ec6e8cf89b889d5dbec1360e4e6b157ccd80ac521ac2aed507",
+    "dexhand_agent/evaluate.py": "a9861d9fa9f4dc92265254967f83b6e1a658cc2f15863df5899815c7708cc124",
+    "dexhand_agent/file_backend.py": "085d74380d42db19cc3aa095823068f0704d0fefdd475ac5c6b82e29937a3ae0",
+    "dexhand_agent/reference.py": "67419b58d1473a784f9df8038efa2dfcfd8f4d9ee085e752d42b2f17dcd79060",
+    "dexhand_agent/run.py": "477584675db8bec0550fd2318616589ffaa6f8006d0c9a11ada7e99451239806",
+    "dexhand_agent/runtime.py": "c90420e9a56ead3671ce58474637f6d502b7dc1bed41e2c4e7c0df29d3846cb1",
+    "dexhand_agent/scene.py": "f1a9d8bdef498b3ba38b0059e7b5fac9b4c5d7b4368757051f3cc2f5934a79f0",
+    "dexhand_agent/__init__.py": "c4ada11a3c78aaf90f1facc4b16e45b3ccc053eb7bdafe780df8e726ac17b961",
+    "dexhand_agent/__main__.py": "e6a5b8a9b0f5bc30f863a0f88db0d1acf6a56ac41415d9dfd346748a63a015be"
+  },
+  "experience": [],
+  "max_decisions": 32
+}

@@ -1,0 +1,64 @@
+{
+  "format": "verified-model-experience-v1",
+  "id": "model-curation-phase-v1",
+  "status": "not_promoted",
+  "record_kind": "negative experiment lesson; not a motor policy",
+  "hypothesis": "Phase/contact and action-start sampling improves a small tool-translation model over equal-size uniform sampling.",
+  "applicability": {
+    "tasks": [
+      "hammer_button",
+      "wrench_turn",
+      "tweezers_transfer"
+    ],
+    "input": "293D padded privileged simulator state and retrospective executed-control summary",
+    "target": "one-step held-tool translation delta; not robot actions",
+    "sampling": "8 commonD0 +16 supplement rows per each9trainingepisodes",
+    "model": "293-64-64-3 ReLU MLP,3seeds,1000Adamsteps,batch64"
+  },
+  "measured_outcome": {
+    "final_episodes": 6,
+    "intervals": 1745,
+    "mean_episode_balanced_error_mm": {
+      "d0": 1.3013228821653235,
+      "uniform": 0.5875238523236036,
+      "curated": 0.7167729411790696
+    },
+    "uniform_minus_curated_mm": -0.12924908885546604,
+    "curated_worse_aggregate_seeds": 3,
+    "constant_velocity_mm": 0.34018253944887084
+  },
+  "reusable_lessons": [
+    {
+      "condition": "Claiming an experience-selection benefit with more data than a baseline",
+      "guidance": "Use an equal-count uniform-supplement comparator; added-data gains alone do not identify selection quality."
+    },
+    {
+      "condition": "Applying this exact phase/start sampling rule in these profiles",
+      "guidance": "It lost to uniform across all three training seeds; do not promote it as an improvement."
+    },
+    {
+      "condition": "Using data that pass timing/model-state replay checks",
+      "guidance": "Replay consistency does not establish contact-quality eligibility. Preserve high-force failures and their labels."
+    },
+    {
+      "condition": "Proposing a learned dynamics replacement for a simple predictor",
+      "guidance": "Keep constant-velocity and train-fitted linear baselines; the constant-velocity model outperformed these MLPs."
+    }
+  ],
+  "provenance": {
+    "results": "runs/experience-learning-v1/curation-v1/test-v1/results.json",
+    "results_sha256": "1eef4e38d06acf04128662f1380548a5ab951d2a0035f2128e34a1e8de7d5348",
+    "independent_audit": "evidence/experience-learning-v1/curation-v1-independent-audit.json",
+    "independent_audit_sha256": "b09f977735d3d3b1d7c577336b83cdb90859c2416ac9eeb8d194f950798e3b05",
+    "method_freeze": "experiments/experience-curation-v1-final-freeze.json",
+    "interpretation_author": "Codex coordinator, derived from saved experiment results; not automatic discovery of motor control"
+  },
+  "next_candidate": {
+    "design": "experiments/experience-curation-v2-design.json",
+    "status": "proposed validation-driven follow-up, not yet validated",
+    "test_seeds": [
+      5000,
+      5001
+    ]
+  }
+}

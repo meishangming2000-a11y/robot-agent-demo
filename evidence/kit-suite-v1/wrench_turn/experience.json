@@ -1,0 +1,577 @@
+{
+  "schema_version": 1,
+  "id": "c6dc58d29a8d44328602a8bc71dba379",
+  "status": "demonstrated_episode",
+  "origin_backend": "reference",
+  "applicability": {
+    "robot": "Panda + adapted Shadow right wrist/hand",
+    "tool": "wrench",
+    "task": "wrench_turn",
+    "goal": "Lift the free wrench at least 20 mm with no fixture or nut support for 2 continuous seconds. Use its head to turn the passive braked nut at least positive 45 degrees from its initial angle for 0.5 continuous seconds. Withdraw the head at least 30 mm clear of the nut while retaining the unsupported tool and the nut angle for 1 second. Keep at least two distinct hand parts contacting the tool. Never touch the nut directly with the robot.",
+    "protocol_version": 1,
+    "observation_mode": "simulator_state",
+    "source_seed": 0,
+    "other_layouts_verified": false,
+    "new_tools_verified": false
+  },
+  "source": {
+    "episode_id": "c6dc58d29a8d44328602a8bc71dba379",
+    "files_sha256": {
+      "metadata.json": "eb9b0775a92aea7a367ceceea1fe42e0be8a346872386994cd8363c4aa5bb3d8",
+      "summary.json": "cda5d6e9d218326c643c06c964a0cdc2a7d922b8dd8dd82ccfff905998026964",
+      "actions.json": "59448843abc4969620fa8fc5312cfec6bd41f2742e3f6889eba5cd5052f040a3",
+      "steps/000/request.json": "105960c852ede65af4676ca40615b3ba41fbdf881ebd41a0206d38b26faefd52"
+    }
+  },
+  "initial_observation": {
+    "tool": {
+      "name": "wrench",
+      "position_m": [
+        0.52999914843329,
+        -0.13,
+        0.2419772518071842
+      ],
+      "quat_wxyz": [
+        0.9999999990875482,
+        2.060307798032052e-17,
+        -4.271889774754473e-05,
+        -2.8666368893082727e-19
+      ],
+      "head_center_m": [
+        0.6429991480208617,
+        -0.13,
+        0.24198690627806635
+      ],
+      "initial_height_m": 0.2419772518071842
+    },
+    "nut": {
+      "position_m": [
+        0.53,
+        0.16,
+        0.245
+      ],
+      "angle_rad": 0.0,
+      "initial_angle_rad": 0.0,
+      "top_m": 0.265,
+      "half_height_m": 0.02
+    },
+    "palm": {
+      "position_m": [
+        0.4589531885784855,
+        1.9351987029467834e-05,
+        0.5502316267961462
+      ],
+      "quat_wxyz": [
+        0.04299860783290308,
+        -7.203042594457322e-05,
+        0.9990751062431368,
+        0.00021591969414144318
+      ]
+    }
+  },
+  "outcome": {
+    "success": true,
+    "gates": {
+      "lift": {
+        "passed": true,
+        "passed_at_s": 7.901999999999352,
+        "required_continuous_s": 2.0,
+        "best_continuous_s": 11.130000000001868
+      },
+      "turn": {
+        "passed": true,
+        "passed_at_s": 21.621999999998895,
+        "required_continuous_s": 0.5,
+        "best_continuous_s": 2.747999999998477
+      },
+      "withdraw": {
+        "passed": true,
+        "passed_at_s": 25.139999999996945,
+        "required_continuous_s": 1.0,
+        "best_continuous_s": 1.7599999999990246
+      }
+    },
+    "violations": [],
+    "error": null,
+    "metrics": {
+      "samples": 12450,
+      "last_time_s": 25.899999999996524,
+      "initial_height_m": 0.2419772518071842,
+      "initial_nut_angle_rad": 0.0,
+      "max_lift_m": 0.10985637211863197,
+      "max_nut_turn_rad": 1.1444091789430944,
+      "max_head_clearance_m": 0.28681276302839925,
+      "max_contact_force_n": 3.9937048696293136,
+      "max_penetration_m": 0.0004955603807109153,
+      "first_robot_nut_contact_s": null
+    },
+    "decisions": 20
+  },
+  "trajectory": [
+    {
+      "sequence": 0,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.52999914843329,
+          -0.10500000000000001,
+          0.41397725180718425
+        ],
+        "palm_quat_wxyz": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "duration_s": 1.8,
+        "memory": "Engineering wrench reference: wrench_approach"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 2.7999999999999132
+      }
+    },
+    {
+      "sequence": 1,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.52999914843329,
+          -0.10500000000000001,
+          0.32397725180718423
+        ],
+        "palm_quat_wxyz": null,
+        "duration_s": 1.2,
+        "memory": "Engineering wrench reference: wrench_descend"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 3.999999999999781
+      }
+    },
+    {
+      "sequence": 2,
+      "action": {
+        "operation": "move",
+        "targets": [
+          {
+            "actuator": "rh_A_FFJ3",
+            "value": 0.8
+          },
+          {
+            "actuator": "rh_A_FFJ0",
+            "value": 1.5
+          },
+          {
+            "actuator": "rh_A_MFJ3",
+            "value": 0.8
+          },
+          {
+            "actuator": "rh_A_MFJ0",
+            "value": 1.5
+          },
+          {
+            "actuator": "rh_A_RFJ3",
+            "value": 0.8
+          },
+          {
+            "actuator": "rh_A_RFJ0",
+            "value": 1.5
+          },
+          {
+            "actuator": "rh_A_LFJ3",
+            "value": 0.8
+          },
+          {
+            "actuator": "rh_A_LFJ0",
+            "value": 1.5
+          },
+          {
+            "actuator": "rh_A_THJ5",
+            "value": 0.9763313232421871
+          },
+          {
+            "actuator": "rh_A_THJ4",
+            "value": 0.9253804236340059
+          },
+          {
+            "actuator": "rh_A_THJ3",
+            "value": 0.0
+          },
+          {
+            "actuator": "rh_A_THJ2",
+            "value": -3.4637906367758015e-05
+          },
+          {
+            "actuator": "rh_A_THJ1",
+            "value": 0.45
+          }
+        ],
+        "palm_target_m": null,
+        "palm_quat_wxyz": null,
+        "duration_s": 1.5,
+        "memory": "Engineering wrench reference: wrench_close"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 5.499999999999616
+      }
+    },
+    {
+      "sequence": 3,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.52999914843329,
+          -0.10500000000000001,
+          0.41397725180718425
+        ],
+        "palm_quat_wxyz": null,
+        "duration_s": 1.5,
+        "memory": "Engineering wrench reference: wrench_lift"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 6.999999999999451
+      }
+    },
+    {
+      "sequence": 4,
+      "action": {
+        "operation": "hold",
+        "targets": [],
+        "palm_target_m": null,
+        "palm_quat_wxyz": null,
+        "duration_s": 2.2,
+        "memory": "Engineering wrench reference: wrench_lift_hold"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 9.199999999999742
+      }
+    },
+    {
+      "sequence": 5,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.536665845433781,
+          -0.0807734435851,
+          0.39895954155673474
+        ],
+        "palm_quat_wxyz": [
+          -0.08577803461503757,
+          0.018255061178524285,
+          0.9664741160638972,
+          -0.2413227392879872
+        ],
+        "duration_s": 1.0,
+        "memory": "Engineering wrench reference: wrench_level_1"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 10.200000000000076
+      }
+    },
+    {
+      "sequence": 6,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.5360293508164188,
+          -0.07733603305613256,
+          0.3925051184212164
+        ],
+        "palm_quat_wxyz": [
+          -0.0770452859025819,
+          0.025365243222455543,
+          0.9638740664590543,
+          -0.2537073360471481
+        ],
+        "duration_s": 1.0,
+        "memory": "Engineering wrench reference: wrench_level_2"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 11.20000000000041
+      }
+    },
+    {
+      "sequence": 7,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4230980761463182,
+          0.23559165120670494,
+          0.38484031289662746
+        ],
+        "palm_quat_wxyz": null,
+        "duration_s": 2.6,
+        "memory": "Engineering wrench reference: wrench_align"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 13.800000000001278
+      }
+    },
+    {
+      "sequence": 8,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.421208806759456,
+          0.2397473720082277,
+          0.3667133027607245
+        ],
+        "palm_quat_wxyz": [
+          -0.054710286824052365,
+          0.031922705930592335,
+          0.94650885018212,
+          -0.31639962371756875
+        ],
+        "duration_s": 1.0,
+        "memory": "Engineering wrench reference: wrench_align_level_1"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 14.800000000001612
+      }
+    },
+    {
+      "sequence": 9,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.42063392377736336,
+          0.2404892376423057,
+          0.36249303262558513
+        ],
+        "palm_quat_wxyz": [
+          -0.04873026891503614,
+          0.03436228070235983,
+          0.9422011423627306,
+          -0.32969925976071773
+        ],
+        "duration_s": 1.0,
+        "memory": "Engineering wrench reference: wrench_align_level_2"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 15.800000000001946
+      }
+    },
+    {
+      "sequence": 10,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.419983399103733,
+          0.2413834763329181,
+          0.282362744544463
+        ],
+        "palm_quat_wxyz": [
+          -0.04064861658653092,
+          0.038043920895921575,
+          0.9365518921756484,
+          -0.34607933095560295
+        ],
+        "duration_s": 1.5,
+        "memory": "Engineering wrench reference: wrench_insert"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 17.30000000000129
+      }
+    },
+    {
+      "sequence": 11,
+      "action": {
+        "operation": "hold",
+        "targets": [],
+        "palm_target_m": null,
+        "palm_quat_wxyz": null,
+        "duration_s": 0.5,
+        "memory": "Engineering wrench reference: wrench_seat_hold"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 17.800000000001013
+      }
+    },
+    {
+      "sequence": 12,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.39463114167289715,
+          0.19443938480100814,
+          0.2764831454069591
+        ],
+        "palm_quat_wxyz": [
+          0.05144846641139192,
+          -0.1328133034945761,
+          0.9147221109927894,
+          -0.3781496282950287
+        ],
+        "duration_s": 1.2,
+        "memory": "Engineering wrench reference: wrench_turn_1"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 19.000000000000348
+      }
+    },
+    {
+      "sequence": 13,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.39004523937737484,
+          0.14053182414515256,
+          0.2742267236335296
+        ],
+        "palm_quat_wxyz": [
+          0.13961749580817828,
+          -0.2971924115882466,
+          0.8696224778182613,
+          -0.36870092409952165
+        ],
+        "duration_s": 1.2,
+        "memory": "Engineering wrench reference: wrench_turn_2"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 20.199999999999683
+      }
+    },
+    {
+      "sequence": 14,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4057230767135273,
+          0.08812691698157386,
+          0.26609350862398246
+        ],
+        "palm_quat_wxyz": [
+          0.24270080059087712,
+          -0.4423955288656761,
+          0.7830971927528384,
+          -0.3635124538923401
+        ],
+        "duration_s": 1.2,
+        "memory": "Engineering wrench reference: wrench_turn_3"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 21.399999999999018
+      }
+    },
+    {
+      "sequence": 15,
+      "action": {
+        "operation": "hold",
+        "targets": [],
+        "palm_target_m": null,
+        "palm_quat_wxyz": null,
+        "duration_s": 1.0,
+        "memory": "Engineering wrench reference: wrench_turn_hold"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 22.399999999998464
+      }
+    },
+    {
+      "sequence": 16,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4041998578645387,
+          0.08702758745486382,
+          0.26105336585144323
+        ],
+        "palm_quat_wxyz": [
+          0.247559148603972,
+          -0.44016092989273375,
+          0.7680035304996439,
+          -0.3938824708952187
+        ],
+        "duration_s": 0.8,
+        "memory": "Engineering wrench reference: wrench_unload"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 23.19999999999802
+      }
+    },
+    {
+      "sequence": 17,
+      "action": {
+        "operation": "move",
+        "targets": [],
+        "palm_target_m": [
+          0.4036167780586458,
+          0.08633507658975323,
+          0.3613321662255853
+        ],
+        "palm_quat_wxyz": [
+          0.24805182590281757,
+          -0.44198821468010324,
+          0.7619781727611163,
+          -0.4031202971642633
+        ],
+        "duration_s": 1.5,
+        "memory": "Engineering wrench reference: wrench_withdraw"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 24.69999999999719
+      }
+    },
+    {
+      "sequence": 18,
+      "action": {
+        "operation": "hold",
+        "targets": [],
+        "palm_target_m": null,
+        "palm_quat_wxyz": null,
+        "duration_s": 1.2,
+        "memory": "Engineering wrench reference: wrench_withdraw_hold"
+      },
+      "result": {
+        "status": "completed",
+        "time_s": 25.899999999996524
+      }
+    },
+    {
+      "sequence": 19,
+      "action": {
+        "operation": "finish",
+        "targets": [],
+        "palm_target_m": null,
+        "palm_quat_wxyz": null,
+        "duration_s": 0.02,
+        "memory": "Engineering wrench reference: finish"
+      },
+      "result": {
+        "status": "finished",
+        "time_s": 25.899999999996524
+      }
+    }
+  ],
+  "notes": "Reference trajectory calibrated by the developer. One episode only; this export does not train model weights or establish transfer. Use the initial poses as coordinate references, check fresh observations, and do not blindly replay targets."
+}

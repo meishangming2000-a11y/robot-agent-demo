@@ -1,0 +1,82 @@
+{
+  "stage": 5,
+  "kind": "original_primary_result_with_procedural_deviation",
+  "episode_id": "1bb070c13bb747e4ac2d981d59f17cbb",
+  "physical_accepted": true,
+  "saved_local_and_memory_audits_accepted": true,
+  "procedure_accepted": false,
+  "accepted_under_original_protocol": false,
+  "stage5_accepted": false,
+  "physical_summary": {
+    "task_id": "wrench_turn",
+    "protocol_version": 1,
+    "success": true,
+    "gates": {
+      "lift": {
+        "passed": true,
+        "passed_at_s": 7.91799999999935,
+        "required_continuous_s": 2.0,
+        "best_continuous_s": 14.266000000000123
+      },
+      "turn": {
+        "passed": true,
+        "passed_at_s": 26.97199999999593,
+        "required_continuous_s": 0.5,
+        "best_continuous_s": 7.627999999999503
+      },
+      "withdraw": {
+        "passed": true,
+        "passed_at_s": 38.530000000001124,
+        "required_continuous_s": 1.0,
+        "best_continuous_s": 1.5700000000019187
+      }
+    },
+    "violations": [],
+    "metrics": {
+      "samples": 19050,
+      "last_time_s": 39.10000000000182,
+      "initial_height_m": 0.24196378799710389,
+      "initial_nut_angle_rad": 0.0,
+      "max_lift_m": 0.10484072034311787,
+      "max_nut_turn_rad": 1.1059870294871723,
+      "max_head_clearance_m": 0.28922492109238135,
+      "max_contact_force_n": 3.850282821291535,
+      "max_penetration_m": 0.0004986390573720936,
+      "first_robot_nut_contact_s": null
+    },
+    "backend": "native",
+    "seed": 5,
+    "episode_id": "1bb070c13bb747e4ac2d981d59f17cbb",
+    "decisions": 65,
+    "elapsed_wall_s": 641.7659999999887,
+    "error": null
+  },
+  "counts": {
+    "low_level_commands": 65,
+    "online_action_choices": 32,
+    "skill_selections": 1,
+    "online_model_choices": 33,
+    "local_motor_commands": 33,
+    "unclassified_commands": 0
+  },
+  "procedure": "Actor retrospectively disclosed seven online replies at sequences4–10 where fresh images and reply publication shared one tool call; the image outputs reached the model after publication. Fresh numeric state was read. Frozen instructions required image inspection before online choice/reply. No local-program exception applies to these online replies.",
+  "reviewer": "/root/long_wrench_preflight_review",
+  "evidence_limit": "Image ordering is actor self-report; saved request/action hashes alone do not authenticate visual arrival or review time. No fabricated timestamps.",
+  "source_freeze_sha256": "b07d7e08a5fde4a4900aa369475592617b26bd7afb2091006fd6eca4f4eb3f87",
+  "frozen_source_mismatches_after_episode": 0,
+  "source_sha256": {
+    "metadata.json": "abbeaaad56740592f197073436274307373c2405822e6ce066f39c87c7bb842d",
+    "summary.json": "850583b7f9f022ffdcd061d53afef782be9edeae7e65a025d39d7f936117fec7",
+    "actions.json": "014fab5dbfcbe64e7d074a19ed6abce22a6f169455879107ab87b0e27aa74078",
+    "samples.jsonl": "02cfa58ff6da6203354ffb1fe060f57a3743625c6fb8878cbf8b169afc227e4c",
+    "episode.mp4": "01df59309fc66584982ee19b1f5e83a37de9b39867c0a9b8e4eb24d774997aab",
+    "actor-binding.json": "96f9e3537ca37dfbf2db9b27f0a2c20dc28e22e6522666db8acbaf8c1b26a8fe",
+    "audit-physical.json": "16e7af6c7af95341b1357e4278af502845a405c96f741d56477d3509a44736e3",
+    "audit-local.json": "26426d8dfd83a1032f775fb25840347293ecd72dd1cb816a79638e4cfe7c934d",
+    "audit-memory.json": "19a3dc4030bf371b6d6eb126520f509253238c7f907999d8cd061b6313f1fa3c",
+    "audit-transport.json": "ebdcb09109dcbe1028a474cfb25e6e4270996aef6b372bffe0484f7736b3d71c",
+    "actor/actor-result.json": "cb2650c3ae752506670dd10d300e1e008ebc0e720f0b6570bc788d48b4c17a7f",
+    "actor/vision-order-disclosure.json": "46bdf9bb468c0ac84b7d079e4de42c19d7755649e7f798fdbd154b7898fc7316"
+  },
+  "next": "Separately declare same-known-geometry fresh-actor confirmation with unchanged physical/control/data parameters and clarified image-tool-result-before-publish workflow. Keep this primary nonconforming permanently."
+}

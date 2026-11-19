@@ -1,0 +1,70 @@
+{
+  "stage": 5,
+  "kind": "same_known_geometry_confirmation_interrupted_by_windows_io",
+  "episode_id": "9bab71519b8a4d939d14406686ba9f55",
+  "accepted": false,
+  "physical_task_completed": false,
+  "physical_gates": {
+    "lift": {
+      "passed": true,
+      "passed_at_s": 7.91799999999935,
+      "required_continuous_s": 2.0,
+      "best_continuous_s": 14.753999999999852
+    },
+    "turn": {
+      "passed": true,
+      "passed_at_s": 27.323999999995735,
+      "required_continuous_s": 0.5,
+      "best_continuous_s": 4.6759999999974085
+    },
+    "withdraw": {
+      "passed": false,
+      "passed_at_s": null,
+      "required_continuous_s": 1.0,
+      "best_continuous_s": 0.0
+    }
+  },
+  "violations": [],
+  "confirmed_executed_commands": 43,
+  "online_choices": 33,
+  "published_local_replies": 12,
+  "executed_local_commands": 11,
+  "unexecuted_local_reply_sequence": 43,
+  "accepted_finish": false,
+  "image_review_attestations_consistent": true,
+  "image_review_count": 33,
+  "visual_timing_independently_authenticated": false,
+  "summary_error_raw": null,
+  "summary_error_reporting_bug": true,
+  "observed_launcher_exit_code": 1,
+  "observed_launcher_exception": {
+    "type": "PermissionError",
+    "winerror": 5,
+    "operation": "os.replace actor/current.json.tmp to actor/current.json",
+    "location": [
+      "dexhand_agent/file_backend.py:19",
+      "dexhand_agent/file_backend.py:82",
+      "dexhand_agent/run.py:210"
+    ],
+    "capture_scope": "Structured transcription of the observed launcher traceback tail; not a fabricated full console transcript."
+  },
+  "diagnosis": "Windows atomic status replacement failed during a read. A controlled ordinary Python reader reproduces the same WinError5 while open; replacement succeeds after closing it. Specific live reader not identified. Raw PermissionError escaped finally and run_episode omitted OSError, leaving raw summary.error null.",
+  "windows_reproduction": "runs/windows-json-repro/2502c282e7ee477aa76b52eada934ae5/result.json",
+  "frozen_source_mismatches_observed_at_failure": [],
+  "source_sha256": {
+    "metadata.json": "c1f6e161fbe8050ea36cb4fa481516def4fa5c365bd83620716f498c50e9b821",
+    "summary.json": "c19d46982ba78035b89bde238d1eeb94b39e3813c97845582566e2c73760540f",
+    "actions.json": "83030f85c53eb8a7150a3bab259dcebafd3a0834bf5ccedc57d34427f7c76222",
+    "samples.jsonl": "158ad0defaa51481ae3e7c68b85cba7bd77a285f918608c262c8ca25f08fe3e0",
+    "episode.mp4": "a11df3c1a3bda89b8530251690f2844b0f5c9401127cbd052d5eeab567ebd92b",
+    "actor/current.json": "cedf4812e20ebbeaf145b398f3e45e9788f1230787f6bcb10f918139b523244d",
+    "actor/steps/043/reply.json": "eac9bb2a8e809c6f45bf0587fe64301ceb7cc49310d8afe407983624fa77542a",
+    "actor/result-report.json": "a61cd8479556abbdbb258a4115fbd64be49d9bfe4ea8f3f1e99d2cd2ad47fc21",
+    "audit-physical.json": "dcdaf1322b43c263a218db4c980ad3f73613249a88cc7c856bf336e64e26d396",
+    "audit-local.json": "79dce5fee8b41cf2a7ade10d4bcd020340dd3af8bd08b9430b0f63d4757adf94",
+    "audit-memory.json": "660f341cced1c1d2ee09f90c6015465a8e893e48606829e434f39bc75eb205ff",
+    "audit-transport.json": "9cb80984d33b44b676bec10e7a771ad5865115da959a9a1e8c95c9f1ed445bdc",
+    "audit-images.json": "8e7620ddd551f38d1145dda3a407e7146fac57760a3dd514221db83581d7ed77"
+  },
+  "next": "Typed/bounded file-I/O fix only, independent regression tests, then separately declared fresh-actor confirmation on identical known geometry. No source/control/experience/grasp/physics retuning."
+}

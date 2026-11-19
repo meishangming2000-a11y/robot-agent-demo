@@ -1,0 +1,51 @@
+{
+  "protocol_id": "wrench-fresh-agent-memory-pilot-v1",
+  "stage": 3,
+  "prerequisite": "evidence/wrench-recovery-v3/acceptance.json must be accepted before preparing or running this stage",
+  "purpose": "Test explicit reuse of source-backed successful native-episode experience by a fresh actor. This is a two-case development pilot, not a statistical estimate or causal learning evaluation.",
+  "cases_in_order": [
+    {
+      "id": "baseline-s5",
+      "seed": 5,
+      "experience": [
+        "evidence/kit-suite-v1/wrench_turn/experience.json"
+      ]
+    },
+    {
+      "id": "memory-s5",
+      "seed": 5,
+      "experience": [
+        "evidence/kit-suite-v1/wrench_turn/experience.json",
+        "experiences/wrench-native-v1.json"
+      ]
+    }
+  ],
+  "case_selection": "Repeated development seed5, the same geometry and placement as the successful source. It is not a new held-out context. No source, prompt, skill or case changes after freezing this pair.",
+  "actor": "Fresh native Codex sub-agent per case, fork none, same inherited model settings without overrides. Exact served model and sampling variation are not controlled/exposed.",
+  "actor_instructions": [
+    "experiments/wrench-native-actor-v3.md",
+    "experiments/wrench-memory-actor.md"
+  ],
+  "common_resources": [
+    "dexhand_agent/wrench_tools.py",
+    "dexhand_agent/wrench_recovery.py",
+    "tools/drive_native_skill.py"
+  ],
+  "contrast": "Only the additional native-episode experience record differs. Both receive the nominal engineering guidance, state/contact/geometry feedback, fresh two-view images and identical control APIs, skill access and budgets.",
+  "maximum_robot_commands": 160,
+  "maximum_online_choices_including_skill_selections": 32,
+  "physical_rules": "experiments/wrench-autonomy-protocol-v3.json",
+  "physical_acceptance": "All independent lift/turn/withdraw gates, raw reply/executed-action bindings, exact saved physical replay, 500Hz cadence, accepted finish, no runtime error, individual normal<=25N, global penetration<=2mm and zero direct robot-nut contact. A new correction event is optional in this stage.",
+  "local_skill_acceptance": "Exact frozen observation-only policy replay, initial accepted-command ownership, online selection binding and separate online/local counts. Same limits and resources in both cases.",
+  "memory_acceptance": "The fresh memory case physically succeeds; additional source record is bound to metadata and every request; at least one completed online alignment action explicitly cites a valid fixed-head-target lesson and its intended head target matches the lesson expressed in the current measured nut frame. Files support declared adoption consistency, not causal access to internal reasoning.",
+  "comparison_reporting": "Report both planned cases, including failure or timeout, all declared inputs, physical gates, online/local counts, total robot commands, simulation time and wall time. No token/API-call claims. A null or negative efficiency comparison remains a valid result; memory-use demonstration requires a successful memory case, not baseline failure.",
+  "source_memory": "experiences/wrench-native-v1.json; immutable source-backed episode plus derived conditional lessons, no weight fitting or hidden new optimization",
+  "failed_source_trials": "Native001 and002 remain failed development attempts; successful native003 includes a disclosed corrected retrospective audit for one exact operation label. No older result is relabeled as success.",
+  "root_role": "Launch and monitor only; no robot-action choices, writes, replacements or strategic actor messages during either episode.",
+  "retention": "Preserve every case, raw replies/intents, local skill states, source/experience hashes, 500Hz physics, continuous videos, audits and failures under the existing2GB new-evidence ceiling.",
+  "external_services": "No further DeepSeek calls, external model calls or remote-workstation jobs.",
+  "next_gate": "Do not start changed-placement tests until successful fresh-agent reuse and the planned comparison report are accepted. New wrench geometry remains after placement.",
+  "source_memory_file_sha256": "2e9a8b7374e6bb721601dd711436d6dce390e050f0dac8c658ef37ed37cd428f",
+  "stage2_acceptance_sha256": "1e9bb708d56263472af10a2910c2cd341fa0d2b1a327ec72913fbb21bc4039ab",
+  "source_freeze": "experiments/wrench-memory-freeze.json"
+}

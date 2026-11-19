@@ -1,0 +1,32 @@
+{
+  "title": "灵巧手工具 Agent｜换一把扳手",
+  "caption": "共享 3 项控制资源、3 份经验；右侧为同一已知几何的独立确认，非新留出几何。",
+  "expect_success": true,
+  "cases": [
+    {
+      "episode": "runs/wrench-placement-v3/base-control",
+      "title": "原扳手 · 135 g",
+      "description": "同抓取起点 / 三份经验；蓝色原扳手"
+    },
+    {
+      "episode": "runs/wrench-geometry-confirmation-v2/episode",
+      "title": "加长扳手 · 165 g",
+      "description": "新工作点；同一已知几何独立确认"
+    }
+  ],
+  "evidence_source_sha256": {
+    "experiments/wrench-placement-v3-freeze.json": "726e41725b2cd41fdebc77b82fdb7e38ba2b6494210e431bbb760fa55d61f8a3",
+    "experiments/wrench-geometry-v1-protocol.json": "31486d15ea02fd0e773c8a60e2c393ea6fd21c816374905e2b091014665d8de3",
+    "experiments/wrench-geometry-confirmation-v2-protocol.json": "b0170eea4268abc8f9fcfd9b7f3cfe5a5e0bb8528e7249c906dfe556e74676ba",
+    "experiments/wrench-geometry-confirmation-v2-freeze.json": "49fec4ced2b5fb797b091b6ee3e8b427840d8d7dd2ad9619d1cdbaa12c267a26",
+    "evidence/wrench-geometry-v1/primary-result.json": "a147629b3c249521797a4783e11e7d737f1c222204225ef8336954305b3e9f80",
+    "evidence/wrench-geometry-v1/confirmation-001-interruption.json": "f9136911519325149ee84744b8f93c65e3beccf4570bad45635e01209d001e1d",
+    "runs/wrench-placement-v3/base-control/metadata.json": "55937e2303a66082b79db114ba931c93667360a9107333a92eafd2b102290113",
+    "runs/wrench-geometry-confirmation-v2/episode/metadata.json": "77529c77524e135a4c5605d63d92e294eebe5d910bb4be9942807d4c57212555",
+    "runs/wrench-geometry-confirmation-v2/episode/steps/006/request.json": "68bc9349e23e50fa7d04bfc431e461519aae0f09ea1f4de0cf3ab4d759637df5",
+    "runs/wrench-geometry-confirmation-v2/episode/steps/008/request.json": "f17701a2d0d271ea8efac104a89948592b0c042455724c44b32390730c4f225f",
+    "runs/wrench-geometry-confirmation-v2/episode/steps/010/request.json": "393f33f6a614da8a0b9bbc69eb3a5372eeb047437a35bf3fe1752fbebcd1c222",
+    "runs/wrench-geometry-confirmation-v2/episode/steps/013/request.json": "07efd2bbdf0dea53828a811c345e880ed4a30b4b398996796f484e9b941916b0",
+    "bundles/panda-shadow-long-wrench-v1-io3.zip": "cc5528884e9b9a9541f18ff7ada4445aeb6689de026b9d2ef3cd8020fd66df99"
+  }
+}

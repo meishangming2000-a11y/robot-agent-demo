@@ -1,0 +1,40 @@
+{
+  "protocol_version": 2,
+  "success": true,
+  "gates": {
+    "lift": {
+      "passed": true,
+      "passed_at_s": 7.889999999999353,
+      "required_continuous_s": 2.0,
+      "best_continuous_s": 6.652000000001284
+    },
+    "press": {
+      "passed": true,
+      "passed_at_s": 17.798000000001014,
+      "required_continuous_s": 0.5,
+      "best_continuous_s": 1.2759999999992928
+    },
+    "withdraw": {
+      "passed": true,
+      "passed_at_s": 20.18799999999969,
+      "required_continuous_s": 1.0,
+      "best_continuous_s": 1.6119999999991066
+    }
+  },
+  "violations": [],
+  "metrics": {
+    "samples": 9900,
+    "last_time_s": 20.79999999999935,
+    "initial_height_m": 0.23996488169000543,
+    "max_lift_m": 0.15440589147783332,
+    "max_button_depth_m": 0.008746751962684252,
+    "max_head_clearance_m": 0.08159436440072154,
+    "first_robot_button_contact_s": null
+  },
+  "backend": "reference",
+  "seed": 0,
+  "episode_id": "3bdac15172c248c1b73e5691fcc12f34",
+  "decisions": 17,
+  "elapsed_wall_s": 17.82800000000134,
+  "error": null
+}
